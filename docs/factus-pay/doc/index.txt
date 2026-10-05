@@ -1,0 +1,14 @@
+# Factus Pay
+
+Factus Pay expone una API REST que tu empresa puede usar para crear y consultar recaudos (cobros) de forma programática. Cada recaudo generado incluye un código QR que tus clientes pueden escanear para pagar.
+
+AutenticaciónCómo autenticarte con la API de Factus Pay y obtener un token para usar en el resto de los endpoints.
+
+Crear un recaudoCómo crear un recaudo con la API de Factus Pay, incluyendo la generación de su código QR.
+
+Listar recaudosCómo listar, de forma paginada y filtrable, los recaudos de tu empresa con la API de Factus Pay.
+
+Ver el detalle de un recaudoCómo consultar el detalle de un recaudo específico, incluyendo su código QR, con la API de Factus Pay.
+
+Colección para PostmanDescarga el archivo JSON de la colección e impórtalo en Postman.
+Descargar para Postman

@@ -1,0 +1,18 @@
+Factus Pay
+Platform
+Recaudos
+Empresa
+FV
+Fernando Vega Benavides
+Códigos QR
+Llave Bre-b: @FC4QHWH20OSEQ55VSUOY
+Nombre de la Empresa
+Fernando Vega Benavides
+Documento de Identificación
+<NIT-titular>
+Códigos QR
+Monto
+Moneda
+Expiración
+Estado
+$ 10.000,00	COP	2026-09-25 17:22:46	Creado

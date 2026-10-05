@@ -1,0 +1,17 @@
+Factus Pay
+Simulador de Pagos Factus Pay
+Escanea un QR de factus Pay sandbox y elige qué escenario simular.
+Iniciar Cámara
+Monto
+—
+Llave de pago
+—
+Payment ID
+—
+Tipo de error
+Sin error (pago exitoso)
+Saldo insuficiente (tx_insufficient_funds)
+Error de cuenta (tx_account_error)
+Timeout (tx_timeout)
+Simular pago
+Limpiar

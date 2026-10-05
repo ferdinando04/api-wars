@@ -1,0 +1,38 @@
+Factus Pay
+Platform
+Recaudos
+Empresa
+FV
+Fernando Vega Benavides
+Editar Empresa
+Tipo de Documento de Identificación
+Seleccione una opción
+Cédula de ciudadanía
+Tarjeta de extranjería
+Cédula de extranjería
+NIT
+Pasaporte
+Documento de identificación extranjero
+PEP
+PPT
+NIT otro país
+NUIP*
+Número de Identificación
+Dígito de Verificación
+Tipo de Organización
+Seleccione una opción
+Persona Jurídica
+Persona Natural
+Tributo
+Seleccione una opción
+IVA
+No aplica (ZZ)
+Nombres y apellidos
+Nombre Comercial
+Municipio
+BOGOTÁ, D.C. — Bogota- D.c.
+Correo Electrónico del Usuario
+Contraseña del Usuario
+Llave Bre-B para recibir dispersiones
+A esta llave se transferirá el saldo disponible cuando se realice una dispersión.
+Guardar cambios

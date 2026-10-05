@@ -1,0 +1,32 @@
+# Secretos: NUNCA al repo
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credenciales*
+secrets*
+
+# Dependencias y builds
+node_modules/
+dist/
+build/
+.next/
+out/
+coverage/
+.vercel/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Salidas de pruebas (QR, capturas, respuestas con datos)
+scripts/salida/
+*.log
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/

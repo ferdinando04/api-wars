@@ -1,0 +1,33 @@
+Factus Pay
+Platform
+Recaudos
+Empresa
+FV
+Fernando Vega Benavides
+Detalle del Recaudo
+Llave Bre-b: @FC4QHWH20OSEQ55VSUOY
+Códigos QR
+Estado
+Listo
+Información del Proveedor
+Nombre de la Empresa
+Documento de Identificación
+<NIT-titular>
+Tipo de Documento
+NIT
+Organización Legal
+Persona Natural
+Correo Electrónico
+—
+Información del Recaudo
+Descripción
+Pago de recaudo Factus Pay
+Monto
+COP 10,000.00
+Fecha
+25/09/2026 13:23:45
+Información Técnica
+ID Recaudo:
+bbcol_034V5D7pT1cfvwBgRc5v7G
+ID Externo
+VEXON-PRUEBA-20260925-172245

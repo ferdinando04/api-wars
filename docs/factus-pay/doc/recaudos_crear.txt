@@ -1,0 +1,121 @@
+# Crear un recaudo
+
+Un recaudo es un cobro que tu empresa registra en Factus Pay. Al crearlo (o reclamarlo) se genera un código QR que tus clientes pueden escanear para pagarlo.
+
+Método:POST
+
+#### Endpoint
+• Sandbox
+• Producción
+
+• https://pay-api-sandbox.factus.com.co/v1/collections
+
+https://pay-api.factus.com.co/v1/collections
+
+Crea un recaudo, incluyendo la generación de su código QR de cobro.
+
+#### Encabezados de la solicitud
+Ver encabezados requeridos
+ | Content-Type
+: application/json
+
+Indica que los datos se envían en formato JSON.
+ | Authorization
+: Bearer <tu-token>
+
+Token de autenticación necesario para acceder al recurso. Consulta Autenticación para obtenerlo.
+ | Accept
+: application/json
+
+Indica que la respuesta debe estar en formato JSON.
+
+Nota: Reemplaza <tu-token>
+ con el token obtenido tras autenticarte.
+
+#### Parámetros del cuerpo (Body)
+Sección titulada «Parámetros del cuerpo (Body)»
+
+• • • 
+
+Ver campos
+ | Parámetros del cuerpo | reference_code
+string
+
+Identificador único de tu lado para este recaudo. Máx. 100 caracteres, único por tu empresa.
+ | amount
+numérico
+
+Monto del recaudo en pesos (COP). Mínimo 10000
+, máximo 12000000
+, hasta 2 decimales.
+
+#### Ejemplo de solicitud
+Sección titulada «Ejemplo de solicitud»
+
+{
+
+"reference_code": "FACT-00123",
+
+"amount": 150000
+
+}
+
+#### Respuesta
+Sección titulada «Respuesta»
+
+• 201 Created (nuevo)
+• 200 OK (ya existente)
+
+{
+
+"data": {
+
+ "reference_code": "FACT-00123",
+
+ "amount": 150000.0,
+
+ "status": "started",
+
+ "created_at": "2026-09-04T15:20:00.000000Z",
+
+ "qr": null
+
+},
+
+"status": "success",
+
+"message": "Recaudo creado correctamente"
+
+}
+
+{
+
+"data": {
+
+ "reference_code": "FACT-00123",
+
+ "amount": 150000.0,
+
+ "status": "ready",
+
+ "created_at": "2026-09-04T15:20:00.000000Z",
+
+ "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+
+},
+
+"status": "success",
+
+"message": "Recaudo ya existente"
+
+}
+
+#### Estados de las respuestas:
+Sección titulada «Estados de las respuestas:»
+
+Una vez el API responde el recaudo esta listo ser recibido ademas de responder con el qr listo para pagar. 
+
+data.status
+ = ready, Estado listo para para que el cliente escanee el qr y pague.
+data.status
+ = paid, si se crea un recaudo con un reference_code ya existente y este ya fue pagado, el estado será paid, de lo contrario será ready.

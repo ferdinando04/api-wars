@@ -1,0 +1,75 @@
+# Ver
+
+Método:GET
+
+#### Endpoint
+• Sandbox
+• Producción
+
+• https://pay-api-sandbox.factus.com.co/v1/collections/:referenceCode
+
+https://pay-api.factus.com.co/v1/collections/:referenceCode
+
+Devuelve el detalle de un recaudo específico de tu empresa, identificado por su reference_code
+.
+
+#### Encabezados de la solicitud
+Ver encabezados requeridos
+ | Authorization
+: Bearer <tu-token>
+
+Token de autenticación necesario para acceder al recurso. Consulta Autenticación para obtenerlo.
+ | Accept
+: application/json
+
+Indica que la respuesta debe estar en formato JSON.
+
+Nota: Reemplaza <tu-token>
+ con el token obtenido tras autenticarte.
+
+#### Parámetros de ruta (Path)
+Sección titulada «Parámetros de ruta (Path)»
+
+• • • 
+
+Ver campos
+ | Parámetros de ruta | referenceCode
+string
+
+El reference_code
+ con el que se creó el recaudo.
+
+#### Respuesta
+Sección titulada «Respuesta»
+
+• 200 OK
+
+{
+
+"data": {
+
+ "reference_code": "FACT-00123",
+
+ "amount": 150000.0,
+
+ "status": "ready",
+
+ "created_at": "2026-09-04T15:20:00.000000Z",
+
+ "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+
+},
+
+"status": "success",
+
+"message": "Recaudo encontrado"
+
+}
+
+#### Errores
+Sección titulada «Errores»
+
+ | | 404
+ No existe ningún recaudo con ese reference_code
+.
+{ "status": "error", "message": "Recaudo no encontrado", "data": null }

@@ -1,0 +1,86 @@
+# Autenticación
+
+Método:POST
+
+#### Endpoint
+• Sandbox
+• Producción
+
+• https://pay-api-sandbox.factus.com.co/auth
+
+https://pay-api.factus.com.co/auth
+
+Autentica un usuario con email y contraseña, y devuelve un token que debes usar en el resto de la API.
+
+#### Encabezados de la solicitud
+Ver encabezados requeridos
+ | Content-Type
+: application/json
+
+Indica que los datos se envían en formato JSON.
+ | Accept
+: application/json
+
+Indica que la respuesta debe estar en formato JSON.
+
+#### Parámetros del cuerpo (Body)
+Sección titulada «Parámetros del cuerpo (Body)»
+
+• • • 
+
+Ver campos
+ | Parámetros del cuerpo | email
+string
+
+Debe tener formato de email.
+ | password
+string
+
+Contraseña del usuario.
+
+#### Ejemplo de solicitud
+Sección titulada «Ejemplo de solicitud»
+
+{
+
+"email": "[email protected]",
+
+"password": "secreto123"
+
+}
+
+#### Respuesta
+Sección titulada «Respuesta»
+
+• 200 OK
+
+{
+
+"token": "1|abcdEfGhIjKlMnOpQrStUvWxYz1234567890"
+
+}
+
+Usa ese valor como header en todas las llamadas siguientes:
+
+• Authorization: Bearer 1|abcdEfGhIjKlMnOpQrStUvWxYz1234567890
+
+#### Errores
+Sección titulada «Errores»
+
+ | Errores | 401
+ El email no existe o la contraseña es incorrecta.
+{ "message": "Credenciales inválidas" }
+
+ | 422
+ Falta email
+ o password
+, o email
+ no tiene formato válido.
+{ "message": "...", "errors": { "email": ["..."] } }
+
+ | 429
+ Se superó el límite de intentos por minuto.
+
+ | 500
+ Error interno no controlado durante la autenticación.
+{ "message": "Ocurrió un error al procesar la autenticación" }

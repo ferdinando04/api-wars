@@ -1,0 +1,127 @@
+# Listar
+
+Método:GET
+
+#### Endpoint
+• Sandbox
+• Producción
+
+• https://pay-api-sandbox.factus.com.co/v1/collections
+
+https://pay-api.factus.com.co/v1/collections
+
+Devuelve, paginados, los recaudos de tu empresa.
+
+#### Encabezados de la solicitud
+Ver encabezados requeridos
+ | Authorization
+: Bearer <tu-token>
+
+Token de autenticación necesario para acceder al recurso. Consulta Autenticación para obtenerlo.
+ | Accept
+: application/json
+
+Indica que la respuesta debe estar en formato JSON.
+
+Nota: Reemplaza <tu-token>
+ con el token obtenido tras autenticarte.
+
+#### Filtros de Búsqueda
+Sección titulada «Filtros de Búsqueda»
+
+• • • 
+
+Ver campos
+ | Parámetros de consulta | status
+string
+opcional
+
+Filtra por estado del recaudo. Uno de: started
+, ready
+, paid
+, failed
+, rejected
+.
+ | reference_code
+string
+opcional
+
+Filtra por código de referencia exacto. Máx. 100 caracteres.
+
+#### Respuesta
+Sección titulada «Respuesta»
+
+• 200 OK
+
+{
+
+"data": [
+
+ {
+
+ "reference_code": "FACT-00123",
+
+ "amount": 150000.0,
+
+ "status": "ready",
+
+ "created_at": "2026-09-04T15:20:00.000000Z"
+
+ },
+
+ {
+
+ "reference_code": "FACT-00124",
+
+ "amount": 50000.0,
+
+ "status": "paid",
+
+ "created_at": "2026-09-03T09:05:00.000000Z"
+
+ }
+
+],
+
+"links": {
+
+ "first": "https://tu-dominio.com/v1/collections?page=1",
+
+ "last": "https://tu-dominio.com/v1/collections?page=3",
+
+ "prev": null,
+
+ "next": "https://tu-dominio.com/v1/collections?page=2"
+
+},
+
+"meta": {
+
+ "current_page": 1,
+
+ "from": 1,
+
+ "last_page": 3,
+
+ "per_page": 15,
+
+ "to": 15,
+
+ "total": 42
+
+},
+
+"status": "success",
+
+"message": "Recaudos obtenidos correctamente"
+
+}
+
+#### Errores
+Sección titulada «Errores»
+
+ | Errores | 422
+ status
+ no es uno de los valores permitidos, o reference_code
+ supera 100 caracteres.
+{ "message": "...", "errors": { "status": ["..."] } }

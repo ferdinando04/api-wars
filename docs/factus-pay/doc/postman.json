@@ -1,0 +1,233 @@
+{
+  "info": {
+    "_postman_id": "19c7d28d-a8ac-46b5-91a2-3324f61dff71",
+    "name": "factus-pay",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "6906567"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "auth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "let response = pm.response.json();\npm.environment.set(\"pay_token\", response.token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Factus-Access-Key",
+                "value": "<valor omitido: no lo exige la API>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{   \n    \"email\" : \"micorreo@gmail.com\",\n    \"password\": \"1234567\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{pay_url_sandbox}}/auth",
+              "host": [
+                "{{pay_url_sandbox}}"
+              ],
+              "path": [
+                "auth"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "collections",
+      "item": [
+        {
+          "name": "crear",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{pay_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Factus-Access-Key",
+                "value": "<valor omitido: no lo exige la API>",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{   \n    \"reference_code\": \"{{$guid}}\",\n    \n    \"amount\": \"12500\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{pay_url_local}}/v1/collections",
+              "host": [
+                "{{pay_url_local}}"
+              ],
+              "path": [
+                "v1",
+                "collections"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "listar",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{pay_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Factus-Access-Key",
+                "value": "<valor omitido: no lo exige la API>",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{pay_url_sandbox}}/v1/collections?status=&reference_code=",
+              "host": [
+                "{{pay_url_sandbox}}"
+              ],
+              "path": [
+                "v1",
+                "collections"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": ""
+                },
+                {
+                  "key": "reference_code",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ver",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{pay_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Factus-Access-Key",
+                "value": "<valor omitido: no lo exige la API>",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{pay_url_local}}/v1/collections/:reference_code",
+              "host": [
+                "{{pay_url_local}}"
+              ],
+              "path": [
+                "v1",
+                "collections",
+                ":reference_code"
+              ],
+              "variable": [
+                {
+                  "key": "reference_code",
+                  "value": "01m0jd2zhz46mz7g906yx772vt"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

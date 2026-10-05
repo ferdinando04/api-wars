@@ -1,0 +1,7 @@
+# Simulador
+
+Esta herramienta permite probar cómo se comporta un cobro de Factus Pay antes de que ocurra un pago real. Al escanear el código QR de un cobro, se puede simular el resultado que tendría ese pago: que se complete exitosamente, o que falle por alguna de las razones más comunes (saldo insuficiente, error en la cuenta o tiempo de espera agotado).
+
+Se usa para verificar, de forma controlada y segura, que el sistema reacciona correctamente ante cualquiera de esos escenarios, sin necesidad de realizar un pago real ni esperar a que ocurra un error por casualidad.
+
+Ir al simulador
