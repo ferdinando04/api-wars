@@ -12,20 +12,20 @@ aplica aquí y se carga solo.
 - **Cuándo / dónde:** lunes 05-oct-2026, edificio Techne, piso 5, sala de informática 1 (Facultad Tecnológica, Bogotá).
 - **Equipos de 3 a 4 personas** (no se permite individual ni en pareja). Inscripciones cerradas el 02-oct.
 - Detalle del evento, talleres y contactos: `docs/evento/INFO-EVENTO.md`.
-- **Proyecto elegido por el equipo: TiendaChat** (nombre de trabajo): tienda multi-negocio dentro de WhatsApp que, al comprar, emite la
+- **Proyecto elegido por el equipo: Firebox**: tienda multi-negocio dentro de WhatsApp que, al comprar, emite la
   factura electrónica en Factus v2 y la cobra con un QR de Factus Pay dentro del mismo PDF; el vendedor la administra desde un panel
   Laravel. API y bot en Python (FastAPI); WhatsApp por Meta Cloud API oficial.
 
-## Cómo se trabaja: SDD (Spec-Driven Development) + documentación estilo SENA
+## Cómo se trabaja: SDD (Spec-Driven Development) + documentación formal
 
 1. **Nada se programa sin especificación aprobada.** Orden: `spec.md` → `plan.md` + `data-model.md` + `contracts/` → `tasks.md` → código.
 2. **Reglas que no se negocian:** `.specify/memory/constitution.md` (dinero solo con `Decimal` half-even, la API es la única dueña de
    datos e integraciones, secretos solo en el servidor, idempotencia, control negativo en las pruebas, honestidad en la demo).
 3. **Especificación vigente:** `specs/001-tienda-whatsapp/spec.md` (historias US1-US7, requisitos FR-xxx, criterios SC-xxx).
-4. **Documentación formal SENA** derivada de la spec: `docs/sena/` (índice en `00_INDICE.md`; SRS, casos de uso, historias,
+4. **Documentación formal** derivada de la spec: `docs/documentacion/` (índice en `00_INDICE.md`; SRS, casos de uso, historias,
    integraciones). Cada conexión externa está documentada con lo medido en `07_Integraciones_Conexiones.md`; si la realidad contradice
    la documentación oficial, se anota en su §11.
-5. Cada tarea cierra con evidencia en `docs/sena/evidencias/`.
+5. Cada tarea cierra con evidencia en `docs/documentacion/evidencias/`.
 
 **La ventaja de Fernando:** ya integró la API de Factus en producción (Factus Nova, certificación Halltec del Reto Factus abr-2026),
 tiene el motor fiscal v2 validado contra la DIAN y probó Factus Pay (cobro con QR Bre-B) antes de su lanzamiento. Cruzar
@@ -38,7 +38,7 @@ Api_Wars/
 ├── CLAUDE.md · README.md · RETO.md (enunciado, se llena al anunciarlo)
 ├── .specify/memory/constitution.md   reglas del proyecto (SDD)
 ├── specs/001-tienda-whatsapp/       spec.md (y luego plan, data-model, contracts, tasks)
-├── docs/sena/                       documentación formal por fases (00_INDICE.md manda)
+├── docs/documentacion/                       documentación formal por fases (00_INDICE.md manda)
 ├── .env (secreto, ignorado) · .env.example · .gitignore
 ├── .claude/skills/
 │   ├── facturas-crear-y-validar/   skill OFICIAL de Factus (igual a la publicada el 05-oct)

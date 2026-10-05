@@ -1,10 +1,7 @@
 # DOCUMENTO DE ESPECIFICACIÓN DE REQUISITOS DE SOFTWARE (SRS)
 
-**EQUIVALENTE SENA:** Fase de Análisis - Especificación de requisitos (mismo formato que `SENA/proyecto p2p/SRS_P2P_Manager.docx`,
-ampliado según IEEE 830)
-**PROYECTO:** TiendaChat - tienda multi-negocio en WhatsApp con factura electrónica (Factus) y QR de pago (Factus Pay)
+**PROYECTO:** Firebox - tienda multi-negocio en WhatsApp con factura electrónica (Factus) y QR de pago (Factus Pay)
 **EQUIPO:** Equipo API WARS (integrantes en `RETO.md`) · Líder técnico: Fernando Vega Benavides
-**PROGRAMA DE REFERENCIA:** Análisis y Desarrollo de Software (ADSO)
 **EVENTO:** API WARS Hackathon 2026 - Universidad Distrital, Facultad Tecnológica · **FECHA:** 05-oct-2026 · **VERSIÓN:** 1.0
 **FUENTE:** `specs/001-tienda-whatsapp/spec.md` (especificación SDD). Si hay diferencia, se corrige aquí para que coincida con la spec.
 
@@ -13,12 +10,12 @@ ampliado según IEEE 830)
 ## 1. INTRODUCCIÓN
 
 ### 1.1 Propósito
-Definir los requisitos funcionales y no funcionales de TiendaChat, una plataforma que permite a varios negocios vender por WhatsApp,
+Definir los requisitos funcionales y no funcionales de Firebox, una plataforma que permite a varios negocios vender por WhatsApp,
 emitir la factura electrónica de cada venta y cobrarla con un QR Bre-B, para que el equipo de desarrollo, los evaluadores de la
 hackathon y cualquier lector técnico entiendan qué hace el sistema y cómo se acepta.
 
 ### 1.2 Alcance
-TiendaChat permitirá:
+Firebox permitirá:
 - a un **vendedor**, registrar su negocio y su catálogo en un panel web y obtener un enlace de WhatsApp para su tienda;
 - a un **cliente**, ver el catálogo, armar un carrito, recibir la **factura electrónica validada por la DIAN** con su **QR de pago** en el
   mismo chat, pagar, y recibir la confirmación automática;
@@ -46,7 +43,7 @@ No incluye logística de envío, inventario, devoluciones ni anulación automát
 ### 1.4 Referencias
 - Constitución del proyecto: `.specify/memory/constitution.md`.
 - Especificación SDD: `specs/001-tienda-whatsapp/spec.md`.
-- Integraciones y conexiones: `docs/sena/07_Integraciones_Conexiones.md`.
+- Integraciones y conexiones: `docs/documentacion/07_Integraciones_Conexiones.md`.
 - Factus API v2: `https://developers.factus.com.co` y skill oficial `.claude/skills/facturas-crear-y-validar/SKILL.md`.
 - Factus Pay: `https://pay-developers.factus.com.co` y `docs/factus-pay/FACTUS-PAY-ANALISIS-2026-09-25.md`.
 - WhatsApp Cloud API: `https://developers.facebook.com/docs/whatsapp/cloud-api`.
@@ -66,7 +63,7 @@ Sistema nuevo compuesto por dos aplicaciones propias y tres servicios externos:
 ```mermaid
 graph TD
     Cliente((Cliente)) -->|WhatsApp| Meta[Meta Cloud API]
-    Meta --> API[API TiendaChat - FastAPI]
+    Meta --> API[API Firebox - FastAPI]
     Vendedor((Vendedor)) --> Panel[Panel - Laravel]
     Panel -->|REST| API
     API --> Factus[Factus API v2]
@@ -171,7 +168,7 @@ Un módulo se acepta cuando:
 1. cumple el 100 % de sus RF de prioridad Alta y sus escenarios Dado/Cuando/Entonces de `spec.md`;
 2. sus pruebas pasan **y** cada prueba crítica tiene control negativo (`DETECTA el bug`);
 3. funciona en la URL desplegada (no solo en localhost), probado dos veces seguidas;
-4. su evidencia (pantallazo o salida de comando) queda en `docs/sena/evidencias/`.
+4. su evidencia (pantallazo o salida de comando) queda en `docs/documentacion/evidencias/`.
 
 El sistema completo se acepta cuando se cumplen SC-001 a SC-008 de `spec.md`.
 

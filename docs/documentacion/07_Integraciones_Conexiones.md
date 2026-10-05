@@ -1,7 +1,6 @@
 # DOCUMENTACIÓN DE INTEGRACIONES Y CONEXIONES DEL SISTEMA
 
-**EQUIVALENTE SENA:** Diseño y desarrollo de servicios web / API del proyecto (GA7-220501096-AA5-EV02 y AA5-EV04)
-**PROYECTO:** TiendaChat - tienda multi-negocio en WhatsApp con factura electrónica (Factus) y QR de pago (Factus Pay)
+**PROYECTO:** Firebox - tienda multi-negocio en WhatsApp con factura electrónica (Factus) y QR de pago (Factus Pay)
 **EQUIPO:** Equipo API WARS (integrantes en `RETO.md`) · Líder técnico: Fernando Vega Benavides
 **EVENTO:** API WARS Hackathon 2026 - Universidad Distrital Francisco José de Caldas, Facultad Tecnológica
 **FECHA:** 05-oct-2026 · **VERSIÓN:** 1.0
@@ -11,7 +10,7 @@
 
 ## 1. INTRODUCCIÓN
 
-Este documento describe, conexión por conexión, cómo se comunica TiendaChat con cada sistema: qué hace cada conexión, con qué
+Este documento describe, conexión por conexión, cómo se comunica Firebox con cada sistema: qué hace cada conexión, con qué
 credenciales, qué endpoints usa, qué envía y qué recibe, qué errores puede devolver, qué límites tiene, y **qué se verificó en vivo**
 contra los ambientes de prueba el 05-oct-2026. Cada dato marcado ✅ fue medido; cada dato marcado 📄 viene de la documentación oficial y
 se verifica durante la implementación.
@@ -27,7 +26,7 @@ graph LR
     Cliente((Cliente<br/>WhatsApp)):::usr
     Vendedor((Vendedor<br/>navegador)):::usr
     Meta[Meta Cloud API<br/>Graph v25.0]:::ext
-    API[API TiendaChat<br/>FastAPI]:::own
+    API[API Firebox<br/>FastAPI]:::own
     Panel[Panel vendedor<br/>Laravel + Livewire]:::own
     DB[(Base de datos<br/>SQLite / PostgreSQL)]:::own
     Factus[Factus API v2<br/>facturación DIAN]:::ext
@@ -61,8 +60,8 @@ graph LR
 | C2 | `FACTUS_BASE_URL`, `FACTUS_CLIENT_ID`, `FACTUS_CLIENT_SECRET`, `FACTUS_USERNAME`, `FACTUS_PASSWORD` (respaldo v1: `FACTUS_V1_*`) |
 | C3/C4 | `FACTUS_PAY_BASE_URL` (+ credenciales por tienda cifradas en la tabla `tiendas`; para sembrar: `FACTUS_PAY_EMAIL/PASSWORD`, `FACTUS_PAY_PERSONAL_*`) |
 | C5 | `API_BASE_URL` (en Laravel), token por tienda guardado en la sesión de Laravel |
-| C6 | `DATABASE_URL` (`sqlite:///./tiendachat.db` local · `postgresql+psycopg://…` desplegado) |
-| Transversal | `FERNET_KEY` (cifrado de credenciales por tienda), `APP_USER_AGENT=TiendaChat/1.0` |
+| C6 | `DATABASE_URL` (`sqlite:///./firebox.db` local · `postgresql+psycopg://…` desplegado) |
+| Transversal | `FERNET_KEY` (cifrado de credenciales por tienda), `APP_USER_AGENT=Firebox/1.0` |
 
 Comprobación rápida de C2 y C3: `python scripts/verificar_credenciales.py` (solo tokens y lecturas; con control negativo probado).
 
@@ -142,7 +141,7 @@ Patrón ya implementado en `vexon-crm-codigo/src/server/whatsapp/media.ts` (refe
 
 ### 4.4 Errores de Meta que se manejan
 
-| Código | Significado | Qué hace TiendaChat |
+| Código | Significado | Qué hace Firebox |
 | --- | --- | --- |
 | `131030` | Destinatario no está en la lista permitida del número de prueba | Evento `destinatario_no_autorizado`; aviso en panel |
 | `131047` | Pasaron más de 24 h desde el último mensaje del cliente | Evento `fuera_de_ventana`; no reintenta |
@@ -160,7 +159,7 @@ Patrón ya implementado en `vexon-crm-codigo/src/server/whatsapp/media.ts` (refe
 sequenceDiagram
     actor Cliente
     participant Meta as Meta Cloud API
-    participant API as API TiendaChat
+    participant API as API Firebox
     participant DB as Base de datos
     Cliente->>Meta: pulsa [Agregar]
     Meta->>API: POST /webhooks/whatsapp (firma)
@@ -188,7 +187,7 @@ Emitir y validar ante la DIAN la factura electrónica de cada pedido, consultar 
 | Rango de numeración de facturas | `numbering_range_id = 389`, prefijo **SETP**, documento "Factura de Venta", activo |
 | Facturas ya existentes en la cuenta | 23.155 (última `SETP990023156`): **otros equipos usan la misma cuenta** |
 | Token | `expires_in = 3600` s, trae `refresh_token` |
-| **User-Agent** | **obligatorio**. Control negativo: sin `User-Agent` propio → **403 de Cloudflare (error 1010)**; con `TiendaChat/1.0` → 200 |
+| **User-Agent** | **obligatorio**. Control negativo: sin `User-Agent` propio → **403 de Cloudflare (error 1010)**; con `Firebox/1.0` → 200 |
 | Límite | 📄 80 solicitudes/min por cuenta; 429 con `Retry-After` |
 
 ### 5.3 Endpoints usados
@@ -204,7 +203,7 @@ Emitir y validar ante la DIAN la factura electrónica de cada pedido, consultar 
 | 7 | `GET /v2/bills/{numero}` | Ver una factura (panel, reintentos) | `data.number, reference_code, is_validated, errors, customer, …` ✅ |
 | 8 | `DELETE /v2/bills/destroy/reference/{reference_code}` | Borrar una factura **no validada** que quedó a medias | 📄 |
 
-Cabeceras de toda llamada: `Accept: application/json`, `Authorization: Bearer <access_token>`, `User-Agent: TiendaChat/1.0`.
+Cabeceras de toda llamada: `Accept: application/json`, `Authorization: Bearer <access_token>`, `User-Agent: Firebox/1.0`.
 
 ### 5.4 Cuerpo de la factura (FR-032), construido por la API
 
@@ -213,8 +212,8 @@ Cabeceras de toda llamada: `Accept: application/json`, `Authorization: Bearer <a
   "numbering_range_id": 389,
   "document": "01",
   "operation_type": "10",
-  "reference_code": "TC-RELOJES-000123",
-  "observation": "Pedido por WhatsApp en TiendaChat - tienda RELOJES",
+  "reference_code": "FB-RELOJES-000123",
+  "observation": "Pedido por WhatsApp en Firebox - tienda RELOJES",
   "payment_details": [
     { "payment_form": "2", "payment_method_code": "47", "amount": "202181.00", "due_date": "2026-10-06" }
   ],
@@ -254,11 +253,11 @@ Reglas del cuerpo (fuente: skill oficial `facturas-crear-y-validar` + memoria de
   factura con QR, luego pago). Ejemplo oficial "A crédito" usa `payment_method_code "47"`.
   🔎 **Pendiente de verificar en implementación:** que el sandbox acepte crédito + consumidor final; si lo rechaza, usar `payment_form
   "1"` (contado) con `payment_method_code "47"` y dejarlo anotado aquí.
-- `reference_code` con prefijo `TC-<TIENDA>-` para no chocar con otros equipos en la cuenta compartida.
+- `reference_code` con prefijo `FB-<TIENDA>-` para no chocar con otros equipos en la cuenta compartida.
 
 ### 5.5 Errores de Factus que se manejan
 
-| HTTP | Causa típica | Qué hace TiendaChat |
+| HTTP | Causa típica | Qué hace Firebox |
 | --- | --- | --- |
 | 401 | Token vencido | Renovar (endpoint 2) y reintentar **una** vez |
 | 403 "Version de API no disponible para esta empresa" | Credenciales de la versión equivocada (v1 en v2 o al revés) | Error de configuración: revisar `.env` |
@@ -274,13 +273,13 @@ Las **notificaciones** DIAN en `errors` (FAK08, FAJ44b, RUT01…) **no** invalid
 
 ```mermaid
 sequenceDiagram
-    participant API as API TiendaChat
+    participant API as API Firebox
     participant F as Factus API v2
     participant DB as Base de datos
     API->>DB: pedido confirmado → estado facturando (bloqueo)
     API->>F: POST /oauth/token (si no hay token vigente)
     F-->>API: access_token (3600 s)
-    API->>F: POST /v2/bills/validate (reference_code TC-…)
+    API->>F: POST /v2/bills/validate (reference_code FB-…)
     alt 201 validada
         F-->>API: número SETP…, CUFE, total
         API->>API: comprueba total Factus = total calculado
@@ -329,7 +328,7 @@ Comportamientos medidos que importan:
 
 ### 6.4 Errores
 
-| HTTP | Causa | Qué hace TiendaChat |
+| HTTP | Causa | Qué hace Firebox |
 | --- | --- | --- |
 | 401 `Unauthenticated.` | Token inválido (cambiaron la contraseña) | Re-autenticar una vez (respetando 5/min) |
 | 422 | Monto fuera de rango o referencia > 100 | No debería ocurrir (se valida antes, FR-042); si ocurre → `error_cobro` |
@@ -366,7 +365,7 @@ Panel sandbox `https://pay-api-sandbox.factus.com.co/simulator`: se escanea el Q
 sequenceDiagram
     actor Cliente
     participant Meta as Meta Cloud API
-    participant API as API TiendaChat
+    participant API as API Firebox
     participant Pay as Factus Pay
     participant DB as Base de datos
     API->>Pay: POST /v1/collections {reference_code: SETP…, amount: total}
@@ -453,6 +452,6 @@ pide a la API (Constitución II).
 
 ## 12. CONCLUSIÓN
 
-TiendaChat depende de tres servicios externos y los tres ya respondieron a nuestras credenciales el 05-oct-2026 (Factus v2 y Factus Pay
+Firebox depende de tres servicios externos y los tres ya respondieron a nuestras credenciales el 05-oct-2026 (Factus v2 y Factus Pay
 medidos; Meta Cloud API en uso en otros proyectos del líder técnico, con número de prueba por configurar). Los riesgos conocidos
 (User-Agent, cuenta compartida, falta de webhook de pago, límite de 5 destinatarios) tienen una respuesta de diseño documentada arriba.

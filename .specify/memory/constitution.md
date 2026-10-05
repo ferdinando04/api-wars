@@ -1,9 +1,9 @@
-# Constitución del proyecto - TiendaChat (API WARS 2026)
+# Constitución del proyecto - Firebox (API WARS 2026)
 
 > Reglas que NO se negocian durante la hackathon. Toda especificación, plan, tarea y revisión de código se contrasta contra este
 > documento. Si una tarea choca con un principio, gana el principio y se replantea la tarea.
 >
-> **Versión:** 1.0.0 · **Ratificada:** 05-oct-2026 · **Proyecto:** TiendaChat (nombre de trabajo) - tienda multi-negocio dentro de
+> **Versión:** 1.0.0 · **Ratificada:** 05-oct-2026 · **Proyecto:** Firebox - tienda multi-negocio dentro de
 > WhatsApp que emite factura electrónica (Factus) con QR de pago (Factus Pay).
 
 ## Principios
@@ -44,7 +44,7 @@
 - Cada contrato externo se verifica contra el sandbox antes de darlo por cierto. Ya medido el 05-oct-2026: Factus exige un
   `User-Agent` propio (sin él, Cloudflare responde 403); Factus Pay crea recaudos con **200 + `ready` + QR**, no 201/`started`
   como dice su documentación; el sandbox v2 de Factus es **compartido** con otros equipos.
-- Si la documentación y la realidad difieren, se anota en `docs/sena/07_Integraciones_Conexiones.md` con fecha.
+- Si la documentación y la realidad difieren, se anota en `docs/documentacion/07_Integraciones_Conexiones.md` con fecha.
 
 ### VII. Honestidad en la demo y en el pitch
 
@@ -75,7 +75,7 @@
 1. `spec.md` (qué y por qué) → revisión del equipo.
 2. `plan.md`, `research.md`, `data-model.md`, `contracts/` (cómo) → revisión.
 3. `tasks.md` (pasos ejecutables, con responsable) → implementación con TDD.
-4. Toda tarea cierra con: prueba con control negativo + evidencia en `docs/sena/` (pantallazo o salida del comando).
+4. Toda tarea cierra con: prueba con control negativo + evidencia en `docs/documentacion/` (pantallazo o salida del comando).
 
 ## Gobierno
 

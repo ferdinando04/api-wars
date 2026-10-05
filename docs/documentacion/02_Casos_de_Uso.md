@@ -1,8 +1,6 @@
 # CASOS DE USO DEL SISTEMA
 
-**EQUIVALENTE SENA:** Fase de Análisis - Casos de uso (formato de `SENA/proyecto p2p/Casos_de_Uso_P2P_Manager.docx`) y artefacto 1
-del informe UML (GA4-220501095-AA2-EV02)
-**PROYECTO:** TiendaChat - tienda multi-negocio en WhatsApp con factura electrónica y QR de pago
+**PROYECTO:** Firebox - tienda multi-negocio en WhatsApp con factura electrónica y QR de pago
 **EQUIPO:** Equipo API WARS · **FECHA:** 05-oct-2026 · **VERSIÓN:** 1.0
 **FUENTE:** `specs/001-tienda-whatsapp/spec.md` · Requisitos: `01_SRS_Especificacion_Requisitos.md`
 
@@ -22,7 +20,7 @@ graph LR
     Factus[Factus API v2]:::ext
     Pay[Factus Pay]:::ext
 
-    subgraph TiendaChat
+    subgraph Firebox
         CU01([CU-01 Entrar a una tienda]):::cu
         CU02([CU-02 Explorar catálogo y ver producto]):::cu
         CU03([CU-03 Gestionar carrito]):::cu
@@ -136,7 +134,7 @@ graph LR
   1. El sistema muestra el resumen (productos, total, datos de factura, entrega) con **[Confirmar compra] [Cancelar]**.
   2. El cliente pulsa **[Confirmar compra]**.
   3. El sistema recalcula con precios vigentes, crea el pedido con copia fija de las líneas y lo pasa a `facturando`.
-  4. El sistema emite la factura (`POST /v2/bills/validate`, `reference_code = TC-<TIENDA>-<id>`), recibe número y CUFE, y verifica que
+  4. El sistema emite la factura (`POST /v2/bills/validate`, `reference_code = FB-<TIENDA>-<id>`), recibe número y CUFE, y verifica que
      el total de Factus sea igual al calculado. Estado `facturado`.
   5. El sistema descarga el PDF de la factura.
   6. El sistema crea el recaudo en Factus Pay (referencia = número de factura, monto = total) y recibe el QR.

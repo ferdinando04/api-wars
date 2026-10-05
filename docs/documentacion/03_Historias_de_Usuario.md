@@ -1,7 +1,6 @@
 # HISTORIAS DE USUARIO
 
-**EQUIVALENTE SENA:** Guía 02 - Ingeniería de requisitos: historias de usuario
-**PROYECTO:** TiendaChat · **EQUIPO:** Equipo API WARS · **FECHA:** 05-oct-2026 · **VERSIÓN:** 1.0
+**PROYECTO:** Firebox · **EQUIPO:** Equipo API WARS · **FECHA:** 05-oct-2026 · **VERSIÓN:** 1.0
 **FUENTE:** `specs/001-tienda-whatsapp/spec.md` (los criterios completos Dado/Cuando/Entonces están allí)
 
 ---
@@ -67,4 +66,4 @@ Línea continua = imprescindible para la demo. Línea punteada = suma valor pero
 2. Tiene pruebas, y las de reglas críticas con control negativo (`DETECTA el bug`).
 3. Revisada por otro integrante (pull request a `main`).
 4. Funciona en el ambiente desplegado.
-5. Evidencia guardada en `docs/sena/evidencias/<HU>/` (pantallazo o salida del comando).
+5. Evidencia guardada en `docs/documentacion/evidencias/<HU>/` (pantallazo o salida del comando).

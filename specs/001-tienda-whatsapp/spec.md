@@ -1,4 +1,4 @@
-# Feature Specification: TiendaChat - tienda en WhatsApp con factura electrónica y QR de pago (001-tienda-whatsapp)
+# Feature Specification: Firebox - tienda en WhatsApp con factura electrónica y QR de pago (001-tienda-whatsapp)
 
 **Feature Branch:** `001-tienda-whatsapp`
 **Created:** 2026-10-05
@@ -8,13 +8,13 @@
 pago dentro de la facturación electrónica, con todo lo que tenemos en el disco y en WhatsApp."
 
 > Constitución que gobierna esta especificación: `.specify/memory/constitution.md`.
-> Documentación formal estilo SENA derivada de esta especificación: `docs/sena/`.
+> Documentación formal derivada de esta especificación: `docs/documentacion/`.
 
 ## Contexto de producto
 
 En Colombia los pequeños negocios ya venden por WhatsApp, pero lo hacen "a mano": mandan fotos sueltas, calculan el total con
 calculadora, piden transferencia a una llave o a Nequi, revisan el extracto para ver si pagaron y casi nunca emiten factura
-electrónica, aunque la DIAN la exige. **TiendaChat** convierte un número de WhatsApp en una tienda completa para muchos negocios a la
+electrónica, aunque la DIAN la exige. **Firebox** convierte un número de WhatsApp en una tienda completa para muchos negocios a la
 vez:
 
 1. El cliente compra **sin salir del chat**: catálogo con fotos, carrito y total exacto con IVA.
@@ -230,7 +230,7 @@ categoría coinciden.
 - **Factura emitida pero Factus Pay falla:** el pedido queda en `error_cobro`; se envía la factura sin QR y el panel ofrece
   **[Reintentar cobro]**.
 - **Sandbox v2 compartido:** otros equipos usan la misma cuenta de Factus; nuestra `reference_code` de factura lleva prefijo único
-  `TC-<TIENDA>-<id pedido>` para no chocar.
+  `FB-<TIENDA>-<id pedido>` para no chocar.
 - **Doble clic en [Confirmar compra]:** el segundo clic encuentra el pedido ya en `facturando`/`facturado` y responde con el estado,
   sin facturar de nuevo.
 - **Cliente cambia de tienda a mitad de compra:** escribir `TIENDA-<OTRO>` pregunta si quiere abandonar el carrito actual
@@ -278,13 +278,13 @@ categoría coinciden.
 
 - **FR-030:** La API MUST autenticarse con OAuth2 `password` (form-urlencoded) y renovar con `refresh_token` antes de que venza
   (`expires_in` = 3600 s).
-- **FR-031:** Toda llamada a Factus MUST enviar un `User-Agent` propio (`TiendaChat/1.0`); sin él Cloudflare responde 403.
+- **FR-031:** Toda llamada a Factus MUST enviar un `User-Agent` propio (`Firebox/1.0`); sin él Cloudflare responde 403.
 - **FR-032:** La factura MUST emitirse con `POST /v2/bills/validate`, `document: "01"`, `operation_type: "10"`,
-  `numbering_range_id` del rango de Factura de Venta activo, `reference_code` = `TC-<TIENDA>-<id pedido>`, ítems con precio **sin
+  `numbering_range_id` del rango de Factura de Venta activo, `reference_code` = `FB-<TIENDA>-<id pedido>`, ítems con precio **sin
   impuestos** en string con 2 decimales, `unit_measure_code: "94"`, `standard_code: "999"`, `taxes: [{code: "01", rate}]` (o
   `is_excluded: true` para excluidos), y `payment_details` con `payment_form: "2"` (crédito), `payment_method_code: "47"`
   (transferencia), `amount` = total y `due_date` = hoy + 1 día. Si el sandbox rechaza crédito con consumidor final, se usa
-  `payment_form: "1"` (contado) con el mismo método, y la diferencia se anota en `docs/sena/07_Integraciones_Conexiones.md` §11.
+  `payment_form: "1"` (contado) con el mismo método, y la diferencia se anota en `docs/documentacion/07_Integraciones_Conexiones.md` §11.
 - **FR-033:** Para consumidor final, el `customer` MUST ser exactamente el del ejemplo oficial de Factus v2 ("Con consumidor final").
 - **FR-034:** La API MUST consultar `GET /v2/dian/acquirer?identification_document_code=&identification_number=` para autocompletar
   nombre y correo del cliente, tratando 404 como "no encontrado".
