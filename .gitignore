@@ -30,3 +30,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# Salidas locales de la demo (PDF con datos de pedidos)
+salida/
