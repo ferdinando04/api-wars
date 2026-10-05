@@ -25,9 +25,10 @@ Reparto sugerido en equipo de 3-4: integración Factus/backend · frontend · da
 
 - **Auth**: `POST /oauth/token` con `grant_type=password`, `client_id`, `client_secret`, `username`, `password` como
   **form-urlencoded**. Token de 3600 s. Refresh (`grant_type=refresh_token`) exige además `Authorization: Bearer <token actual>` en v2.
-- **v1 vs v2**: la cuenta de sandbox del `.env` (v1) da **403 "Version de API no disponible para esta empresa" en todo `/v2/*`**.
-  v2 se habilita por empresa. Si la organización da credenciales v2, usar v2 (es lo que documenta la skill oficial
-  `facturas-crear-y-validar`); si no, v1 funciona (`/v1/bills/validate`, `/v1/numbering-ranges`).
+- **v1 vs v2**: la API se habilita por empresa. La cuenta principal del `.env` (`FACTUS_*`, `sandboxv2@...`, de la organización)
+  solo funciona en **`/v2/*`** y da 403 en `/v1/*`; la de respaldo (`FACTUS_V1_*`) es al revés. Un 403 «Version de API no
+  disponible para esta empresa» = credenciales de la versión equivocada, no un bug del código. Trabajar en v2 (es lo que documenta la
+  skill oficial `facturas-crear-y-validar`).
 - **Diferencias v2** (ver `docs/factus-api/MIGRACION-V2.md`): `price` va **sin impuestos**; `taxes: [{code, rate, is_excluded}]`;
   `payment_details: [{payment_form, payment_method_code, amount}]` con **`amount` obligatorio** (sin él → 422); códigos en vez de ids
   (`municipality_code`, `identification_document_code`...); números como **string** con máx. 2 decimales.

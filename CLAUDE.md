@@ -43,13 +43,14 @@ Api_Wars/
 
 | Servicio | Estado |
 | --- | --- |
-| Factus API sandbox **v1** (`FACTUS_*`) | ✅ token OK, `/v1/*` 200 · ⚠️ `/v2/*` da 403 «Version de API no disponible para esta empresa» |
-| Factus API sandbox **v2** (`FACTUS_V2_*`) | ⬜ vacías: llegaron por correo el 11-ago-2026 y no quedaron en disco. Buscar en el correo o usar las de la organización |
+| Factus API sandbox **v2** (`FACTUS_*`, principal) | ✅ token OK, `/v2/*` 200 (`/v1/*` da 403). Las dio la organización el 05-oct (`sandboxv2@factus.com.co`) |
+| Factus API sandbox **v1** (`FACTUS_V1_*`, respaldo) | ✅ token OK, `/v1/*` 200 · `/v2/*` da 403. Venían de Factus Nova |
 | Factus Pay sandbox **equipo** (`FACTUS_PAY_*`, principal) | ✅ token OK, listar recaudos 200. Cuenta que la organización (`retofactus@halltec.co`) envió a Dylan el 05-oct |
 | Factus Pay sandbox **personal** (`FACTUS_PAY_PERSONAL_*`, respaldo) | ✅ token OK. Cuenta de Fernando (vegadev). El token no vence |
 
-Origen: Factus API y Factus Pay personal vienen de `Desktop/Retos_Factus/.env` (Vexon y Didier remiten a ese mismo archivo);
-Factus Pay del equipo viene del correo de la organización. **Señal:** si la organización reparte Factus Pay a los participantes, el reto
+Origen: Factus v2 y Factus Pay del equipo los mandó la organización (`retofactus@halltec.co`) el 05-oct; Factus v1 y Factus Pay
+personal vienen de `Desktop/Retos_Factus/.env` (Vexon y Didier remiten a ese mismo archivo). **Usar v2**: es la que documenta la
+skill oficial `facturas-crear-y-validar`. **Señal:** si la organización reparte Factus Pay a los participantes, el reto
 probablemente incluye cobros con QR. Usar la cuenta del equipo en la demo.
 No se copió `Retos_Factus/emite/.env.local` (base Supabase de otra app, no tiene relación con Factus).
 

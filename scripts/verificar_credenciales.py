@@ -71,8 +71,8 @@ def factus(prefijo, etiqueta):
         print(f"      {etiqueta}: GET /{ver}/numbering-ranges -> HTTP {st} {msg[:60]}")
 
 
-factus("FACTUS_", "Factus v1")
-factus("FACTUS_V2_", "Factus v2")
+factus("FACTUS_", "Factus v2 (principal)")
+factus("FACTUS_V1_", "Factus v1 (respaldo)")
 
 pay = env.get("FACTUS_PAY_BASE_URL", "").rstrip("/")
 
