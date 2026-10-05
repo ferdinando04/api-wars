@@ -63,6 +63,7 @@ Api_Wars/
 | Factus API sandbox **v1** (`FACTUS_V1_*`, respaldo) | ✅ token OK, `/v1/*` 200 · `/v2/*` da 403. Venían de Factus Nova |
 | Factus Pay sandbox **equipo** (`FACTUS_PAY_*`, principal) | ✅ token OK, listar recaudos 200. Cuenta que la organización (`retofactus@halltec.co`) envió a Dylan el 05-oct |
 | Factus Pay sandbox **personal** (`FACTUS_PAY_PERSONAL_*`, respaldo) | ✅ token OK. Cuenta de Fernando (vegadev). El token no vence |
+| **WhatsApp Firebox** (`META_*`) | ✅ +57 324 350 2241 registrado en Cloud API (CONNECTED), cuenta "Firebox" con método de pago (AVAILABLE), app Meta "Firebox" 2158512004876946, token permanente del usuario del sistema "admind vexon". Nombre visible en revisión. ⏳ Falta: `META_APP_SECRET`, `META_VERIFY_TOKEN` y conectar el webhook cuando el servidor esté arriba |
 
 Origen: Factus v2 y Factus Pay del equipo los mandó la organización (`retofactus@halltec.co`) el 05-oct; Factus v1 y Factus Pay
 personal vienen de `Desktop/Retos_Factus/.env` (Vexon y Didier remiten a ese mismo archivo). **Usar v2**: es la que documenta la
