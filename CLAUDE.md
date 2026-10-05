@@ -45,9 +45,12 @@ Api_Wars/
 | --- | --- |
 | Factus API sandbox **v1** (`FACTUS_*`) | ✅ token OK, `/v1/*` 200 · ⚠️ `/v2/*` da 403 «Version de API no disponible para esta empresa» |
 | Factus API sandbox **v2** (`FACTUS_V2_*`) | ⬜ vacías: llegaron por correo el 11-ago-2026 y no quedaron en disco. Buscar en el correo o usar las de la organización |
-| Factus Pay sandbox (`FACTUS_PAY_*`) | ✅ token OK, listar recaudos 200. El token no vence |
+| Factus Pay sandbox **equipo** (`FACTUS_PAY_*`, principal) | ✅ token OK, listar recaudos 200. Cuenta que la organización (`retofactus@halltec.co`) envió a Dylan el 05-oct |
+| Factus Pay sandbox **personal** (`FACTUS_PAY_PERSONAL_*`, respaldo) | ✅ token OK. Cuenta de Fernando (vegadev). El token no vence |
 
-Origen: `Desktop/Retos_Factus/.env`. Los proyectos de Vexon y Didier no tienen llaves propias de Factus Pay: remiten a ese mismo `.env`.
+Origen: Factus API y Factus Pay personal vienen de `Desktop/Retos_Factus/.env` (Vexon y Didier remiten a ese mismo archivo);
+Factus Pay del equipo viene del correo de la organización. **Señal:** si la organización reparte Factus Pay a los participantes, el reto
+probablemente incluye cobros con QR. Usar la cuenta del equipo en la demo.
 No se copió `Retos_Factus/emite/.env.local` (base Supabase de otra app, no tiene relación con Factus).
 
 **Reglas de secretos:** el `.env` nunca se sube, nunca se pega en el grupo ni en el chat, y ningún secreto lleva prefijo `VITE_` /

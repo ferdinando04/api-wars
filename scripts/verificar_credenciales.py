@@ -75,13 +75,23 @@ factus("FACTUS_", "Factus v1")
 factus("FACTUS_V2_", "Factus v2")
 
 pay = env.get("FACTUS_PAY_BASE_URL", "").rstrip("/")
-if pay:
-    st, j = llamar("POST", pay + "/auth", {"email": env.get("FACTUS_PAY_EMAIL", ""), "password": env.get("FACTUS_PAY_PASSWORD", "")})
+
+
+def factus_pay(prefijo, etiqueta):
+    if not env.get(f"{prefijo}EMAIL"):
+        print(f"--    {etiqueta}: sin credenciales en .env (se omite)")
+        return
+    st, j = llamar("POST", pay + "/auth", {"email": env[f"{prefijo}EMAIL"], "password": env.get(f"{prefijo}PASSWORD", "")})
     token = (j or {}).get("token")
-    informe(st == 200 and bool(token), f"Factus Pay: token /auth (HTTP {st})")
+    informe(st == 200 and bool(token), f"{etiqueta}: token /auth (HTTP {st})")
     if token:
         st, j = llamar("GET", pay + "/v1/collections", cabeceras={"Authorization": "Bearer " + token})
-        informe(st == 200, f"Factus Pay: GET /v1/collections (HTTP {st})")
+        informe(st == 200, f"{etiqueta}: GET /v1/collections (HTTP {st})")
+
+
+if pay:
+    factus_pay("FACTUS_PAY_", "Factus Pay equipo")
+    factus_pay("FACTUS_PAY_PERSONAL_", "Factus Pay personal")
 else:
     print("--    Factus Pay: sin FACTUS_PAY_BASE_URL en .env (se omite)")
 
