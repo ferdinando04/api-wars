@@ -51,7 +51,7 @@ graph LR
 | Actor | Tipo | Descripción |
 | --- | --- | --- |
 | Cliente | Primario, humano | Compra por WhatsApp desde un número registrado (modo de prueba: máx. 5) |
-| Vendedor | Primario, humano | Dueño de la tienda; usa el panel Laravel |
+| Vendedor | Primario, humano | Dueño de la tienda; usa el panel web |
 | Vigilante de pagos | Primario, sistema | Proceso de la API que cada 5 s consulta los cobros pendientes |
 | Factus API v2 | Secundario, externo | Valida la factura ante la DIAN y entrega el PDF |
 | Factus Pay | Secundario, externo | Crea recaudos con QR y reporta su estado |
@@ -174,10 +174,10 @@ graph LR
 - **Flujo principal:**
   1. El vendedor abre el panel y elige "Crear mi tienda".
   2. Ingresa nombre, NIT, correo, código corto (3-20, letras y números), contraseña del panel y correo/contraseña de Factus Pay.
-  3. Laravel envía `POST /api/v1/tiendas` a la API.
+  3. El panel envía el formulario a la API (`POST /api/v1/tiendas`).
   4. La API valida el código único, prueba las credenciales en Factus Pay (`POST /auth`), cifra las credenciales y el token, y crea la
      tienda.
-  5. La API devuelve el token del panel y el enlace `https://wa.me/<número>?text=TIENDA-<CÓDIGO>`; Laravel guarda el token en la sesión
+  5. La API devuelve el token del panel y el enlace `https://wa.me/<número>?text=TIENDA-<CÓDIGO>`; el panel abre la sesión del vendedor (cookie firmada)
      y muestra el enlace con botón de copiar.
 - **Flujos alternos:**
   - 4a. Código ya usado → 409 "Ese código ya existe".
@@ -205,7 +205,7 @@ graph LR
 ### CU-09 - Seguir pedidos
 - **Actor:** Vendedor. **Secundario:** Factus Pay (en reintento de cobro).
 - **Flujo principal:**
-  1. El vendedor abre "Pedidos"; Livewire consulta `GET /api/v1/pedidos` cada 5 s.
+  1. El vendedor abre "Pedidos"; la página (HTMX) pide la lista de pedidos cada 5 s.
   2. El panel muestra cada pedido con fecha, cliente, total, estado (color), número de factura y enlace al PDF.
   3. El vendedor abre un pedido y ve la línea de tiempo de eventos.
 - **Flujos alternos:**

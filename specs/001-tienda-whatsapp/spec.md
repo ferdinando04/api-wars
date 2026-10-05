@@ -31,7 +31,7 @@ amarrados por el mismo número.
 | Actor | Quién es | Cómo interactúa |
 | --- | --- | --- |
 | **Cliente** | Persona que compra | Solo por WhatsApp (botones, listas, imágenes, PDF) |
-| **Vendedor** | Dueño del negocio | Panel web Laravel: registra su tienda y productos, sigue pedidos |
+| **Vendedor** | Dueño del negocio | Panel web (servido por la misma API): registra su tienda y productos, sigue pedidos |
 | **Plataforma (API)** | Nuestro servicio FastAPI | Orquesta WhatsApp, Factus y Factus Pay; dueña de los datos |
 | **Meta Cloud API** | Sistema externo | Entrega y envía los mensajes de WhatsApp |
 | **Factus API v2** | Sistema externo | Emite y valida la factura electrónica ante la DIAN |
@@ -137,7 +137,7 @@ Como **vendedor**, quiero registrar mi negocio y mis productos en un panel web, 
 
 **Why this priority:** es lo que convierte el proyecto en plataforma multi-tienda; sin tiendas no hay catálogo.
 
-**Independent Test:** desde el panel Laravel desplegado, un vendedor nuevo crea la tienda, carga 3 productos (uno con IVA 19 %, uno con
+**Independent Test:** desde el panel desplegado, un vendedor nuevo crea la tienda, carga 3 productos (uno con IVA 19 %, uno con
 5 % y uno excluido) con foto, y obtiene su enlace `wa.me`; al abrir el enlace, el bot muestra esa tienda.
 
 **Acceptance Scenarios:**
@@ -315,7 +315,8 @@ categoría coinciden.
 - **FR-060:** La API MUST exponer endpoints REST documentados en OpenAPI (`/docs`) para: registro de tienda, inicio de sesión del
   vendedor, CRUD de productos, carga CSV, lista y detalle de pedidos, reintento de cobro y resumen del día.
 - **FR-061:** Todo endpoint del panel MUST exigir `Authorization: Bearer <token de tienda>` y devolver solo datos de esa tienda.
-- **FR-062:** El panel Laravel MUST refrescar la lista de pedidos cada 5 s (Livewire `wire:poll`) sin recargar la página.
+- **FR-062:** El panel MUST servirse desde la misma app FastAPI (Jinja2 + HTMX), usar sesión con cookie firmada httpOnly, y refrescar
+  la lista de pedidos cada 5 s (`hx-trigger="every 5s"`) sin recargar la página.
 
 **Multi-tienda y seguridad**
 

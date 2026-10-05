@@ -14,7 +14,7 @@ aplica aquí y se carga solo.
 - Detalle del evento, talleres y contactos: `docs/evento/INFO-EVENTO.md`.
 - **Proyecto elegido por el equipo: Firebox**: tienda multi-negocio dentro de WhatsApp que, al comprar, emite la
   factura electrónica en Factus v2 y la cobra con un QR de Factus Pay dentro del mismo PDF; el vendedor la administra desde un panel
-  Laravel. API y bot en Python (FastAPI); WhatsApp por Meta Cloud API oficial.
+  web servido por la misma API. Todo en Python (FastAPI: API, bot y panel con Jinja2 + HTMX); WhatsApp por Meta Cloud API oficial.
 
 ## Cómo se trabaja: SDD (Spec-Driven Development) + documentación formal
 

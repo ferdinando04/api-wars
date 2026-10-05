@@ -3,7 +3,7 @@
 > Reglas que NO se negocian durante la hackathon. Toda especificación, plan, tarea y revisión de código se contrasta contra este
 > documento. Si una tarea choca con un principio, gana el principio y se replantea la tarea.
 >
-> **Versión:** 1.0.0 · **Ratificada:** 05-oct-2026 · **Proyecto:** Firebox - tienda multi-negocio dentro de
+> **Versión:** 1.1.0 · **Ratificada:** 05-oct-2026 · **Proyecto:** Firebox - tienda multi-negocio dentro de
 > WhatsApp que emite factura electrónica (Factus) con QR de pago (Factus Pay).
 
 ## Principios
@@ -19,12 +19,13 @@
 ### II. Una sola fuente de verdad: la API
 
 - El servicio FastAPI es el **único** dueño de la base de datos y el **único** que habla con Meta, Factus y Factus Pay.
-- El panel Laravel solo consume la API REST propia. No abre la base de datos ni llama a servicios externos.
+- El panel del vendedor vive en el mismo servicio (plantillas Jinja2 + HTMX) y usa las mismas funciones de servicio que la API REST:
+  ninguna pantalla calcula dinero ni llama a Factus, Factus Pay o Meta por su cuenta.
 
 ### III. Los secretos viven solo en el servidor
 
 - Credenciales de Factus, Factus Pay y Meta: variables de entorno del servicio o columnas cifradas (Fernet) por tienda.
-- Nunca en el repositorio, nunca en Laravel, nunca en el navegador, nunca en logs ni en mensajes de error devueltos al cliente.
+- Nunca en el repositorio, nunca en las plantillas del panel, nunca en el navegador, nunca en logs ni en mensajes de error devueltos al cliente.
 - Cada webhook de Meta se verifica con la firma `X-Hub-Signature-256` antes de procesarse.
 
 ### IV. Idempotencia en todo lo que mueve dinero o documentos fiscales
@@ -62,12 +63,12 @@
 | Tema | Decisión |
 | --- | --- |
 | API y bot | Python 3.12+, FastAPI, SQLAlchemy 2, Pydantic 2, httpx, pytest |
-| Panel del vendedor | Laravel (PHP) + Livewire, consume la API propia con token Bearer |
+| Panel del vendedor | En la misma app FastAPI: plantillas Jinja2 + HTMX (`hx-trigger="every 5s"`), sesión con cookie firmada httpOnly |
 | Base de datos | SQLite en local, PostgreSQL al desplegar (cambia solo `DATABASE_URL`) |
 | WhatsApp | Meta Cloud API oficial, Graph API v25.0, número de prueba (máx. 5 destinatarios) |
 | Facturación | Factus API v2 sandbox (`https://api-sandbox.factus.com.co`) |
 | Cobro | Factus Pay sandbox (`https://pay-api-sandbox.factus.com.co`) |
-| Despliegue | Docker (`docker-compose`: api + panel + db) con HTTPS público |
+| Despliegue | Docker (`docker-compose`: app FastAPI con API, bot y panel + db) con HTTPS público |
 | Repositorio | `ferdinando04/api-wars` (privado), rama `main` protegida por revisión entre compañeros |
 
 ## Flujo de trabajo (SDD)

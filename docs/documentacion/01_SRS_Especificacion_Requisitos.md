@@ -58,14 +58,13 @@ aceptación; la sección 5 cruza requisitos con historias y casos de uso.
 ## 2. DESCRIPCIÓN GENERAL
 
 ### 2.1 Perspectiva del producto
-Sistema nuevo compuesto por dos aplicaciones propias y tres servicios externos:
+Sistema nuevo compuesto por una aplicación propia (API + bot + panel web) y tres servicios externos:
 
 ```mermaid
 graph TD
     Cliente((Cliente)) -->|WhatsApp| Meta[Meta Cloud API]
     Meta --> API[API Firebox - FastAPI]
-    Vendedor((Vendedor)) --> Panel[Panel - Laravel]
-    Panel -->|REST| API
+    Vendedor((Vendedor)) -->|navegador| API
     API --> Factus[Factus API v2]
     API --> Pay[Factus Pay]
     API --> DB[(Base de datos)]
@@ -86,13 +85,13 @@ graph TD
 | --- | --- | --- |
 | Cliente | Usa WhatsApp; no instala nada | Comprar y pagar rápido, recibir su factura |
 | Vendedor | Básico (navegador web) | Vender sin programar y saber quién pagó |
-| Equipo técnico | Python, Laravel | Mantener e integrar |
+| Equipo técnico | Python | Mantener e integrar |
 
 ### 2.4 Restricciones
 - WhatsApp solo por la API oficial de Meta (Cloud API v25.0); en modo de prueba, máximo 5 destinatarios.
 - Facturación solo con Factus API v2 (sandbox compartido durante la hackathon).
 - Cobro solo con Factus Pay (monto entre $10.000 y $12.000.000 por recaudo).
-- Lenguajes: Python (API) y PHP/Laravel (panel). Base de datos relacional.
+- Lenguaje: Python para todo (API, bot y panel web con Jinja2 + HTMX). Base de datos relacional.
 - Plazo: más de 8 horas de construcción durante la hackathon.
 
 ### 2.5 Suposiciones y dependencias

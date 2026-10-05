@@ -27,7 +27,7 @@ graph LR
     Vendedor((Vendedor<br/>navegador)):::usr
     Meta[Meta Cloud API<br/>Graph v25.0]:::ext
     API[API Firebox<br/>FastAPI]:::own
-    Panel[Panel vendedor<br/>Laravel + Livewire]:::own
+    Panel[Panel vendedor<br/>Jinja2 + HTMX en la misma app]:::own
     DB[(Base de datos<br/>SQLite / PostgreSQL)]:::own
     Factus[Factus API v2<br/>facturación DIAN]:::ext
     Pay[Factus Pay<br/>recaudos QR Bre-B]:::ext
@@ -39,7 +39,7 @@ graph LR
     API -->|C3 auth + recaudos + QR| Pay
     API -->|C4 vigilante: consulta estado| Pay
     Vendedor --> Panel
-    Panel -->|C5 REST + token Bearer| API
+    Panel -->|C5 rutas del panel + sesión| API
     API <-->|C6 SQLAlchemy| DB
 ```
 
@@ -49,7 +49,7 @@ graph LR
 | C2 | Factus API v2 | salida | HTTPS, form-urlencoded (token) y JSON | OAuth2 `password` + `refresh_token` |
 | C3 | Factus Pay (crear recaudo) | salida | HTTPS JSON | `POST /auth` → token Bearer que no vence |
 | C4 | Factus Pay (vigilante de pagos) | salida, periódica | HTTPS JSON | el mismo token de C3 |
-| C5 | Panel Laravel → API propia | entrada | HTTPS JSON (REST, OpenAPI) | Bearer token de tienda |
+| C5 | Panel web → servicios de la API | entrada | HTTPS (HTML + fragmentos HTMX) y REST JSON | Cookie de sesión firmada (panel) · Bearer token de tienda (REST) |
 | C6 | API → base de datos | interna | SQL (SQLAlchemy 2) | usuario/contraseña en `DATABASE_URL` |
 
 ## 3. VARIABLES DE ENTORNO POR CONEXIÓN
@@ -59,7 +59,7 @@ graph LR
 | C1 | `META_GRAPH_BASE_URL=https://graph.facebook.com`, `META_GRAPH_API_VERSION=v25.0`, `META_PHONE_NUMBER_ID`, `META_ACCESS_TOKEN`, `META_APP_SECRET`, `META_VERIFY_TOKEN`, `WHATSAPP_NUMERO_PUBLICO` |
 | C2 | `FACTUS_BASE_URL`, `FACTUS_CLIENT_ID`, `FACTUS_CLIENT_SECRET`, `FACTUS_USERNAME`, `FACTUS_PASSWORD` (respaldo v1: `FACTUS_V1_*`) |
 | C3/C4 | `FACTUS_PAY_BASE_URL` (+ credenciales por tienda cifradas en la tabla `tiendas`; para sembrar: `FACTUS_PAY_EMAIL/PASSWORD`, `FACTUS_PAY_PERSONAL_*`) |
-| C5 | `API_BASE_URL` (en Laravel), token por tienda guardado en la sesión de Laravel |
+| C5 | `SESSION_SECRET` (firma de la cookie de sesión del panel) |
 | C6 | `DATABASE_URL` (`sqlite:///./firebox.db` local · `postgresql+psycopg://…` desplegado) |
 | Transversal | `FERNET_KEY` (cifrado de credenciales por tienda), `APP_USER_AGENT=Firebox/1.0` |
 
@@ -388,20 +388,26 @@ sequenceDiagram
 
 ---
 
-## 8. C5 - PANEL LARAVEL → API PROPIA (REST)
+## 8. C5 - PANEL WEB Y API REST PROPIA
 
 ### 8.1 Propósito
-El vendedor administra su tienda desde el panel; el panel **no** tiene lógica de negocio ni base de datos propia de negocio: todo lo
-pide a la API (Constitución II).
+El vendedor administra su tienda desde un panel web que vive **en la misma aplicación FastAPI** (decisión del equipo del 05-oct: nadie
+del equipo maneja Laravel, así que todo queda en Python). El panel no tiene lógica propia: sus pantallas llaman a las **mismas funciones
+de servicio** que la API REST, así una pantalla y un endpoint nunca pueden calcular distinto (Constitución II).
 
 ### 8.2 Reglas
-- Base: `API_BASE_URL` (p. ej. `https://api.<dominio>/api/v1`). JSON en entrada y salida. Documentación viva en `/docs` (OpenAPI).
-- Autenticación: al registrar la tienda o iniciar sesión, la API devuelve un **token de tienda**; Laravel lo guarda en la sesión del
-  servidor y lo envía como `Authorization: Bearer <token>` (cliente `Http::withToken()`).
-- Errores: la API responde `{"detail": "...", "code": "..."}` con 400/401/404/409/422; Laravel muestra `detail` al vendedor.
-- Actualización en vivo: componente Livewire con `wire:poll.5s` que llama a la lista de pedidos.
+- **Dos puertas, una lógica:**
+  - **Panel** (`/panel/...`): HTML con plantillas **Jinja2**; las partes que cambian (lista de pedidos, resumen) son fragmentos que
+    **HTMX** pide cada 5 s (`hx-get="/panel/pedidos/tabla" hx-trigger="every 5s"`) sin recargar la página.
+  - **API REST** (`/api/v1/...`): JSON, documentada sola en `/docs` (OpenAPI). Sirve para pruebas, para el jurado y para integrar otros
+    sistemas en el futuro.
+- **Autenticación:**
+  - Panel: inicio de sesión con correo y contraseña del vendedor → **cookie de sesión firmada** (`SESSION_SECRET`), `httpOnly`,
+    `SameSite=Lax`; los formularios llevan token CSRF.
+  - API REST: `Authorization: Bearer <token de tienda>` (el token se entrega al registrar la tienda y se guarda solo como hash).
+- **Errores:** la API responde `{"detail": "...", "code": "..."}` con 400/401/404/409/422; el panel muestra `detail` en el formulario.
 
-### 8.3 Endpoints previstos (el contrato exacto se escribe en `specs/001-tienda-whatsapp/contracts/api-panel.yaml` en la fase de plan)
+### 8.3 Endpoints REST previstos (el contrato exacto se escribe en `specs/001-tienda-whatsapp/contracts/api-panel.yaml` en la fase de plan; cada pantalla del panel usa el mismo servicio que su endpoint)
 
 | Método y ruta | Para qué | Historia |
 | --- | --- | --- |

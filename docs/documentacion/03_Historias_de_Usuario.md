@@ -15,7 +15,7 @@ una de las cuatro líneas de trabajo:
 | **L1 Canal y conversación** | Webhook de Meta, adaptador de envío, máquina de estados del chat | Python |
 | **L2 Facturación y documento** | Motor de impuestos, cliente Factus v2, PDF "factura + paga aquí" | Python |
 | **L3 Pagos y vigilante** | Cliente Factus Pay, vigilante, idempotencia, reintentos | Python |
-| **L4 Panel** | Laravel + Livewire consumiendo la API | PHP/Laravel |
+| **L4 Panel** | Pantallas del vendedor: plantillas Jinja2 + HTMX servidas por la misma FastAPI | Python + HTML |
 
 La API REST del panel (endpoints de tiendas, productos y pedidos) la construye L3 junto con el modelo de datos, porque es la línea con
 menos trabajo de integración al inicio.
@@ -33,7 +33,7 @@ menos trabajo de integración al inicio.
 | HU-07 | **Como** cliente **quiero** decir si recojo o me envían **para** que el negocio sepa qué hacer | Media | 0,5 h | L1 | Dirección 5-200 caracteres; envío sin costo en v1 |
 | HU-08 | **Como** vendedor **quiero** registrar mi tienda **para** tener mi enlace de WhatsApp | Alta | 2 h | L3 + L4 | Valida Factus Pay; cifra credenciales; devuelve token + enlace `wa.me` |
 | HU-09 | **Como** vendedor **quiero** cargar mis productos con foto e IVA **para** que aparezcan en WhatsApp | Alta | 2,5 h | L3 + L4 | CRUD; precio con IVA calculado por la API; desactivar; CSV (P2) |
-| HU-10 | **Como** vendedor **quiero** ver mis pedidos cambiar a pagado en vivo **para** saber qué despachar | Media | 2 h | L4 | `wire:poll.5s`; línea de tiempo; [Reintentar cobro]; resumen del día |
+| HU-10 | **Como** vendedor **quiero** ver mis pedidos cambiar a pagado en vivo **para** saber qué despachar | Media | 2 h | L4 | HTMX cada 5 s; línea de tiempo; [Reintentar cobro]; resumen del día |
 | HU-11 | **Como** equipo **queremos** que un mensaje repetido no cree dos facturas **para** no duplicar documentos fiscales | Alta | 1 h | L1 + L3 | 10 webhooks iguales → 1 pedido, 1 factura, 1 recaudo |
 | HU-12 | **Como** equipo **queremos** cargar los 74 relojes de NovaMarket **para** tener una tienda real en la demo | Alta | 1 h | L3 | Script de siembra desde `catalogo_tienda.json` con fotos |
 | HU-13 | **Como** cliente **quiero** buscar escribiendo **para** no recorrer todo el catálogo | Baja | 1,5 h | L1 | Opcional; precios siempre de la base de datos |
