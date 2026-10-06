@@ -1,0 +1,12 @@
+<ul class="conexiones">
+  {% for c in conexiones %}
+  <li>
+    <span class="punto {{ 'ok' if c.ok else 'mal' }}"></span>
+    <div>
+      <div class="cx-nombre">{{ c.nombre }} <span class="cx-ms">{{ c.ms }} ms</span></div>
+      <div class="cx-detalle">{{ c.detalle }}</div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+<p class="nota cx-hora">Medido a las {{ hora }} con una llamada real a cada API.</p>

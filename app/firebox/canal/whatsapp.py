@@ -39,6 +39,13 @@ class CanalWhatsApp:
             raise ErrorWhatsApp(r.status_code, r.json())
         return r.json()["id"]
 
+    def estado_numero(self) -> dict:
+        """Estado del número en Meta: display_phone_number, verified_name, name_status, status, quality_rating, platform_type."""
+        r = self._http.get(self._url, params={"fields": "display_phone_number,verified_name,name_status,status,quality_rating,platform_type"})
+        if r.status_code >= 400:
+            raise ErrorWhatsApp(r.status_code, r.json())
+        return r.json()
+
     def enviar_texto(self, para: str, texto: str) -> str:
         return self._enviar(para, "text", {"body": texto, "preview_url": False})
 

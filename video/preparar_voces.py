@@ -103,9 +103,69 @@ def provisional(escenas: dict) -> dict:
     return datos
 
 
-def real(escenas: dict) -> dict:
-    from faster_whisper import WhisperModel
-    modelo = WhisperModel("small", device="cpu", compute_type="int8")
+def transcribir(wav: Path, pista: str) -> tuple[list[dict], float]:
+    """Whisper large-v3 en la nube (Groq) con tiempo por palabra: no carga el PC. La llave se LEE del .env de Vexon."""
+    import httpx
+    env = dict(l.split("=", 1) for l in VEXON_ENV.read_text(encoding="utf-8").splitlines() if "=" in l and not l.startswith("#"))
+    liviano = wav.with_suffix(".16k.wav")
+    subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-i", str(wav), "-ar", "16000", "-ac", "1", str(liviano)], check=True)
+    with open(liviano, "rb") as f:
+        r = httpx.post("https://api.groq.com/openai/v1/audio/transcriptions", timeout=180,
+                       headers={"Authorization": "Bearer " + env["GROQ_API_KEY"].strip()},
+                       files={"file": (liviano.name, f, "audio/wav")},
+                       data={"model": "whisper-large-v3", "language": "es", "response_format": "verbose_json",
+                             "timestamp_granularities[]": "word"})
+    liviano.unlink(missing_ok=True)
+    if r.status_code != 200:
+        raise SystemExit(f"Groq respondió {r.status_code}: {r.text[:200]}")
+    j = r.json()
+    palabras = [{"w": w["word"].strip(), "t0": round(w["start"], 3), "t1": round(w["end"], 3)} for w in j.get("words", [])]
+    return palabras, float(j.get("duration", palabras[-1]["t1"] if palabras else 0))
+
+
+# Whisper no conoce las marcas del proyecto: se corrige la PALABRA (el tiempo queda igual). Medido el 06-oct con los audios de Dylan.
+CORRECCIONES = {"firebots": "Firebox", "faribots": "Firebox", "firebox": "Firebox", "fatus": "Factus", "factus": "Factus",
+                "aut": "OAuth", "caf": "CUFE", "cufe": "CUFE", "cms": "SMS", "validante": "validada", "breve": "Bre-B",
+                "rondo": "redondeo", "arramamos": "armamos", "bills": "bills", "validate": "validate"}
+CONTEXTO = [(("validada", "a"), 1, "ante"), (("la", "app", "oficial"), 1, "API"), (("en", "la", "app", "oficial"), 2, "API")]
+
+
+def corregir(palabras: list[dict]) -> list[dict]:
+    limpia = lambda w: re.sub(r"[^\wáéíóúñü.-]", "", w.lower()).strip(".")
+    out = []
+    for p in palabras:
+        m = re.match(r"^([¿¡\"(]*)(.*?)([.,:;!?…\")]*)$", p["w"])
+        pre, nucleo, post = m.groups() if m else ("", p["w"], "")
+        nuevo = CORRECCIONES.get(nucleo.lower(), nucleo)
+        out.append({**p, "w": f"{pre}{nuevo}{post}"})
+    for i in range(1, len(out)):  # mayúscula después de punto (Whisper a veces la pierde)
+        if re.search(r"[.!?]$", out[i - 1]["w"]) and out[i]["w"][:1].islower():
+            out[i]["w"] = out[i]["w"][:1].upper() + out[i]["w"][1:]
+    for patron, idx, reemplazo in CONTEXTO:
+        n = len(patron)
+        for i in range(len(out) - n + 1):
+            if tuple(limpia(out[i + j]["w"]) for j in range(n)) == patron:
+                w = out[i + idx]["w"]
+                out[i + idx]["w"] = re.sub(r"[\wáéíóúñ]+", reemplazo, w, count=1)
+    return out
+
+
+def recortar_despedida(wav: Path, palabras: list[dict], guion: str) -> tuple[list[dict], float | None]:
+    """Si el narrador agregó un «Gracias» al final y su libreto no lo tiene, se corta del audio (el cierre es de otra escena)."""
+    if not palabras or re.search(r"gracias", guion, re.I):
+        return palabras, None
+    ultimo = re.sub(r"[^\w]", "", palabras[-1]["w"].lower())
+    if ultimo != "gracias" or len(palabras) < 2:
+        return palabras, None
+    corte = round(palabras[-2]["t1"] + 0.35, 3)
+    tmp = wav.with_suffix(".tmp.wav")
+    subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-i", str(wav), "-t", str(corte), "-af", f"afade=t=out:st={corte - 0.15}:d=0.15",
+                    str(tmp)], check=True)
+    tmp.replace(wav)
+    return palabras[:-1], corte
+
+
+def real(escenas: dict, mixto: bool = False) -> dict:
     SALIDA_AUDIO.mkdir(parents=True, exist_ok=True)
     datos = {}
     for k, e in escenas.items():
@@ -114,6 +174,10 @@ def real(escenas: dict) -> dict:
             continue
         fuentes = sorted(p for p in VOCES.glob(f"{k}_*.*") if p.is_file())
         if not fuentes:
+            if mixto:
+                datos[k] = provisional({k: e})[k]
+                print(f"{k} ({e['narrador']}): sin audio todavía → tiempos provisionales")
+                continue
             raise SystemExit(f"Falta el audio de {k} ({e['narrador']}) en {VOCES}")
         wav = SALIDA_AUDIO / f"{k}.wav"
         filtro = ("silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.15,"
@@ -121,21 +185,25 @@ def real(escenas: dict) -> dict:
                   "highpass=f=80,loudnorm=I=-16:TP=-1.5:LRA=11")
         subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-i", str(fuentes[-1]), "-af", filtro, "-ar", "48000", "-ac", "1", str(wav)],
                        check=True)
-        segmentos, info = modelo.transcribe(str(wav), language="es", word_timestamps=True, beam_size=5,
-                                            initial_prompt=e["guion"][:220])
-        palabras = [{"w": p.word.strip(), "t0": round(p.start, 3), "t1": round(p.end, 3)} for s in segmentos for p in s.words]
-        datos[k] = {**e, "audio": f"firebox/voces/{k}.wav", "duracion": round(info.duration, 3),
+        palabras, duracion = transcribir(wav, e["guion"])
+        palabras = corregir(palabras)
+        palabras, corte = recortar_despedida(wav, palabras, e["guion"])
+        if corte:
+            duracion = corte
+            print(f"   {k}: se recortó un «Gracias» final que no está en el libreto (audio hasta {corte} s)")
+        datos[k] = {**e, "audio": f"firebox/voces/{k}.wav", "duracion": round(duracion, 3),
                     "texto": " ".join(p["w"] for p in palabras), "palabras": palabras, "provisional": False}
-        print(f"{k} ({e['narrador']}): {info.duration:5.1f} s · {len(palabras)} palabras · fuente {fuentes[-1].name}")
+        print(f"{k} ({e['narrador']}): {duracion:5.1f} s · {len(palabras)} palabras · fuente {fuentes[-1].name}")
     return datos
 
 
 if __name__ == "__main__":
     a = argparse.ArgumentParser()
     a.add_argument("--provisional", action="store_true")
+    a.add_argument("--mixto", action="store_true", help="usa los audios que ya llegaron y tiempos provisionales para los que faltan")
     args = a.parse_args()
     escenas = libretos()
-    datos = provisional(escenas) if args.provisional else real(escenas)
+    datos = provisional(escenas) if args.provisional else real(escenas, mixto=args.mixto)
     JSON.parent.mkdir(parents=True, exist_ok=True)
     JSON.write_text(json.dumps(datos, ensure_ascii=False, indent=1), encoding="utf-8")
     total = sum(d["duracion"] for d in datos.values())

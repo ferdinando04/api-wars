@@ -39,3 +39,6 @@ video/voces/
 video/diapositivas/
 video/material/
 video/salida/
+
+# PDF de documentacion (intermedios)
+docs/documentacion/_pdf_build/

@@ -40,6 +40,15 @@ def test_resumen_suma_con_decimal():
     assert r.pendiente == Decimal("212181.50")
 
 
+def test_metricas_tasa_de_cobro_ticket_e_iva():
+    detalles = {"SETP990023179": {"iva": "32281.00"}, "SETP990023178": {"iva": "32281.00"}}
+    _, r = web.resumir(RECAUDOS, detalles)
+    assert r.tasa_cobro == 49                       # 202.181 / 414.362,50 = 48,79 % → 49
+    assert r.ticket_promedio == Decimal("138120.83")  # 414.362,50 / 3
+    assert r.iva == Decimal("64562.00")
+    assert (r.pagadas, r.por_cobrar) == (1, 2)
+
+
 def test_tabla_muestra_estados_y_totales(cliente):
     html = cliente.get("/panel/tabla", auth=("firebox", "clave-de-prueba")).text
     assert "Pagado" in html and "Esperando pago" in html

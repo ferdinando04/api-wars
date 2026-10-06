@@ -15,12 +15,13 @@ DESTINOS = [Path(r"C:\Users\FERNANDO VEGA\Desktop\proyecto-video-ai\public\fireb
 
 with sync_playwright() as p:
     nav = p.chromium.launch()
-    ctx = nav.new_context(viewport={"width": 1600, "height": 960}, device_scale_factor=1.2,
+    ctx = nav.new_context(viewport={"width": 1600, "height": 1000}, device_scale_factor=1.2,
                           http_credentials={"username": ENV["PANEL_USUARIO"].strip(), "password": ENV["PANEL_CLAVE"].strip()})
     pagina = ctx.new_page()
     pagina.goto("http://127.0.0.1:8800/panel", wait_until="domcontentloaded")
     pagina.wait_for_selector("td.mono", timeout=30000)
-    pagina.wait_for_selector("ol.actividad, p.vacio", timeout=10000)
+    pagina.wait_for_selector("#tablero-kpis .kpis", timeout=30000)
+    pagina.wait_for_selector("ul.conexiones", timeout=40000)
     time.sleep(1.0)  # fuentes de Google
     for d in DESTINOS:
         d.parent.mkdir(parents=True, exist_ok=True)

@@ -1,26 +1,37 @@
 <div class="kpis">
-  <div class="kpi"><div class="t">Ventas</div><div class="n">{{ r.ventas }}</div></div>
-  <div class="kpi"><div class="t">Facturado</div><div class="n">{{ r.facturado | pesos }}</div></div>
-  <div class="kpi cobrado"><div class="t">Cobrado</div><div class="n">{{ r.cobrado | pesos }}</div></div>
-  <div class="kpi pendiente"><div class="t">Por cobrar</div><div class="n">{{ r.pendiente | pesos }}</div></div>
+  <div class="kpi"><div class="t">Ventas</div><div class="n">{{ r.ventas }}</div><div class="s">{{ r.pagadas }} pagadas · {{ r.por_cobrar }} por cobrar</div></div>
+  <div class="kpi"><div class="t">Facturado</div><div class="n">{{ r.facturado | pesos }}</div><div class="s">validado ante la DIAN</div></div>
+  <div class="kpi cobrado"><div class="t">Cobrado</div><div class="n">{{ r.cobrado | pesos }}</div><div class="s">pagos Bre-B confirmados</div></div>
+  <div class="kpi pendiente"><div class="t">Por cobrar</div><div class="n">{{ r.pendiente | pesos }}</div><div class="s">QR vigentes por 24 h</div></div>
+  <div class="kpi"><div class="t">Tasa de cobro</div><div class="n">{{ r.tasa_cobro }} %</div>
+    <div class="barra"><span style="width: {{ r.tasa_cobro }}%"></span></div></div>
+  <div class="kpi"><div class="t">Ticket promedio</div><div class="n">{{ r.ticket_promedio | pesos }}</div><div class="s">por factura</div></div>
+  <div class="kpi"><div class="t">IVA facturado</div><div class="n">{{ r.iva | pesos }}</div><div class="s">según los totales de Factus</div></div>
+  <div class="kpi actualizado"><div class="t">Actualizado</div><div class="n hora">{{ hora }}</div><div class="s">cada 5 s desde Factus Pay</div></div>
 </div>
-<section class="caja">
-  <h2>Facturas y cobros <small>actualizado {{ hora }}</small></h2>
+<section class="caja tabla-scroll">
   {% if error %}<p class="error-lectura">{{ error }}</p>{% endif %}
   {% if filas %}
   <table>
-    <thead><tr><th>Factura</th><th>Fecha</th><th>Estado</th><th class="monto">Total</th><th></th></tr></thead>
+    <thead><tr><th>Factura</th><th>Fecha</th><th>Estado</th><th class="monto">Total</th><th class="acciones">Acciones</th></tr></thead>
     <tbody>
       {% for f in filas %}
-      <tr>
-        <td class="mono">{{ f.referencia }}{% if f.cufe %}<span class="cufe">CUFE {{ f.cufe[:10] }}…{% if f.validada %} · ✓ DIAN{% endif %}</span>{% endif %}</td>
+      <tr data-estado="{{ f.clase }}" data-buscar="{{ f.referencia }} {{ f.cliente }} {{ f.cufe }}">
+        <td class="mono">{{ f.referencia }}<span class="cufe">{{ f.cliente or "—" }}</span>{% if f.cufe %}<span class="cufe">CUFE {{ f.cufe[:10] }}…{% if f.validada %} · ✓ DIAN{% endif %}</span>{% endif %}</td>
         <td>{{ f.fecha }}</td>
         <td><span class="chip {{ f.clase }}">{{ f.estado }}</span></td>
-        <td class="monto">{{ f.monto | pesos }}</td>
-        <td><a class="pdf" href="/panel/factura/{{ f.referencia }}.pdf" target="_blank" rel="noopener">PDF ↗</a></td>
+        <td class="monto">{{ f.monto | pesos }}{% if f.iva %}<span class="cufe">IVA {{ f.iva | pesos }}</span>{% endif %}</td>
+        <td class="acciones">
+          <a class="btn" href="/panel/factura/{{ f.referencia }}.pdf" target="_blank" rel="noopener" title="Factura en PDF (Factus)">PDF</a>
+          <a class="btn" href="/panel/factura/{{ f.referencia }}.xml" title="XML firmado (Factus)">XML</a>
+          <button class="btn" type="button" onclick="verQR('{{ f.referencia }}')" title="QR de pago (Factus Pay)">QR</button>
+          <button class="btn primario" type="button" hx-post="/panel/consultar/{{ f.referencia }}" hx-target="#avisos" hx-swap="innerHTML"
+                  title="Consultar el pago ahora en Factus Pay">Consultar</button>
+        </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
+  <p class="sin-resultados" hidden>Ninguna factura coincide con el filtro.</p>
   {% elif not error %}<p class="vacio">Todavía no hay ventas.</p>{% endif %}
 </section>
