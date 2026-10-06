@@ -1,0 +1,199 @@
+{
+ "factus_token": {
+  "archivo": "app/firebox/facturacion/factus.py",
+  "desde": 51,
+  "lineas": [
+   "    def _obtener_token(self) -> str:",
+   "        if self._token and time.time() < self._vence - 60:",
+   "            return self._token",
+   "        r = self._http.post(f\"{self._base}/oauth/token\", data={\"grant_type\": \"password\", **self._credenciales})",
+   "        if r.status_code != 200:",
+   "            raise ErrorFactus(r.status_code, \"no se pudo obtener el token\")",
+   "        datos = r.json()",
+   "        self._token, self._vence = datos[\"access_token\"], time.time() + int(datos.get(\"expires_in\", 3600))",
+   "        return self._token"
+  ]
+ },
+ "factus_rango": {
+  "archivo": "app/firebox/facturacion/factus.py",
+  "desde": 77,
+  "lineas": [
+   "    def rango_factura_de_venta(self) -> int:",
+   "        datos = self._pedir(\"GET\", \"/v2/numbering-ranges\")[\"data\"]",
+   "        rangos = datos.get(\"data\", datos) if isinstance(datos, dict) else datos",
+   "        for rango in rangos:",
+   "            if rango.get(\"document\") == \"Factura de Venta\" and rango.get(\"is_active\"):",
+   "                return int(rango[\"id\"])",
+   "        raise ErrorFactus(404, \"no hay un rango activo de Factura de Venta\")"
+  ]
+ },
+ "factus_emitir": {
+  "archivo": "app/firebox/facturacion/factus.py",
+  "desde": 85,
+  "lineas": [
+   "    def emitir_factura(self, cuerpo: dict) -> FacturaEmitida:",
+   "        datos = self._pedir(\"POST\", \"/v2/bills/validate\", json=cuerpo)[\"data\"]",
+   "        factura = datos.get(\"bill\") or datos",
+   "        totales = factura.get(\"totals\") or {}",
+   "        total = totales.get(\"total\", factura.get(\"total\"))",
+   "        return FacturaEmitida(",
+   "            numero=factura[\"number\"],",
+   "            cufe=factura.get(\"cufe\"),",
+   "            total=Decimal(str(total)),",
+   "            validada=bool(factura.get(\"is_validated\", datos.get(\"is_validated\"))),",
+   "            notificaciones=factura.get(\"errors\") or datos.get(\"errors\") or [],",
+   "            crudo=datos,",
+   "        )"
+  ]
+ },
+ "factus_pdf": {
+  "archivo": "app/firebox/facturacion/factus.py",
+  "desde": 99,
+  "lineas": [
+   "    def descargar_pdf(self, numero: str) -> bytes:",
+   "        datos = self._pedir(\"GET\", f\"/v2/bills/{numero}/download-pdf\")[\"data\"]",
+   "        return base64.b64decode(datos[\"pdf_base_64_encoded\"])"
+  ]
+ },
+ "user_agent": {
+  "archivo": "app/firebox/config.py",
+  "desde": 6,
+  "lineas": [
+   "USER_AGENT = \"Firebox/1.0\"  # Factus exige un User-Agent propio: sin él Cloudflare responde 403 (medido 05-oct-2026)"
+  ]
+ },
+ "pay_crear": {
+  "archivo": "app/firebox/pagos/factus_pay.py",
+  "desde": 74,
+  "lineas": [
+   "    def crear_recaudo(self, referencia: str, monto: Decimal) -> Recaudo:",
+   "        if not monto_permitido(monto):",
+   "            raise ErrorFactusPay(422, f\"monto {monto} fuera del rango {MONTO_MINIMO}-{MONTO_MAXIMO}\")",
+   "        valor = int(monto) if monto == monto.to_integral_value() else float(monto)",
+   "        recaudo = _a_recaudo(self._pedir(\"POST\", \"/v1/collections\", json={\"reference_code\": referencia, \"amount\": valor})[\"data\"])",
+   "        if recaudo.qr_png is None:  # documentación: puede llegar \"started\" sin QR",
+   "            recaudo = self.consultar(referencia)",
+   "        return recaudo"
+  ]
+ },
+ "pay_consultar": {
+  "archivo": "app/firebox/pagos/factus_pay.py",
+  "desde": 83,
+  "lineas": [
+   "    def consultar(self, referencia: str) -> Recaudo:",
+   "        return _a_recaudo(self._pedir(\"GET\", f\"/v1/collections/{referencia}\")[\"data\"])"
+  ]
+ },
+ "vigilante": {
+  "archivo": "app/firebox/ventas.py",
+  "desde": 85,
+  "lineas": [
+   "    limite = time.time() + minutos * 60",
+   "    while time.time() < limite:",
+   "        if pay.consultar(venta.recaudo.referencia).estado == \"paid\":",
+   "            avisar(f\"✅ PAGADO: factura {venta.factura.numero}\")",
+   "            if para:",
+   "                CanalWhatsApp.desde_entorno().enviar_texto(",
+   "                    para, f\"✅ Pago recibido. Tu factura *{venta.factura.numero}* quedó pagada.\\n¡Gracias por comprar en {venta.tienda}!\")",
+   "                avisar(\"Confirmación enviada por WhatsApp\")",
+   "            return True",
+   "        time.sleep(cada)"
+  ]
+ },
+ "wa_subir": {
+  "archivo": "app/firebox/canal/whatsapp.py",
+  "desde": 35,
+  "lineas": [
+   "    def subir_medio(self, contenido: bytes, mime: str, nombre: str) -> str:",
+   "        r = self._http.post(f\"{self._url}/media\", data={\"messaging_product\": \"whatsapp\", \"type\": mime},",
+   "                            files={\"file\": (nombre, contenido, mime)})",
+   "        if r.status_code >= 400:",
+   "            raise ErrorWhatsApp(r.status_code, r.json())",
+   "        return r.json()[\"id\"]"
+  ]
+ },
+ "wa_enviar": {
+  "archivo": "app/firebox/canal/whatsapp.py",
+  "desde": 28,
+  "lineas": [
+   "    def _enviar(self, para: str, tipo: str, contenido: dict) -> str:",
+   "        r = self._http.post(f\"{self._url}/messages\", json={",
+   "            \"messaging_product\": \"whatsapp\", \"recipient_type\": \"individual\", \"to\": para, \"type\": tipo, tipo: contenido})",
+   "        if r.status_code >= 400:",
+   "            raise ErrorWhatsApp(r.status_code, r.json())",
+   "        return r.json()[\"messages\"][0][\"id\"]"
+  ]
+ },
+ "wa_documento": {
+  "archivo": "app/firebox/canal/whatsapp.py",
+  "desde": 48,
+  "lineas": [
+   "    def enviar_documento(self, para: str, media_id: str, nombre_archivo: str, pie: str = \"\") -> str:",
+   "        return self._enviar(para, \"document\", {\"id\": media_id, \"filename\": nombre_archivo, \"caption\": pie})"
+  ]
+ },
+ "dinero_redondear": {
+  "archivo": "app/firebox/dinero.py",
+  "desde": 13,
+  "lineas": [
+   "def redondear(valor: Decimal) -> Decimal:",
+   "    return valor.quantize(CENTAVO, rounding=ROUND_HALF_EVEN)"
+  ]
+ },
+ "dinero_linea": {
+  "archivo": "app/firebox/dinero.py",
+  "desde": 34,
+  "lineas": [
+   "    def iva(self) -> Decimal:",
+   "        if self.excluida:",
+   "            return CERO",
+   "        return redondear(self.base * self.tarifa_iva / Decimal(\"100\"))"
+  ]
+ },
+ "dinero_rango": {
+  "archivo": "app/firebox/pagos/factus_pay.py",
+  "desde": 34,
+  "lineas": [
+   "def monto_permitido(total: Decimal) -> bool:",
+   "    return MONTO_MINIMO <= total <= MONTO_MAXIMO"
+  ]
+ },
+ "demo_igualdad": {
+  "archivo": "app/firebox/ventas.py",
+  "desde": 52,
+  "lineas": [
+   "    if factura.total != totales.total:",
+   "        raise VentaRechazada(f\"Total de Factus {factura.total} ≠ total calculado {totales.total}. No se cobra.\")"
+  ]
+ },
+ "test_bancario": {
+  "archivo": "app/tests/test_dinero.py",
+  "desde": 26,
+  "lineas": [
+   "def test_redondeo_bancario_y_no_hacia_arriba():",
+   "    # 10,50 × 5 % = 0,525 → half-even da 0,52 (half-up daría 0,53)",
+   "    assert redondear(Decimal(\"0.525\")) == Decimal(\"0.52\")",
+   "    t = calcular([Linea(\"X\", \"Algo\", 1, Decimal(\"10.50\"), Decimal(\"5\"))])",
+   "    assert t.iva == Decimal(\"0.52\")"
+  ]
+ },
+ "evidencia": [
+  "[   0.0 s] Carrito: 1 × Reloj Curren 8314 negro | subtotal $169.900 + IVA $32.281 = TOTAL $202.181",
+  "[   5.3 s] Factura SETP990023179 emitida | validada DIAN: True | CUFE: c0480313a5de09b6…",
+  "[   6.1 s] PDF de la factura descargado (50 KB)",
+  "[   8.8 s] Recaudo en Factus Pay: referencia SETP990023179 | $202.181 | estado ready",
+  "[   9.0 s] Documento único (factura + Paga aquí) guardado en app\\salida\\Factura-SETP990023179.pdf",
+  "[  17.2 s] Factura, PDF y QR enviados por WhatsApp",
+  "[  17.2 s] Vigilando el pago (cada 5 s, hasta 8 min). Paga el QR en el simulador de Factus Pay…",
+  "[ 257.7 s] ✅ PAGADO: factura SETP990023179",
+  "[ 258.8 s] Confirmación enviada por WhatsApp"
+ ],
+ "control_negativo": {
+  "sano": "8 passed in 0.50s",
+  "roto": [
+   "FAILED tests/test_dinero.py::test_redondeo_bancario_y_no_hacia_arriba - Asser...",
+   "1 failed, 7 passed in 0.67s"
+  ],
+  "restaurado": "8 passed in 0.46s"
+ }
+}
