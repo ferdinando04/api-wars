@@ -1,6 +1,6 @@
 # Libretos del video pitch de Firebox - API WARS 2026
 
-Narran: **David** (escenas 1, 3, 5, 7 y 9) y **Dylan** (escenas 2, 4, 6 y 8). Duración total aproximada: 3 min 30 s.
+Narran: **David** (escenas 1, 3, 5, 7 y 9) y **Dylan** (escenas 2, 4, 6 y 8). La escena 8b (el panel) va con la voz clonada de Fernando. Duración total aproximada: 3 min 30 s.
 Todo lo que dicen está medido en la corrida real del 05-oct-2026 (`docs/documentacion/evidencias/fase0/`). Por favor no agreguen cifras.
 
 ## Cómo grabar (leer antes de empezar)
@@ -95,12 +95,22 @@ Todo lo que dicen está medido en la corrida real del 05-oct-2026 (`docs/documen
 >
 > Y cada prueba importante la validamos rompiendo el código a propósito, para confirmar que la prueba sí detecta el error.
 
+## E8b - Fernando (20 s) · El panel del vendedor
+
+*(Voz clonada de Fernando con ElevenLabs: no hay que grabarla.)*
+
+> Soy Fernando, del equipo Firebox. Además, construimos el panel del vendedor.
+>
+> Muestra cada venta en vivo: el número de la factura, su CUFE validado ante la DIAN y el estado del cobro en Factus Pay.
+>
+> Suma lo facturado, lo cobrado y lo que falta por cobrar, y se actualiza solo cada cinco segundos.
+
 ## E9 - David (25 s) · Cierre
 
 > Todo está documentado en nuestro repositorio: la especificación, los requisitos, los casos de uso y cada conexión, con lo que medimos.
 >
 > Esto corre en el sándbox: las facturas no tienen validez fiscal y no se mueve dinero real.
 >
-> Lo que sigue: catálogo y carrito dentro del chat, varias tiendas en el mismo número y un panel para el vendedor.
+> Lo que sigue: catálogo y carrito dentro del chat, varias tiendas en el mismo número y más funciones en el panel del vendedor.
 >
 > Firebox: de elegir a pagar, con factura, en una sola conversación. ¡Gracias!
