@@ -18,8 +18,8 @@
       {% for f in filas %}
       <tr data-estado="{{ f.clase }}" data-buscar="{{ f.referencia }} {{ f.cliente }} {{ f.cufe }}">
         <td class="mono">{{ f.referencia }}<span class="cufe">{{ f.cliente or "—" }}</span>{% if f.cufe %}<span class="cufe">CUFE {{ f.cufe[:10] }}…{% if f.validada %} · ✓ DIAN{% endif %}</span>{% endif %}</td>
-        <td>{{ f.fecha }}</td>
-        <td><span class="chip {{ f.clase }}">{{ f.estado }}</span></td>
+        <td class="fecha">{{ f.fecha }}</td>
+        <td class="estado"><span class="chip {{ f.clase }}">{{ f.estado }}</span></td>
         <td class="monto">{{ f.monto | pesos }}{% if f.iva %}<span class="cufe">IVA {{ f.iva | pesos }}</span>{% endif %}</td>
         <td class="acciones">
           <a class="btn" href="/panel/factura/{{ f.referencia }}.pdf" target="_blank" rel="noopener" title="Factura en PDF (Factus)">PDF</a>

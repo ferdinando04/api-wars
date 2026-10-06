@@ -11,6 +11,7 @@
     :root { --crema:#F5F0E8; --papel:#FFFDF9; --tinta:#13241D; --verde:#0F3D2E; --coral:#E8613C; --coral-suave:#F8D3C3;
             --verde-claro:#CFE8B9; --gris:#5E6B64; --linea:#E3DACD; }
     * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
     body { margin: 0; background: var(--crema); color: var(--tinta); font-family: "Instrument Sans", system-ui, sans-serif; }
     header { display: flex; align-items: center; gap: 18px; padding: 18px 40px; border-bottom: 1px solid var(--linea); background: var(--papel); position: sticky; top: 0; z-index: 5; }
     .marca { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 30px; color: var(--verde); }
@@ -21,8 +22,9 @@
     main { max-width: 1480px; margin: 0 auto; padding: 28px 40px 60px; }
     h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 38px; margin: 0 0 4px; }
     .sub { color: var(--gris); margin: 0 0 22px; }
-    .rejilla { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 22px; align-items: start; }
-    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px; }
+    .rejilla { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 22px; align-items: start; }
+    .ventas { container: ventas / inline-size; min-width: 0; }
+    .kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
     .kpi { background: var(--papel); border: 1px solid var(--linea); border-radius: 16px; padding: 15px 18px; }
     .kpi .n { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 28px; margin-top: 4px; white-space: nowrap; }
     .kpi .n.hora { font-size: 22px; }
@@ -39,7 +41,7 @@
     .pestanas button.activa { background: var(--verde); border-color: var(--verde); color: #fff; }
     .buscar { margin-left: auto; font: inherit; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--linea); width: 260px; }
     table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--linea); white-space: nowrap; }
+    th, td { text-align: left; padding: 12px 12px; border-bottom: 1px solid var(--linea); white-space: nowrap; }
     th:first-child, td:first-child { padding-left: 20px; }
     th { font-size: 12px; color: var(--gris); text-transform: uppercase; letter-spacing: 1px; }
     td.mono { font-family: "JetBrains Mono", monospace; }
@@ -78,11 +80,35 @@
     .error-lectura { margin: 14px 20px; color: #991B1B; font-weight: 600; }
     aside { display: grid; gap: 18px; }
     dialog { border: 0; border-radius: 18px; padding: 24px; box-shadow: 0 30px 80px rgba(0,0,0,.3); text-align: center; }
-    dialog img { width: 320px; height: 320px; image-rendering: pixelated; }
+    dialog img { width: min(320px, 72vw); height: auto; aspect-ratio: 1; image-rendering: pixelated; }
     dialog h3 { font-family: "Bricolage Grotesque", sans-serif; margin: 0 0 6px; } dialog p { color: var(--gris); margin: 8px 0 16px; }
     footer { color: var(--gris); font-size: 13px; margin-top: 22px; }
-    @media (max-width: 1100px) { .kpis { grid-template-columns: repeat(2, 1fr); } .rejilla { grid-template-columns: 1fr; } main { padding: 20px 16px; }
-      .buscar { width: 160px; } header { padding: 14px 16px; flex-wrap: wrap; } }
+    /* Lo que manda es el ancho de la columna de ventas (no el de la pantalla): si la tabla no cabe, cada factura pasa a tarjeta. */
+    @container ventas (max-width: 820px) {
+      .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      thead { display: none; }
+      table, tbody { display: block; }
+      tbody tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "fac monto" "fac estado" "fecha fecha" "acc acc";
+                 gap: 4px 12px; padding: 14px 16px; border-bottom: 1px solid var(--linea); }
+      tbody td { display: block; border: 0; padding: 0; white-space: normal; }
+      tbody td:first-child { padding-left: 0; }
+      td.mono { grid-area: fac; } td.monto { grid-area: monto; } td.estado { grid-area: estado; text-align: right; }
+      td.fecha { grid-area: fecha; color: var(--gris); font-size: 13px; }
+      td.acciones { grid-area: acc; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; text-align: left; }
+      td.acciones .btn { margin: 0; padding: 9px 14px; font-size: 13.5px; }
+      td.acciones .btn.primario { margin-left: auto; }
+    }
+    @container ventas (max-width: 420px) {
+      .kpis { gap: 10px; } .kpi { padding: 12px 14px; } .kpi .n { font-size: 22px; } .kpi .n.hora { font-size: 18px; }
+      .kpi .t { font-size: 11px; letter-spacing: .8px; }
+    }
+    @media (max-width: 1100px) { .rejilla { grid-template-columns: minmax(0, 1fr); } main { padding: 20px 16px 40px; } header { padding: 14px 16px; flex-wrap: wrap; } }
+    @media (max-width: 700px) {
+      header { gap: 10px; } .marca { font-size: 26px; margin-right: auto; } .tienda { order: 3; flex-basis: 100%; margin: 0; font-size: 14px; }
+      .enlace { padding: 7px 10px; font-size: 14px; }
+      h1 { font-size: 30px; } .sub { font-size: 14.5px; }
+      .herramientas { flex-wrap: wrap; padding: 12px 14px; } .buscar { width: 100%; margin-left: 0; }
+    }
   </style>
 </head>
 <body>
@@ -96,7 +122,7 @@
     <h1>Ventas en vivo</h1>
     <p class="sub">Cada venta es una factura electrónica validada en Factus con su cobro QR en Factus Pay. Todo se actualiza solo.</p>
     <div class="rejilla">
-      <section>
+      <section class="ventas">
         <div id="avisos"></div>
         <div id="tablero-kpis"></div>
         <div class="herramientas">
