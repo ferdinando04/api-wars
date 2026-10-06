@@ -33,3 +33,9 @@ Thumbs.db
 
 # Salidas locales de la demo (PDF con datos de pedidos)
 salida/
+
+# Material pesado del video (voces, capturas, renders)
+video/voces/
+video/diapositivas/
+video/material/
+video/salida/
