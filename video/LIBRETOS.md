@@ -95,15 +95,22 @@ Todo lo que dicen está medido en la corrida real del 05-oct-2026 (`docs/documen
 >
 > Y cada prueba importante la validamos rompiendo el código a propósito, para confirmar que la prueba sí detecta el error.
 
-## E8b - Fernando (20 s) · El panel del vendedor
+## E8b - Fernando (70 s) · El panel del vendedor, botón por botón
 
-*(Voz clonada de Fernando con ElevenLabs: no hay que grabarla.)*
+*(Voz clonada de Fernando con ElevenLabs: no hay que grabarla. En pantalla: capturas reales del panel; el cursor llega a cada botón
+cuando la voz lo nombra.)*
 
-> Soy Fernando, del equipo Firebox. Además, construimos el panel del vendedor.
+> Soy Fernando, del equipo Firebox. Les muestro el panel del vendedor, botón por botón.
 >
-> Muestra cada venta en vivo: el número de la factura, su CUFE validado ante la DIAN y el estado del cobro en Factus Pay.
+> Arriba están las métricas: las ventas, lo facturado ante la DIAN, lo cobrado y lo que falta por cobrar. Debajo, la tasa de cobro, el ticket promedio y el IVA, sacados de los totales de Factus. Todo se actualiza solo cada cinco segundos.
 >
-> Suma lo facturado, lo cobrado y lo que falta por cobrar, y se actualiza solo cada cinco segundos.
+> Con las pestañas veo solo las pagadas o las que están por cobrar, y el buscador encuentra una factura por número, cliente o CUFE.
+>
+> Cada factura tiene cuatro botones. PDF descarga la factura desde Factus. XML trae el documento firmado que recibe la DIAN. QR abre el código de pago, el mismo que le llegó al cliente por WhatsApp. Y Consultar le pregunta a Factus Pay, en ese momento, si ya le pagaron.
+>
+> A la derecha, Conexiones llama de verdad a las tres APIs y muestra cuánto tarda cada una; Probar ahora repite la medición. En Nueva venta de prueba escribo un WhatsApp, y el sistema factura, cobra y envía. En Actividad aparece cada paso.
+>
+> Por último, Exportar descarga todas las ventas en un archivo CSV, listo para la contabilidad.
 
 ## E9 - David (25 s) · Cierre
 

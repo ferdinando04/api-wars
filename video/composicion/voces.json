@@ -1,0 +1,4102 @@
+{
+ "E1": {
+  "narrador": "David",
+  "titulo": "Presentación y problema",
+  "guion": "Hola, somos el equipo de Firebox, en API WARS. Soy David y me acompaña Dylan. En Colombia, muchos negocios ya venden por WhatsApp. Pero la compra, la factura y el pago ocurren por separado: se manda una foto, el total se calcula a mano, se pide una transferencia… y casi nunca se emite la factura electrónica que exige la DIAN.",
+  "audio": null,
+  "duracion": 31.836,
+  "texto": "Hola, somos el equipo de Firebox, en API WARS. Soy David y me acompaña Dylan. En Colombia, muchos negocios ya venden por WhatsApp. Pero la compra, la factura y el pago ocurren por separado: se manda una foto, el total se calcula a mano, se pide una transferencia… y casi nunca se emite la factura electrónica que exige la DIAN.",
+  "palabras": [
+   {
+    "w": "Hola,",
+    "t0": 0.25,
+    "t1": 0.66
+   },
+   {
+    "w": "somos",
+    "t0": 0.94,
+    "t1": 1.35
+   },
+   {
+    "w": "el",
+    "t0": 1.41,
+    "t1": 1.754
+   },
+   {
+    "w": "equipo",
+    "t0": 1.814,
+    "t1": 2.246
+   },
+   {
+    "w": "de",
+    "t0": 2.306,
+    "t1": 2.65
+   },
+   {
+    "w": "Firebox,",
+    "t0": 2.71,
+    "t1": 3.186
+   },
+   {
+    "w": "en",
+    "t0": 3.466,
+    "t1": 3.81
+   },
+   {
+    "w": "API",
+    "t0": 3.87,
+    "t1": 4.236
+   },
+   {
+    "w": "WARS.",
+    "t0": 4.296,
+    "t1": 4.706
+   },
+   {
+    "w": "Soy",
+    "t0": 5.216,
+    "t1": 5.582
+   },
+   {
+    "w": "David",
+    "t0": 5.642,
+    "t1": 6.052
+   },
+   {
+    "w": "y",
+    "t0": 6.112,
+    "t1": 6.434
+   },
+   {
+    "w": "me",
+    "t0": 6.494,
+    "t1": 6.838
+   },
+   {
+    "w": "acompaña",
+    "t0": 6.898,
+    "t1": 7.374
+   },
+   {
+    "w": "Dylan.",
+    "t0": 7.434,
+    "t1": 7.866
+   },
+   {
+    "w": "En",
+    "t0": 8.376,
+    "t1": 8.72
+   },
+   {
+    "w": "Colombia,",
+    "t0": 8.78,
+    "t1": 9.278
+   },
+   {
+    "w": "muchos",
+    "t0": 9.558,
+    "t1": 9.99
+   },
+   {
+    "w": "negocios",
+    "t0": 10.05,
+    "t1": 10.526
+   },
+   {
+    "w": "ya",
+    "t0": 10.586,
+    "t1": 10.93
+   },
+   {
+    "w": "venden",
+    "t0": 10.99,
+    "t1": 11.422
+   },
+   {
+    "w": "por",
+    "t0": 11.482,
+    "t1": 11.848
+   },
+   {
+    "w": "WhatsApp.",
+    "t0": 11.908,
+    "t1": 12.406
+   },
+   {
+    "w": "Pero",
+    "t0": 12.916,
+    "t1": 13.304
+   },
+   {
+    "w": "la",
+    "t0": 13.364,
+    "t1": 13.708
+   },
+   {
+    "w": "compra,",
+    "t0": 13.768,
+    "t1": 14.222
+   },
+   {
+    "w": "la",
+    "t0": 14.502,
+    "t1": 14.846
+   },
+   {
+    "w": "factura",
+    "t0": 14.906,
+    "t1": 15.36
+   },
+   {
+    "w": "y",
+    "t0": 15.42,
+    "t1": 15.742
+   },
+   {
+    "w": "el",
+    "t0": 15.802,
+    "t1": 16.146
+   },
+   {
+    "w": "pago",
+    "t0": 16.206,
+    "t1": 16.594
+   },
+   {
+    "w": "ocurren",
+    "t0": 16.654,
+    "t1": 17.108
+   },
+   {
+    "w": "por",
+    "t0": 17.168,
+    "t1": 17.534
+   },
+   {
+    "w": "separado:",
+    "t0": 17.594,
+    "t1": 18.092
+   },
+   {
+    "w": "se",
+    "t0": 18.372,
+    "t1": 18.716
+   },
+   {
+    "w": "manda",
+    "t0": 18.776,
+    "t1": 19.186
+   },
+   {
+    "w": "una",
+    "t0": 19.246,
+    "t1": 19.612
+   },
+   {
+    "w": "foto,",
+    "t0": 19.672,
+    "t1": 20.082
+   },
+   {
+    "w": "el",
+    "t0": 20.362,
+    "t1": 20.706
+   },
+   {
+    "w": "total",
+    "t0": 20.766,
+    "t1": 21.176
+   },
+   {
+    "w": "se",
+    "t0": 21.236,
+    "t1": 21.58
+   },
+   {
+    "w": "calcula",
+    "t0": 21.64,
+    "t1": 22.094
+   },
+   {
+    "w": "a",
+    "t0": 22.154,
+    "t1": 22.476
+   },
+   {
+    "w": "mano,",
+    "t0": 22.536,
+    "t1": 22.946
+   },
+   {
+    "w": "se",
+    "t0": 23.226,
+    "t1": 23.57
+   },
+   {
+    "w": "pide",
+    "t0": 23.63,
+    "t1": 24.018
+   },
+   {
+    "w": "una",
+    "t0": 24.078,
+    "t1": 24.444
+   },
+   {
+    "w": "transferencia…",
+    "t0": 24.504,
+    "t1": 25.112
+   },
+   {
+    "w": "y",
+    "t0": 25.622,
+    "t1": 25.944
+   },
+   {
+    "w": "casi",
+    "t0": 26.004,
+    "t1": 26.392
+   },
+   {
+    "w": "nunca",
+    "t0": 26.452,
+    "t1": 26.862
+   },
+   {
+    "w": "se",
+    "t0": 26.922,
+    "t1": 27.266
+   },
+   {
+    "w": "emite",
+    "t0": 27.326,
+    "t1": 27.736
+   },
+   {
+    "w": "la",
+    "t0": 27.796,
+    "t1": 28.14
+   },
+   {
+    "w": "factura",
+    "t0": 28.2,
+    "t1": 28.654
+   },
+   {
+    "w": "electrónica",
+    "t0": 28.714,
+    "t1": 29.256
+   },
+   {
+    "w": "que",
+    "t0": 29.316,
+    "t1": 29.682
+   },
+   {
+    "w": "exige",
+    "t0": 29.742,
+    "t1": 30.152
+   },
+   {
+    "w": "la",
+    "t0": 30.212,
+    "t1": 30.556
+   },
+   {
+    "w": "DIAN.",
+    "t0": 30.616,
+    "t1": 31.026
+   }
+  ],
+  "provisional": true
+ },
+ "E2": {
+  "narrador": "Dylan",
+  "titulo": "La solución",
+  "guion": "Firebox une esos tres pasos en una sola conversación. El cliente compra por WhatsApp y, en ese mismo chat, recibe su factura electrónica validada ante la DIAN, con una página de pago con código QR Bre-B dentro del mismo PDF. Y cuando paga, el chat le confirma solo que su factura quedó pagada.",
+  "audio": "firebox/voces/E2.wav",
+  "duracion": 18.703,
+  "texto": "Firebox une esos tres pasos en una sola conversación. El cliente compra por WhatsApp y en ese mismo chat recibe su factura electrónica validada ante la DIAN, con una página de pago con QR Bre-B dentro del mismo PDF. Y cuando paga, el chat le confirma solo que su factura quedó pagada.",
+  "palabras": [
+   {
+    "w": "Firebox",
+    "t0": 1.36,
+    "t1": 1.92
+   },
+   {
+    "w": "une",
+    "t0": 1.92,
+    "t1": 2.22
+   },
+   {
+    "w": "esos",
+    "t0": 2.22,
+    "t1": 2.46
+   },
+   {
+    "w": "tres",
+    "t0": 2.46,
+    "t1": 2.72
+   },
+   {
+    "w": "pasos",
+    "t0": 2.72,
+    "t1": 3.04
+   },
+   {
+    "w": "en",
+    "t0": 3.04,
+    "t1": 3.16
+   },
+   {
+    "w": "una",
+    "t0": 3.16,
+    "t1": 3.3
+   },
+   {
+    "w": "sola",
+    "t0": 3.3,
+    "t1": 3.48
+   },
+   {
+    "w": "conversación.",
+    "t0": 3.48,
+    "t1": 4.5
+   },
+   {
+    "w": "El",
+    "t0": 4.46,
+    "t1": 4.54
+   },
+   {
+    "w": "cliente",
+    "t0": 4.54,
+    "t1": 4.96
+   },
+   {
+    "w": "compra",
+    "t0": 4.96,
+    "t1": 5.24
+   },
+   {
+    "w": "por",
+    "t0": 5.24,
+    "t1": 5.42
+   },
+   {
+    "w": "WhatsApp",
+    "t0": 5.42,
+    "t1": 5.7
+   },
+   {
+    "w": "y",
+    "t0": 5.7,
+    "t1": 6.04
+   },
+   {
+    "w": "en",
+    "t0": 6.04,
+    "t1": 6.2
+   },
+   {
+    "w": "ese",
+    "t0": 6.2,
+    "t1": 6.4
+   },
+   {
+    "w": "mismo",
+    "t0": 6.4,
+    "t1": 6.7
+   },
+   {
+    "w": "chat",
+    "t0": 6.7,
+    "t1": 7.04
+   },
+   {
+    "w": "recibe",
+    "t0": 7.04,
+    "t1": 7.88
+   },
+   {
+    "w": "su",
+    "t0": 7.88,
+    "t1": 8.04
+   },
+   {
+    "w": "factura",
+    "t0": 8.04,
+    "t1": 8.38
+   },
+   {
+    "w": "electrónica",
+    "t0": 8.38,
+    "t1": 8.98
+   },
+   {
+    "w": "validada",
+    "t0": 8.98,
+    "t1": 9.52
+   },
+   {
+    "w": "ante",
+    "t0": 9.52,
+    "t1": 9.68
+   },
+   {
+    "w": "la",
+    "t0": 9.68,
+    "t1": 9.78
+   },
+   {
+    "w": "DIAN,",
+    "t0": 9.78,
+    "t1": 10.04
+   },
+   {
+    "w": "con",
+    "t0": 10.82,
+    "t1": 10.96
+   },
+   {
+    "w": "una",
+    "t0": 10.96,
+    "t1": 11.12
+   },
+   {
+    "w": "página",
+    "t0": 11.12,
+    "t1": 11.42
+   },
+   {
+    "w": "de",
+    "t0": 11.42,
+    "t1": 11.58
+   },
+   {
+    "w": "pago",
+    "t0": 11.58,
+    "t1": 11.78
+   },
+   {
+    "w": "con",
+    "t0": 11.78,
+    "t1": 12.08
+   },
+   {
+    "w": "QR",
+    "t0": 12.08,
+    "t1": 12.42
+   },
+   {
+    "w": "Bre-B",
+    "t0": 12.42,
+    "t1": 12.76
+   },
+   {
+    "w": "dentro",
+    "t0": 12.76,
+    "t1": 13.16
+   },
+   {
+    "w": "del",
+    "t0": 13.16,
+    "t1": 13.36
+   },
+   {
+    "w": "mismo",
+    "t0": 13.36,
+    "t1": 13.64
+   },
+   {
+    "w": "PDF.",
+    "t0": 13.64,
+    "t1": 14.5
+   },
+   {
+    "w": "Y",
+    "t0": 14.58,
+    "t1": 14.68
+   },
+   {
+    "w": "cuando",
+    "t0": 14.68,
+    "t1": 14.9
+   },
+   {
+    "w": "paga,",
+    "t0": 14.9,
+    "t1": 15.5
+   },
+   {
+    "w": "el",
+    "t0": 15.5,
+    "t1": 15.6
+   },
+   {
+    "w": "chat",
+    "t0": 15.6,
+    "t1": 15.78
+   },
+   {
+    "w": "le",
+    "t0": 15.78,
+    "t1": 15.9
+   },
+   {
+    "w": "confirma",
+    "t0": 15.9,
+    "t1": 16.34
+   },
+   {
+    "w": "solo",
+    "t0": 16.34,
+    "t1": 17.04
+   },
+   {
+    "w": "que",
+    "t0": 17.04,
+    "t1": 17.18
+   },
+   {
+    "w": "su",
+    "t0": 17.18,
+    "t1": 17.3
+   },
+   {
+    "w": "factura",
+    "t0": 17.3,
+    "t1": 17.74
+   },
+   {
+    "w": "quedó",
+    "t0": 17.74,
+    "t1": 18.04
+   },
+   {
+    "w": "pagada.",
+    "t0": 18.04,
+    "t1": 18.98
+   }
+  ],
+  "provisional": false
+ },
+ "E3": {
+  "narrador": "David",
+  "titulo": "Las tres APIs",
+  "guion": "Para lograrlo conectamos tres APIs, y cada una cumple una función concreta. WhatsApp Cloud API, la oficial de Meta, para conversar con el cliente y enviarle archivos. Factus API versión dos, para emitir y validar la factura. Y Factus Pay, para cobrar con QR. Firebox, escrito en Python, orquesta las tres. Y el número de la factura es la referencia que amarra el cobro.",
+  "audio": null,
+  "duracion": 34.562,
+  "texto": "Para lograrlo conectamos tres APIs, y cada una cumple una función concreta. WhatsApp Cloud API, la oficial de Meta, para conversar con el cliente y enviarle archivos. Factus API versión dos, para emitir y validar la factura. Y Factus Pay, para cobrar con QR. Firebox, escrito en Python, orquesta las tres. Y el número de la factura es la referencia que amarra el cobro.",
+  "palabras": [
+   {
+    "w": "Para",
+    "t0": 0.25,
+    "t1": 0.638
+   },
+   {
+    "w": "lograrlo",
+    "t0": 0.698,
+    "t1": 1.174
+   },
+   {
+    "w": "conectamos",
+    "t0": 1.234,
+    "t1": 1.754
+   },
+   {
+    "w": "tres",
+    "t0": 1.814,
+    "t1": 2.202
+   },
+   {
+    "w": "APIs,",
+    "t0": 2.262,
+    "t1": 2.672
+   },
+   {
+    "w": "y",
+    "t0": 2.952,
+    "t1": 3.274
+   },
+   {
+    "w": "cada",
+    "t0": 3.334,
+    "t1": 3.722
+   },
+   {
+    "w": "una",
+    "t0": 3.782,
+    "t1": 4.148
+   },
+   {
+    "w": "cumple",
+    "t0": 4.208,
+    "t1": 4.64
+   },
+   {
+    "w": "una",
+    "t0": 4.7,
+    "t1": 5.066
+   },
+   {
+    "w": "función",
+    "t0": 5.126,
+    "t1": 5.58
+   },
+   {
+    "w": "concreta.",
+    "t0": 5.64,
+    "t1": 6.138
+   },
+   {
+    "w": "WhatsApp",
+    "t0": 6.648,
+    "t1": 7.124
+   },
+   {
+    "w": "Cloud",
+    "t0": 7.184,
+    "t1": 7.594
+   },
+   {
+    "w": "API,",
+    "t0": 7.654,
+    "t1": 8.042
+   },
+   {
+    "w": "la",
+    "t0": 8.322,
+    "t1": 8.666
+   },
+   {
+    "w": "oficial",
+    "t0": 8.726,
+    "t1": 9.18
+   },
+   {
+    "w": "de",
+    "t0": 9.24,
+    "t1": 9.584
+   },
+   {
+    "w": "Meta,",
+    "t0": 9.644,
+    "t1": 10.054
+   },
+   {
+    "w": "para",
+    "t0": 10.334,
+    "t1": 10.722
+   },
+   {
+    "w": "conversar",
+    "t0": 10.782,
+    "t1": 11.28
+   },
+   {
+    "w": "con",
+    "t0": 11.34,
+    "t1": 11.706
+   },
+   {
+    "w": "el",
+    "t0": 11.766,
+    "t1": 12.11
+   },
+   {
+    "w": "cliente",
+    "t0": 12.17,
+    "t1": 12.624
+   },
+   {
+    "w": "y",
+    "t0": 12.684,
+    "t1": 13.006
+   },
+   {
+    "w": "enviarle",
+    "t0": 13.066,
+    "t1": 13.542
+   },
+   {
+    "w": "archivos.",
+    "t0": 13.602,
+    "t1": 14.1
+   },
+   {
+    "w": "Factus",
+    "t0": 14.61,
+    "t1": 15.042
+   },
+   {
+    "w": "API",
+    "t0": 15.102,
+    "t1": 15.468
+   },
+   {
+    "w": "versión",
+    "t0": 15.528,
+    "t1": 15.982
+   },
+   {
+    "w": "dos,",
+    "t0": 16.042,
+    "t1": 16.43
+   },
+   {
+    "w": "para",
+    "t0": 16.71,
+    "t1": 17.098
+   },
+   {
+    "w": "emitir",
+    "t0": 17.158,
+    "t1": 17.59
+   },
+   {
+    "w": "y",
+    "t0": 17.65,
+    "t1": 17.972
+   },
+   {
+    "w": "validar",
+    "t0": 18.032,
+    "t1": 18.486
+   },
+   {
+    "w": "la",
+    "t0": 18.546,
+    "t1": 18.89
+   },
+   {
+    "w": "factura.",
+    "t0": 18.95,
+    "t1": 19.426
+   },
+   {
+    "w": "Y",
+    "t0": 19.936,
+    "t1": 20.258
+   },
+   {
+    "w": "Factus",
+    "t0": 20.318,
+    "t1": 20.75
+   },
+   {
+    "w": "Pay,",
+    "t0": 20.81,
+    "t1": 21.198
+   },
+   {
+    "w": "para",
+    "t0": 21.478,
+    "t1": 21.866
+   },
+   {
+    "w": "cobrar",
+    "t0": 21.926,
+    "t1": 22.358
+   },
+   {
+    "w": "con",
+    "t0": 22.418,
+    "t1": 22.784
+   },
+   {
+    "w": "QR.",
+    "t0": 22.844,
+    "t1": 23.21
+   },
+   {
+    "w": "Firebox,",
+    "t0": 23.72,
+    "t1": 24.196
+   },
+   {
+    "w": "escrito",
+    "t0": 24.476,
+    "t1": 24.93
+   },
+   {
+    "w": "en",
+    "t0": 24.99,
+    "t1": 25.334
+   },
+   {
+    "w": "Python,",
+    "t0": 25.394,
+    "t1": 25.848
+   },
+   {
+    "w": "orquesta",
+    "t0": 26.128,
+    "t1": 26.604
+   },
+   {
+    "w": "las",
+    "t0": 26.664,
+    "t1": 27.03
+   },
+   {
+    "w": "tres.",
+    "t0": 27.09,
+    "t1": 27.5
+   },
+   {
+    "w": "Y",
+    "t0": 28.01,
+    "t1": 28.332
+   },
+   {
+    "w": "el",
+    "t0": 28.392,
+    "t1": 28.736
+   },
+   {
+    "w": "número",
+    "t0": 28.796,
+    "t1": 29.228
+   },
+   {
+    "w": "de",
+    "t0": 29.288,
+    "t1": 29.632
+   },
+   {
+    "w": "la",
+    "t0": 29.692,
+    "t1": 30.036
+   },
+   {
+    "w": "factura",
+    "t0": 30.096,
+    "t1": 30.55
+   },
+   {
+    "w": "es",
+    "t0": 30.61,
+    "t1": 30.954
+   },
+   {
+    "w": "la",
+    "t0": 31.014,
+    "t1": 31.358
+   },
+   {
+    "w": "referencia",
+    "t0": 31.418,
+    "t1": 31.938
+   },
+   {
+    "w": "que",
+    "t0": 31.998,
+    "t1": 32.364
+   },
+   {
+    "w": "amarra",
+    "t0": 32.424,
+    "t1": 32.856
+   },
+   {
+    "w": "el",
+    "t0": 32.916,
+    "t1": 33.26
+   },
+   {
+    "w": "cobro.",
+    "t0": 33.32,
+    "t1": 33.752
+   }
+  ],
+  "provisional": true
+ },
+ "E4": {
+  "narrador": "Dylan",
+  "titulo": "Cómo conectamos Factus",
+  "guion": "Así conectamos Factus. Primero pedimos un token con OAuth dos punto cero. Después consultamos el rango de numeración activo, armamos la factura con los productos, el IVA y la forma de pago, y la enviamos al servicio bills validate. Factus nos devuelve el número de la factura, el CUFE y la validación de la DIAN. Con ese número descargamos el PDF. Un detalle que descubrimos probando: si la petición no lleva un User-Agent propio, el firewall de Factus la rechaza.",
+  "audio": "firebox/voces/E4.wav",
+  "duracion": 29.305,
+  "texto": "Así conectamos Factus. Primero pedimos un token con OAuth 2.0. Después consultamos el rango de numeración activo. Armamos la factura con los productos, el IVA y la forma de pago y la enviamos al servicio de bills validate. Factus nos devuelve el número de factura, el CUFE y la validación de la DIAN. Con ese número descargamos el PDF. Un detalle que descubrimos probando, si la petición no lleva un User Agent propio, el firewall de Factus lo rechaza.",
+  "palabras": [
+   {
+    "w": "Así",
+    "t0": 0.6,
+    "t1": 1.54
+   },
+   {
+    "w": "conectamos",
+    "t0": 1.54,
+    "t1": 2.3
+   },
+   {
+    "w": "Factus.",
+    "t0": 2.3,
+    "t1": 3.2
+   },
+   {
+    "w": "Primero",
+    "t0": 3.2,
+    "t1": 3.58
+   },
+   {
+    "w": "pedimos",
+    "t0": 3.58,
+    "t1": 3.84
+   },
+   {
+    "w": "un",
+    "t0": 3.84,
+    "t1": 4.04
+   },
+   {
+    "w": "token",
+    "t0": 4.04,
+    "t1": 4.28
+   },
+   {
+    "w": "con",
+    "t0": 4.28,
+    "t1": 4.58
+   },
+   {
+    "w": "OAuth",
+    "t0": 4.58,
+    "t1": 4.98
+   },
+   {
+    "w": "2.0.",
+    "t0": 4.98,
+    "t1": 6.48
+   },
+   {
+    "w": "Después",
+    "t0": 6.44,
+    "t1": 6.8
+   },
+   {
+    "w": "consultamos",
+    "t0": 6.8,
+    "t1": 7.34
+   },
+   {
+    "w": "el",
+    "t0": 7.34,
+    "t1": 7.58
+   },
+   {
+    "w": "rango",
+    "t0": 7.58,
+    "t1": 7.78
+   },
+   {
+    "w": "de",
+    "t0": 7.78,
+    "t1": 7.86
+   },
+   {
+    "w": "numeración",
+    "t0": 7.86,
+    "t1": 8.2
+   },
+   {
+    "w": "activo.",
+    "t0": 8.2,
+    "t1": 9.1
+   },
+   {
+    "w": "Armamos",
+    "t0": 9,
+    "t1": 9.46
+   },
+   {
+    "w": "la",
+    "t0": 9.46,
+    "t1": 9.62
+   },
+   {
+    "w": "factura",
+    "t0": 9.62,
+    "t1": 9.94
+   },
+   {
+    "w": "con",
+    "t0": 9.94,
+    "t1": 10.12
+   },
+   {
+    "w": "los",
+    "t0": 10.12,
+    "t1": 10.24
+   },
+   {
+    "w": "productos,",
+    "t0": 10.24,
+    "t1": 11
+   },
+   {
+    "w": "el",
+    "t0": 11,
+    "t1": 11.38
+   },
+   {
+    "w": "IVA",
+    "t0": 11.38,
+    "t1": 11.6
+   },
+   {
+    "w": "y",
+    "t0": 11.6,
+    "t1": 11.76
+   },
+   {
+    "w": "la",
+    "t0": 11.76,
+    "t1": 11.86
+   },
+   {
+    "w": "forma",
+    "t0": 11.86,
+    "t1": 12.12
+   },
+   {
+    "w": "de",
+    "t0": 12.12,
+    "t1": 12.26
+   },
+   {
+    "w": "pago",
+    "t0": 12.26,
+    "t1": 12.54
+   },
+   {
+    "w": "y",
+    "t0": 12.54,
+    "t1": 13
+   },
+   {
+    "w": "la",
+    "t0": 13,
+    "t1": 13.12
+   },
+   {
+    "w": "enviamos",
+    "t0": 13.12,
+    "t1": 13.36
+   },
+   {
+    "w": "al",
+    "t0": 13.36,
+    "t1": 13.48
+   },
+   {
+    "w": "servicio",
+    "t0": 13.48,
+    "t1": 13.88
+   },
+   {
+    "w": "de",
+    "t0": 13.88,
+    "t1": 14.02
+   },
+   {
+    "w": "bills",
+    "t0": 14.02,
+    "t1": 14.28
+   },
+   {
+    "w": "validate.",
+    "t0": 14.28,
+    "t1": 14.82
+   },
+   {
+    "w": "Factus",
+    "t0": 15.46,
+    "t1": 15.8
+   },
+   {
+    "w": "nos",
+    "t0": 15.8,
+    "t1": 15.96
+   },
+   {
+    "w": "devuelve",
+    "t0": 15.96,
+    "t1": 16.28
+   },
+   {
+    "w": "el",
+    "t0": 16.28,
+    "t1": 16.46
+   },
+   {
+    "w": "número",
+    "t0": 16.46,
+    "t1": 16.6
+   },
+   {
+    "w": "de",
+    "t0": 16.6,
+    "t1": 16.76
+   },
+   {
+    "w": "factura,",
+    "t0": 16.76,
+    "t1": 17.5
+   },
+   {
+    "w": "el",
+    "t0": 17.5,
+    "t1": 17.72
+   },
+   {
+    "w": "CUFE",
+    "t0": 17.72,
+    "t1": 17.98
+   },
+   {
+    "w": "y",
+    "t0": 17.98,
+    "t1": 18.28
+   },
+   {
+    "w": "la",
+    "t0": 18.28,
+    "t1": 18.56
+   },
+   {
+    "w": "validación",
+    "t0": 18.56,
+    "t1": 19.02
+   },
+   {
+    "w": "de",
+    "t0": 19.02,
+    "t1": 19.2
+   },
+   {
+    "w": "la",
+    "t0": 19.2,
+    "t1": 19.36
+   },
+   {
+    "w": "DIAN.",
+    "t0": 19.36,
+    "t1": 19.54
+   },
+   {
+    "w": "Con",
+    "t0": 19.5,
+    "t1": 20.16
+   },
+   {
+    "w": "ese",
+    "t0": 20.16,
+    "t1": 20.3
+   },
+   {
+    "w": "número",
+    "t0": 20.3,
+    "t1": 20.7
+   },
+   {
+    "w": "descargamos",
+    "t0": 20.7,
+    "t1": 21.18
+   },
+   {
+    "w": "el",
+    "t0": 21.18,
+    "t1": 21.4
+   },
+   {
+    "w": "PDF.",
+    "t0": 21.4,
+    "t1": 21.8
+   },
+   {
+    "w": "Un",
+    "t0": 21.68,
+    "t1": 22.2
+   },
+   {
+    "w": "detalle",
+    "t0": 22.2,
+    "t1": 22.46
+   },
+   {
+    "w": "que",
+    "t0": 22.46,
+    "t1": 22.64
+   },
+   {
+    "w": "descubrimos",
+    "t0": 22.64,
+    "t1": 23.12
+   },
+   {
+    "w": "probando,",
+    "t0": 23.12,
+    "t1": 23.94
+   },
+   {
+    "w": "si",
+    "t0": 23.94,
+    "t1": 24.08
+   },
+   {
+    "w": "la",
+    "t0": 24.08,
+    "t1": 24.2
+   },
+   {
+    "w": "petición",
+    "t0": 24.2,
+    "t1": 24.58
+   },
+   {
+    "w": "no",
+    "t0": 24.58,
+    "t1": 24.78
+   },
+   {
+    "w": "lleva",
+    "t0": 24.78,
+    "t1": 25.02
+   },
+   {
+    "w": "un",
+    "t0": 25.02,
+    "t1": 25.34
+   },
+   {
+    "w": "User",
+    "t0": 25.34,
+    "t1": 25.76
+   },
+   {
+    "w": "Agent",
+    "t0": 25.76,
+    "t1": 26.04
+   },
+   {
+    "w": "propio,",
+    "t0": 26.04,
+    "t1": 26.88
+   },
+   {
+    "w": "el",
+    "t0": 26.88,
+    "t1": 27.06
+   },
+   {
+    "w": "firewall",
+    "t0": 27.06,
+    "t1": 27.44
+   },
+   {
+    "w": "de",
+    "t0": 27.44,
+    "t1": 28.14
+   },
+   {
+    "w": "Factus",
+    "t0": 28.14,
+    "t1": 28.46
+   },
+   {
+    "w": "lo",
+    "t0": 28.46,
+    "t1": 28.7
+   },
+   {
+    "w": "rechaza.",
+    "t0": 28.7,
+    "t1": 29.28
+   }
+  ],
+  "provisional": false
+ },
+ "E5": {
+  "narrador": "David",
+  "titulo": "Cómo conectamos Factus Pay",
+  "guion": "Luego, Factus Pay. Nos autenticamos y creamos un recaudo: como referencia, el número de la factura; como monto, el total de la factura. Factus Pay nos entrega el código QR al instante. Con ese QR armamos la página \"Paga aquí\" y la unimos al PDF de la factura. Como Factus Pay no avisa cuando entra el pago, Firebox consulta el estado cada cinco segundos. Apenas aparece pagado, le escribe al cliente.",
+  "audio": null,
+  "duracion": 37.61,
+  "texto": "Luego, Factus Pay. Nos autenticamos y creamos un recaudo: como referencia, el número de la factura; como monto, el total de la factura. Factus Pay nos entrega el código QR al instante. Con ese QR armamos la página \"Paga aquí\" y la unimos al PDF de la factura. Como Factus Pay no avisa cuando entra el pago, Firebox consulta el estado cada cinco segundos. Apenas aparece pagado, le escribe al cliente.",
+  "palabras": [
+   {
+    "w": "Luego,",
+    "t0": 0.25,
+    "t1": 0.682
+   },
+   {
+    "w": "Factus",
+    "t0": 0.962,
+    "t1": 1.394
+   },
+   {
+    "w": "Pay.",
+    "t0": 1.454,
+    "t1": 1.842
+   },
+   {
+    "w": "Nos",
+    "t0": 2.352,
+    "t1": 2.718
+   },
+   {
+    "w": "autenticamos",
+    "t0": 2.778,
+    "t1": 3.342
+   },
+   {
+    "w": "y",
+    "t0": 3.402,
+    "t1": 3.724
+   },
+   {
+    "w": "creamos",
+    "t0": 3.784,
+    "t1": 4.238
+   },
+   {
+    "w": "un",
+    "t0": 4.298,
+    "t1": 4.642
+   },
+   {
+    "w": "recaudo:",
+    "t0": 4.702,
+    "t1": 5.178
+   },
+   {
+    "w": "como",
+    "t0": 5.458,
+    "t1": 5.846
+   },
+   {
+    "w": "referencia,",
+    "t0": 5.906,
+    "t1": 6.448
+   },
+   {
+    "w": "el",
+    "t0": 6.728,
+    "t1": 7.072
+   },
+   {
+    "w": "número",
+    "t0": 7.132,
+    "t1": 7.564
+   },
+   {
+    "w": "de",
+    "t0": 7.624,
+    "t1": 7.968
+   },
+   {
+    "w": "la",
+    "t0": 8.028,
+    "t1": 8.372
+   },
+   {
+    "w": "factura;",
+    "t0": 8.432,
+    "t1": 8.908
+   },
+   {
+    "w": "como",
+    "t0": 9.188,
+    "t1": 9.576
+   },
+   {
+    "w": "monto,",
+    "t0": 9.636,
+    "t1": 10.068
+   },
+   {
+    "w": "el",
+    "t0": 10.348,
+    "t1": 10.692
+   },
+   {
+    "w": "total",
+    "t0": 10.752,
+    "t1": 11.162
+   },
+   {
+    "w": "de",
+    "t0": 11.222,
+    "t1": 11.566
+   },
+   {
+    "w": "la",
+    "t0": 11.626,
+    "t1": 11.97
+   },
+   {
+    "w": "factura.",
+    "t0": 12.03,
+    "t1": 12.506
+   },
+   {
+    "w": "Factus",
+    "t0": 13.016,
+    "t1": 13.448
+   },
+   {
+    "w": "Pay",
+    "t0": 13.508,
+    "t1": 13.874
+   },
+   {
+    "w": "nos",
+    "t0": 13.934,
+    "t1": 14.3
+   },
+   {
+    "w": "entrega",
+    "t0": 14.36,
+    "t1": 14.814
+   },
+   {
+    "w": "el",
+    "t0": 14.874,
+    "t1": 15.218
+   },
+   {
+    "w": "código",
+    "t0": 15.278,
+    "t1": 15.71
+   },
+   {
+    "w": "QR",
+    "t0": 15.77,
+    "t1": 16.114
+   },
+   {
+    "w": "al",
+    "t0": 16.174,
+    "t1": 16.518
+   },
+   {
+    "w": "instante.",
+    "t0": 16.578,
+    "t1": 17.076
+   },
+   {
+    "w": "Con",
+    "t0": 17.586,
+    "t1": 17.952
+   },
+   {
+    "w": "ese",
+    "t0": 18.012,
+    "t1": 18.378
+   },
+   {
+    "w": "QR",
+    "t0": 18.438,
+    "t1": 18.782
+   },
+   {
+    "w": "armamos",
+    "t0": 18.842,
+    "t1": 19.296
+   },
+   {
+    "w": "la",
+    "t0": 19.356,
+    "t1": 19.7
+   },
+   {
+    "w": "página",
+    "t0": 19.76,
+    "t1": 20.192
+   },
+   {
+    "w": "\"Paga",
+    "t0": 20.252,
+    "t1": 20.662
+   },
+   {
+    "w": "aquí\"",
+    "t0": 20.722,
+    "t1": 21.132
+   },
+   {
+    "w": "y",
+    "t0": 21.192,
+    "t1": 21.514
+   },
+   {
+    "w": "la",
+    "t0": 21.574,
+    "t1": 21.918
+   },
+   {
+    "w": "unimos",
+    "t0": 21.978,
+    "t1": 22.41
+   },
+   {
+    "w": "al",
+    "t0": 22.47,
+    "t1": 22.814
+   },
+   {
+    "w": "PDF",
+    "t0": 22.874,
+    "t1": 23.24
+   },
+   {
+    "w": "de",
+    "t0": 23.3,
+    "t1": 23.644
+   },
+   {
+    "w": "la",
+    "t0": 23.704,
+    "t1": 24.048
+   },
+   {
+    "w": "factura.",
+    "t0": 24.108,
+    "t1": 24.584
+   },
+   {
+    "w": "Como",
+    "t0": 25.094,
+    "t1": 25.482
+   },
+   {
+    "w": "Factus",
+    "t0": 25.542,
+    "t1": 25.974
+   },
+   {
+    "w": "Pay",
+    "t0": 26.034,
+    "t1": 26.4
+   },
+   {
+    "w": "no",
+    "t0": 26.46,
+    "t1": 26.804
+   },
+   {
+    "w": "avisa",
+    "t0": 26.864,
+    "t1": 27.274
+   },
+   {
+    "w": "cuando",
+    "t0": 27.334,
+    "t1": 27.766
+   },
+   {
+    "w": "entra",
+    "t0": 27.826,
+    "t1": 28.236
+   },
+   {
+    "w": "el",
+    "t0": 28.296,
+    "t1": 28.64
+   },
+   {
+    "w": "pago,",
+    "t0": 28.7,
+    "t1": 29.11
+   },
+   {
+    "w": "Firebox",
+    "t0": 29.39,
+    "t1": 29.844
+   },
+   {
+    "w": "consulta",
+    "t0": 29.904,
+    "t1": 30.38
+   },
+   {
+    "w": "el",
+    "t0": 30.44,
+    "t1": 30.784
+   },
+   {
+    "w": "estado",
+    "t0": 30.844,
+    "t1": 31.276
+   },
+   {
+    "w": "cada",
+    "t0": 31.336,
+    "t1": 31.724
+   },
+   {
+    "w": "cinco",
+    "t0": 31.784,
+    "t1": 32.194
+   },
+   {
+    "w": "segundos.",
+    "t0": 32.254,
+    "t1": 32.752
+   },
+   {
+    "w": "Apenas",
+    "t0": 33.262,
+    "t1": 33.694
+   },
+   {
+    "w": "aparece",
+    "t0": 33.754,
+    "t1": 34.208
+   },
+   {
+    "w": "pagado,",
+    "t0": 34.268,
+    "t1": 34.722
+   },
+   {
+    "w": "le",
+    "t0": 35.002,
+    "t1": 35.346
+   },
+   {
+    "w": "escribe",
+    "t0": 35.406,
+    "t1": 35.86
+   },
+   {
+    "w": "al",
+    "t0": 35.92,
+    "t1": 36.264
+   },
+   {
+    "w": "cliente.",
+    "t0": 36.324,
+    "t1": 36.8
+   }
+  ],
+  "provisional": true
+ },
+ "E6": {
+  "narrador": "Dylan",
+  "titulo": "Cómo conectamos WhatsApp",
+  "guion": "Para WhatsApp registramos un número propio en la API oficial de Meta. Lo verificamos con un código por SMS, creamos la app Firebox y generamos un token permanente. Con ese token subimos a WhatsApp el PDF y la imagen del QR, y se los enviamos al cliente junto con los mensajes de la compra.",
+  "audio": "firebox/voces/E6.wav",
+  "duracion": 20.139,
+  "texto": "Para WhatsApp registramos un número propio en la API oficial de Meta, lo verificamos con un código por SMS, creamos la App de Firebox y generamos un token permanente. Con ese token subimos a WhatsApp el PDF y la imagen del QR y se lo enviamos al cliente junto con los mensajes de la compra.",
+  "palabras": [
+   {
+    "w": "Para",
+    "t0": 0,
+    "t1": 1.5
+   },
+   {
+    "w": "WhatsApp",
+    "t0": 1.5,
+    "t1": 1.8
+   },
+   {
+    "w": "registramos",
+    "t0": 1.8,
+    "t1": 2.54
+   },
+   {
+    "w": "un",
+    "t0": 2.54,
+    "t1": 2.74
+   },
+   {
+    "w": "número",
+    "t0": 2.74,
+    "t1": 2.92
+   },
+   {
+    "w": "propio",
+    "t0": 2.92,
+    "t1": 3.26
+   },
+   {
+    "w": "en",
+    "t0": 3.26,
+    "t1": 3.44
+   },
+   {
+    "w": "la",
+    "t0": 3.44,
+    "t1": 3.48
+   },
+   {
+    "w": "API",
+    "t0": 3.48,
+    "t1": 3.6
+   },
+   {
+    "w": "oficial",
+    "t0": 3.6,
+    "t1": 3.96
+   },
+   {
+    "w": "de",
+    "t0": 3.96,
+    "t1": 4.18
+   },
+   {
+    "w": "Meta,",
+    "t0": 4.18,
+    "t1": 5.14
+   },
+   {
+    "w": "lo",
+    "t0": 5.14,
+    "t1": 5.26
+   },
+   {
+    "w": "verificamos",
+    "t0": 5.26,
+    "t1": 5.78
+   },
+   {
+    "w": "con",
+    "t0": 5.78,
+    "t1": 5.98
+   },
+   {
+    "w": "un",
+    "t0": 5.98,
+    "t1": 6.12
+   },
+   {
+    "w": "código",
+    "t0": 6.12,
+    "t1": 6.52
+   },
+   {
+    "w": "por",
+    "t0": 6.52,
+    "t1": 7.12
+   },
+   {
+    "w": "SMS,",
+    "t0": 7.12,
+    "t1": 8.32
+   },
+   {
+    "w": "creamos",
+    "t0": 8.32,
+    "t1": 8.6
+   },
+   {
+    "w": "la",
+    "t0": 8.6,
+    "t1": 8.76
+   },
+   {
+    "w": "App",
+    "t0": 8.76,
+    "t1": 8.96
+   },
+   {
+    "w": "de",
+    "t0": 8.96,
+    "t1": 9.16
+   },
+   {
+    "w": "Firebox",
+    "t0": 9.16,
+    "t1": 9.66
+   },
+   {
+    "w": "y",
+    "t0": 9.66,
+    "t1": 10.22
+   },
+   {
+    "w": "generamos",
+    "t0": 10.22,
+    "t1": 10.78
+   },
+   {
+    "w": "un",
+    "t0": 10.78,
+    "t1": 11.3
+   },
+   {
+    "w": "token",
+    "t0": 11.3,
+    "t1": 11.5
+   },
+   {
+    "w": "permanente.",
+    "t0": 11.5,
+    "t1": 12.58
+   },
+   {
+    "w": "Con",
+    "t0": 12.66,
+    "t1": 12.76
+   },
+   {
+    "w": "ese",
+    "t0": 12.76,
+    "t1": 12.94
+   },
+   {
+    "w": "token",
+    "t0": 12.94,
+    "t1": 13.14
+   },
+   {
+    "w": "subimos",
+    "t0": 13.14,
+    "t1": 13.6
+   },
+   {
+    "w": "a",
+    "t0": 13.6,
+    "t1": 13.8
+   },
+   {
+    "w": "WhatsApp",
+    "t0": 13.8,
+    "t1": 14
+   },
+   {
+    "w": "el",
+    "t0": 14,
+    "t1": 14.24
+   },
+   {
+    "w": "PDF",
+    "t0": 14.24,
+    "t1": 14.5
+   },
+   {
+    "w": "y",
+    "t0": 14.5,
+    "t1": 14.7
+   },
+   {
+    "w": "la",
+    "t0": 14.7,
+    "t1": 14.9
+   },
+   {
+    "w": "imagen",
+    "t0": 14.9,
+    "t1": 15.04
+   },
+   {
+    "w": "del",
+    "t0": 15.04,
+    "t1": 15.24
+   },
+   {
+    "w": "QR",
+    "t0": 15.24,
+    "t1": 15.52
+   },
+   {
+    "w": "y",
+    "t0": 15.52,
+    "t1": 16.06
+   },
+   {
+    "w": "se",
+    "t0": 16.06,
+    "t1": 16.22
+   },
+   {
+    "w": "lo",
+    "t0": 16.22,
+    "t1": 16.3
+   },
+   {
+    "w": "enviamos",
+    "t0": 16.3,
+    "t1": 16.6
+   },
+   {
+    "w": "al",
+    "t0": 16.6,
+    "t1": 16.76
+   },
+   {
+    "w": "cliente",
+    "t0": 16.76,
+    "t1": 17.3
+   },
+   {
+    "w": "junto",
+    "t0": 17.3,
+    "t1": 17.54
+   },
+   {
+    "w": "con",
+    "t0": 17.54,
+    "t1": 17.74
+   },
+   {
+    "w": "los",
+    "t0": 17.74,
+    "t1": 17.84
+   },
+   {
+    "w": "mensajes",
+    "t0": 17.84,
+    "t1": 18.2
+   },
+   {
+    "w": "de",
+    "t0": 18.2,
+    "t1": 18.4
+   },
+   {
+    "w": "la",
+    "t0": 18.4,
+    "t1": 18.52
+   },
+   {
+    "w": "compra.",
+    "t0": 18.52,
+    "t1": 18.88
+   }
+  ],
+  "provisional": false
+ },
+ "E7": {
+  "narrador": "David",
+  "titulo": "La demo real",
+  "guion": "Esta es una corrida real en el sándbox. A los ocho coma ocho segundos, la factura ya estaba emitida y validada, y el recaudo creado. A los diecisiete segundos, la factura y el QR ya estaban en el WhatsApp del cliente. Simulamos el pago en el simulador de Factus Pay y, un segundo después de detectarlo, Firebox envió la confirmación: \"Pago recibido. Tu factura quedó pagada\". El ciclo completo tomó cuatro minutos y diecinueve segundos, contando lo que tardamos en pagar.",
+  "audio": null,
+  "duracion": 42.552,
+  "texto": "Esta es una corrida real en el sándbox. A los ocho coma ocho segundos, la factura ya estaba emitida y validada, y el recaudo creado. A los diecisiete segundos, la factura y el QR ya estaban en el WhatsApp del cliente. Simulamos el pago en el simulador de Factus Pay y, un segundo después de detectarlo, Firebox envió la confirmación: \"Pago recibido. Tu factura quedó pagada\". El ciclo completo tomó cuatro minutos y diecinueve segundos, contando lo que tardamos en pagar.",
+  "palabras": [
+   {
+    "w": "Esta",
+    "t0": 0.25,
+    "t1": 0.638
+   },
+   {
+    "w": "es",
+    "t0": 0.698,
+    "t1": 1.042
+   },
+   {
+    "w": "una",
+    "t0": 1.102,
+    "t1": 1.468
+   },
+   {
+    "w": "corrida",
+    "t0": 1.528,
+    "t1": 1.982
+   },
+   {
+    "w": "real",
+    "t0": 2.042,
+    "t1": 2.43
+   },
+   {
+    "w": "en",
+    "t0": 2.49,
+    "t1": 2.834
+   },
+   {
+    "w": "el",
+    "t0": 2.894,
+    "t1": 3.238
+   },
+   {
+    "w": "sándbox.",
+    "t0": 3.298,
+    "t1": 3.774
+   },
+   {
+    "w": "A",
+    "t0": 4.284,
+    "t1": 4.606
+   },
+   {
+    "w": "los",
+    "t0": 4.666,
+    "t1": 5.032
+   },
+   {
+    "w": "ocho",
+    "t0": 5.092,
+    "t1": 5.48
+   },
+   {
+    "w": "coma",
+    "t0": 5.54,
+    "t1": 5.928
+   },
+   {
+    "w": "ocho",
+    "t0": 5.988,
+    "t1": 6.376
+   },
+   {
+    "w": "segundos,",
+    "t0": 6.436,
+    "t1": 6.934
+   },
+   {
+    "w": "la",
+    "t0": 7.214,
+    "t1": 7.558
+   },
+   {
+    "w": "factura",
+    "t0": 7.618,
+    "t1": 8.072
+   },
+   {
+    "w": "ya",
+    "t0": 8.132,
+    "t1": 8.476
+   },
+   {
+    "w": "estaba",
+    "t0": 8.536,
+    "t1": 8.968
+   },
+   {
+    "w": "emitida",
+    "t0": 9.028,
+    "t1": 9.482
+   },
+   {
+    "w": "y",
+    "t0": 9.542,
+    "t1": 9.864
+   },
+   {
+    "w": "validada,",
+    "t0": 9.924,
+    "t1": 10.422
+   },
+   {
+    "w": "y",
+    "t0": 10.702,
+    "t1": 11.024
+   },
+   {
+    "w": "el",
+    "t0": 11.084,
+    "t1": 11.428
+   },
+   {
+    "w": "recaudo",
+    "t0": 11.488,
+    "t1": 11.942
+   },
+   {
+    "w": "creado.",
+    "t0": 12.002,
+    "t1": 12.456
+   },
+   {
+    "w": "A",
+    "t0": 12.966,
+    "t1": 13.288
+   },
+   {
+    "w": "los",
+    "t0": 13.348,
+    "t1": 13.714
+   },
+   {
+    "w": "diecisiete",
+    "t0": 13.774,
+    "t1": 14.294
+   },
+   {
+    "w": "segundos,",
+    "t0": 14.354,
+    "t1": 14.852
+   },
+   {
+    "w": "la",
+    "t0": 15.132,
+    "t1": 15.476
+   },
+   {
+    "w": "factura",
+    "t0": 15.536,
+    "t1": 15.99
+   },
+   {
+    "w": "y",
+    "t0": 16.05,
+    "t1": 16.372
+   },
+   {
+    "w": "el",
+    "t0": 16.432,
+    "t1": 16.776
+   },
+   {
+    "w": "QR",
+    "t0": 16.836,
+    "t1": 17.18
+   },
+   {
+    "w": "ya",
+    "t0": 17.24,
+    "t1": 17.584
+   },
+   {
+    "w": "estaban",
+    "t0": 17.644,
+    "t1": 18.098
+   },
+   {
+    "w": "en",
+    "t0": 18.158,
+    "t1": 18.502
+   },
+   {
+    "w": "el",
+    "t0": 18.562,
+    "t1": 18.906
+   },
+   {
+    "w": "WhatsApp",
+    "t0": 18.966,
+    "t1": 19.442
+   },
+   {
+    "w": "del",
+    "t0": 19.502,
+    "t1": 19.868
+   },
+   {
+    "w": "cliente.",
+    "t0": 19.928,
+    "t1": 20.404
+   },
+   {
+    "w": "Simulamos",
+    "t0": 20.914,
+    "t1": 21.412
+   },
+   {
+    "w": "el",
+    "t0": 21.472,
+    "t1": 21.816
+   },
+   {
+    "w": "pago",
+    "t0": 21.876,
+    "t1": 22.264
+   },
+   {
+    "w": "en",
+    "t0": 22.324,
+    "t1": 22.668
+   },
+   {
+    "w": "el",
+    "t0": 22.728,
+    "t1": 23.072
+   },
+   {
+    "w": "simulador",
+    "t0": 23.132,
+    "t1": 23.63
+   },
+   {
+    "w": "de",
+    "t0": 23.69,
+    "t1": 24.034
+   },
+   {
+    "w": "Factus",
+    "t0": 24.094,
+    "t1": 24.526
+   },
+   {
+    "w": "Pay",
+    "t0": 24.586,
+    "t1": 24.952
+   },
+   {
+    "w": "y,",
+    "t0": 25.012,
+    "t1": 25.356
+   },
+   {
+    "w": "un",
+    "t0": 25.636,
+    "t1": 25.98
+   },
+   {
+    "w": "segundo",
+    "t0": 26.04,
+    "t1": 26.494
+   },
+   {
+    "w": "después",
+    "t0": 26.554,
+    "t1": 27.008
+   },
+   {
+    "w": "de",
+    "t0": 27.068,
+    "t1": 27.412
+   },
+   {
+    "w": "detectarlo,",
+    "t0": 27.472,
+    "t1": 28.014
+   },
+   {
+    "w": "Firebox",
+    "t0": 28.294,
+    "t1": 28.748
+   },
+   {
+    "w": "envió",
+    "t0": 28.808,
+    "t1": 29.218
+   },
+   {
+    "w": "la",
+    "t0": 29.278,
+    "t1": 29.622
+   },
+   {
+    "w": "confirmación:",
+    "t0": 29.682,
+    "t1": 30.268
+   },
+   {
+    "w": "\"Pago",
+    "t0": 30.548,
+    "t1": 30.958
+   },
+   {
+    "w": "recibido.",
+    "t0": 31.018,
+    "t1": 31.516
+   },
+   {
+    "w": "Tu",
+    "t0": 32.026,
+    "t1": 32.37
+   },
+   {
+    "w": "factura",
+    "t0": 32.43,
+    "t1": 32.884
+   },
+   {
+    "w": "quedó",
+    "t0": 32.944,
+    "t1": 33.354
+   },
+   {
+    "w": "pagada\".",
+    "t0": 33.414,
+    "t1": 33.89
+   },
+   {
+    "w": "El",
+    "t0": 34.4,
+    "t1": 34.744
+   },
+   {
+    "w": "ciclo",
+    "t0": 34.804,
+    "t1": 35.214
+   },
+   {
+    "w": "completo",
+    "t0": 35.274,
+    "t1": 35.75
+   },
+   {
+    "w": "tomó",
+    "t0": 35.81,
+    "t1": 36.198
+   },
+   {
+    "w": "cuatro",
+    "t0": 36.258,
+    "t1": 36.69
+   },
+   {
+    "w": "minutos",
+    "t0": 36.75,
+    "t1": 37.204
+   },
+   {
+    "w": "y",
+    "t0": 37.264,
+    "t1": 37.586
+   },
+   {
+    "w": "diecinueve",
+    "t0": 37.646,
+    "t1": 38.166
+   },
+   {
+    "w": "segundos,",
+    "t0": 38.226,
+    "t1": 38.724
+   },
+   {
+    "w": "contando",
+    "t0": 39.004,
+    "t1": 39.48
+   },
+   {
+    "w": "lo",
+    "t0": 39.54,
+    "t1": 39.884
+   },
+   {
+    "w": "que",
+    "t0": 39.944,
+    "t1": 40.31
+   },
+   {
+    "w": "tardamos",
+    "t0": 40.37,
+    "t1": 40.846
+   },
+   {
+    "w": "en",
+    "t0": 40.906,
+    "t1": 41.25
+   },
+   {
+    "w": "pagar.",
+    "t0": 41.31,
+    "t1": 41.742
+   }
+  ],
+  "provisional": true
+ },
+ "E8": {
+  "narrador": "Dylan",
+  "titulo": "Precisión y pruebas",
+  "guion": "Cuidamos mucho el dinero. Calculamos con decimales exactos y con el mismo redondeo bancario que usa la DIAN, línea por línea. Antes de cobrar, comprobamos que nuestro total sea idéntico al de la factura: doscientos dos mil ciento ochenta y un pesos, igual en los tres sistemas. Si el monto está fuera del rango que permite Factus Pay, no se factura. Y cada prueba importante la validamos rompiendo el código a propósito, para confirmar que la prueba sí detecta el error.",
+  "audio": "firebox/voces/E8.wav",
+  "duracion": 30.07,
+  "texto": "Cuidamos mucho el dinero, calculamos con decimales exactos y con el mismo redondeo bancario que usa la DIAN, línea por línea. Antes de cobrar, comprobamos que nuestro total sea idéntico al de la factura, 202.181 pesos. Igual en los otros tres sistemas, si el monto está fuera del rango que permite Factus Pay, no se factura, y cada prueba importante la validamos rompiendo el código a propósito, para confirmar que la prueba sí detecta el error.",
+  "palabras": [
+   {
+    "w": "Cuidamos",
+    "t0": 1.22,
+    "t1": 2.42
+   },
+   {
+    "w": "mucho",
+    "t0": 2.42,
+    "t1": 2.64
+   },
+   {
+    "w": "el",
+    "t0": 2.64,
+    "t1": 2.78
+   },
+   {
+    "w": "dinero,",
+    "t0": 2.78,
+    "t1": 3.3
+   },
+   {
+    "w": "calculamos",
+    "t0": 3.3,
+    "t1": 3.76
+   },
+   {
+    "w": "con",
+    "t0": 3.76,
+    "t1": 3.9
+   },
+   {
+    "w": "decimales",
+    "t0": 3.9,
+    "t1": 4.34
+   },
+   {
+    "w": "exactos",
+    "t0": 4.34,
+    "t1": 4.86
+   },
+   {
+    "w": "y",
+    "t0": 4.86,
+    "t1": 5.08
+   },
+   {
+    "w": "con",
+    "t0": 5.08,
+    "t1": 5.26
+   },
+   {
+    "w": "el",
+    "t0": 5.26,
+    "t1": 5.34
+   },
+   {
+    "w": "mismo",
+    "t0": 5.34,
+    "t1": 5.6
+   },
+   {
+    "w": "redondeo",
+    "t0": 5.6,
+    "t1": 5.94
+   },
+   {
+    "w": "bancario",
+    "t0": 5.94,
+    "t1": 6.36
+   },
+   {
+    "w": "que",
+    "t0": 6.36,
+    "t1": 6.6
+   },
+   {
+    "w": "usa",
+    "t0": 6.6,
+    "t1": 6.78
+   },
+   {
+    "w": "la",
+    "t0": 6.78,
+    "t1": 6.96
+   },
+   {
+    "w": "DIAN,",
+    "t0": 6.96,
+    "t1": 7.62
+   },
+   {
+    "w": "línea",
+    "t0": 7.62,
+    "t1": 7.74
+   },
+   {
+    "w": "por",
+    "t0": 7.74,
+    "t1": 8
+   },
+   {
+    "w": "línea.",
+    "t0": 8,
+    "t1": 8.76
+   },
+   {
+    "w": "Antes",
+    "t0": 9.04,
+    "t1": 9.18
+   },
+   {
+    "w": "de",
+    "t0": 9.18,
+    "t1": 9.36
+   },
+   {
+    "w": "cobrar,",
+    "t0": 9.36,
+    "t1": 9.78
+   },
+   {
+    "w": "comprobamos",
+    "t0": 9.78,
+    "t1": 10.12
+   },
+   {
+    "w": "que",
+    "t0": 10.12,
+    "t1": 10.26
+   },
+   {
+    "w": "nuestro",
+    "t0": 10.26,
+    "t1": 10.5
+   },
+   {
+    "w": "total",
+    "t0": 10.5,
+    "t1": 10.88
+   },
+   {
+    "w": "sea",
+    "t0": 10.88,
+    "t1": 11.08
+   },
+   {
+    "w": "idéntico",
+    "t0": 11.08,
+    "t1": 11.46
+   },
+   {
+    "w": "al",
+    "t0": 11.46,
+    "t1": 11.58
+   },
+   {
+    "w": "de",
+    "t0": 11.58,
+    "t1": 11.64
+   },
+   {
+    "w": "la",
+    "t0": 11.64,
+    "t1": 11.74
+   },
+   {
+    "w": "factura,",
+    "t0": 11.74,
+    "t1": 12.98
+   },
+   {
+    "w": "202.181",
+    "t0": 12.98,
+    "t1": 15.4
+   },
+   {
+    "w": "pesos.",
+    "t0": 15.4,
+    "t1": 15.86
+   },
+   {
+    "w": "Igual",
+    "t0": 17.12,
+    "t1": 17.36
+   },
+   {
+    "w": "en",
+    "t0": 17.36,
+    "t1": 17.5
+   },
+   {
+    "w": "los",
+    "t0": 17.5,
+    "t1": 17.78
+   },
+   {
+    "w": "otros",
+    "t0": 17.78,
+    "t1": 18.18
+   },
+   {
+    "w": "tres",
+    "t0": 18.18,
+    "t1": 18.34
+   },
+   {
+    "w": "sistemas,",
+    "t0": 18.34,
+    "t1": 18.96
+   },
+   {
+    "w": "si",
+    "t0": 18.96,
+    "t1": 19.04
+   },
+   {
+    "w": "el",
+    "t0": 19.04,
+    "t1": 19.22
+   },
+   {
+    "w": "monto",
+    "t0": 19.22,
+    "t1": 19.54
+   },
+   {
+    "w": "está",
+    "t0": 19.54,
+    "t1": 19.98
+   },
+   {
+    "w": "fuera",
+    "t0": 19.98,
+    "t1": 20.28
+   },
+   {
+    "w": "del",
+    "t0": 20.28,
+    "t1": 20.46
+   },
+   {
+    "w": "rango",
+    "t0": 20.46,
+    "t1": 20.66
+   },
+   {
+    "w": "que",
+    "t0": 20.66,
+    "t1": 20.8
+   },
+   {
+    "w": "permite",
+    "t0": 20.8,
+    "t1": 21.2
+   },
+   {
+    "w": "Factus",
+    "t0": 21.2,
+    "t1": 21.6
+   },
+   {
+    "w": "Pay,",
+    "t0": 21.6,
+    "t1": 22.32
+   },
+   {
+    "w": "no",
+    "t0": 22.32,
+    "t1": 22.42
+   },
+   {
+    "w": "se",
+    "t0": 22.42,
+    "t1": 22.52
+   },
+   {
+    "w": "factura,",
+    "t0": 22.52,
+    "t1": 22.94
+   },
+   {
+    "w": "y",
+    "t0": 23.52,
+    "t1": 23.54
+   },
+   {
+    "w": "cada",
+    "t0": 23.54,
+    "t1": 23.8
+   },
+   {
+    "w": "prueba",
+    "t0": 23.8,
+    "t1": 24
+   },
+   {
+    "w": "importante",
+    "t0": 24,
+    "t1": 24.5
+   },
+   {
+    "w": "la",
+    "t0": 24.5,
+    "t1": 24.64
+   },
+   {
+    "w": "validamos",
+    "t0": 24.64,
+    "t1": 25.04
+   },
+   {
+    "w": "rompiendo",
+    "t0": 25.04,
+    "t1": 25.44
+   },
+   {
+    "w": "el",
+    "t0": 25.44,
+    "t1": 25.6
+   },
+   {
+    "w": "código",
+    "t0": 25.6,
+    "t1": 25.86
+   },
+   {
+    "w": "a",
+    "t0": 25.86,
+    "t1": 26.08
+   },
+   {
+    "w": "propósito,",
+    "t0": 26.08,
+    "t1": 26.48
+   },
+   {
+    "w": "para",
+    "t0": 26.48,
+    "t1": 26.96
+   },
+   {
+    "w": "confirmar",
+    "t0": 26.96,
+    "t1": 27.48
+   },
+   {
+    "w": "que",
+    "t0": 27.48,
+    "t1": 27.76
+   },
+   {
+    "w": "la",
+    "t0": 27.76,
+    "t1": 27.9
+   },
+   {
+    "w": "prueba",
+    "t0": 27.9,
+    "t1": 28.2
+   },
+   {
+    "w": "sí",
+    "t0": 28.2,
+    "t1": 28.44
+   },
+   {
+    "w": "detecta",
+    "t0": 28.44,
+    "t1": 28.9
+   },
+   {
+    "w": "el",
+    "t0": 28.9,
+    "t1": 29.04
+   },
+   {
+    "w": "error.",
+    "t0": 29.04,
+    "t1": 29.72
+   }
+  ],
+  "provisional": false
+ },
+ "E8b": {
+  "narrador": "Fernando",
+  "titulo": "El panel del vendedor, botón por botón",
+  "guion": "Soy Fernando, del equipo Firebox. Les muestro el panel del vendedor, botón por botón. Arriba están las métricas: las ventas, lo facturado ante la DIAN, lo cobrado y lo que falta por cobrar. Debajo, la tasa de cobro, el ticket promedio y el IVA, sacados de los totales de Factus. Todo se actualiza solo cada cinco segundos. Con las pestañas veo solo las pagadas o las que están por cobrar, y el buscador encuentra una factura por número, cliente o CUFE. Cada factura tiene cuatro botones. PDF descarga la factura desde Factus. XML trae el documento firmado que recibe la DIAN. QR abre el código de pago, el mismo que le llegó al cliente por WhatsApp. Y Consultar le pregunta a Factus Pay, en ese momento, si ya le pagaron. A la derecha, Conexiones llama de verdad a las tres APIs y muestra cuánto tarda cada una; Probar ahora repite la medición. En Nueva venta de prueba escribo un WhatsApp, y el sistema factura, cobra y envía. En Actividad aparece cada paso. Por último, Exportar descarga todas las ventas en un archivo CSV, listo para la contabilidad.",
+  "audio": "firebox/voces/E8b.wav",
+  "duracion": 66.284,
+  "texto": "Soy Fernando, del equipo Firebox. Les muestro el panel del vendedor, botón por botón. Arriba están las métricas: las ventas, lo facturado ante la DIAN, lo cobrado y lo que falta por cobrar. Debajo, la tasa de cobro, el ticket promedio y el IVA, sacados de los totales de Factus. Todo se actualiza solo cada cinco segundos. Con las pestañas veo solo las pagadas o las que están por cobrar, y el buscador encuentra una factura por número, cliente o CUFE. Cada factura tiene cuatro botones. PDF descarga la factura desde Factus. XML trae el documento firmado que recibe la DIAN. QR abre el código de pago, el mismo que le llegó al cliente por WhatsApp. Y Consultar le pregunta a Factus Pay, en ese momento, si ya le pagaron. A la derecha, Conexiones llama de verdad a las tres APIs y muestra cuánto tarda cada una; Probar ahora repite la medición. En Nueva venta de prueba escribo un WhatsApp, y el sistema factura, cobra y envía. En Actividad aparece cada paso. Por último, Exportar descarga todas las ventas en un archivo CSV, listo para la contabilidad.",
+  "palabras": [
+   {
+    "w": "Soy",
+    "t0": 0.0,
+    "t1": 0.766
+   },
+   {
+    "w": "Fernando,",
+    "t0": 0.882,
+    "t1": 1.37
+   },
+   {
+    "w": "del",
+    "t0": 1.44,
+    "t1": 1.567
+   },
+   {
+    "w": "equipo",
+    "t0": 1.602,
+    "t1": 1.846
+   },
+   {
+    "w": "Firebox.",
+    "t0": 1.904,
+    "t1": 2.426
+   },
+   {
+    "w": "Les",
+    "t0": 2.496,
+    "t1": 2.647
+   },
+   {
+    "w": "muestro",
+    "t0": 2.705,
+    "t1": 2.926
+   },
+   {
+    "w": "el",
+    "t0": 2.961,
+    "t1": 3.007
+   },
+   {
+    "w": "panel",
+    "t0": 3.065,
+    "t1": 3.32
+   },
+   {
+    "w": "del",
+    "t0": 3.367,
+    "t1": 3.483
+   },
+   {
+    "w": "vendedor,",
+    "t0": 3.541,
+    "t1": 4.017
+   },
+   {
+    "w": "botón",
+    "t0": 4.04,
+    "t1": 4.296
+   },
+   {
+    "w": "por",
+    "t0": 4.354,
+    "t1": 4.481
+   },
+   {
+    "w": "botón.",
+    "t0": 4.528,
+    "t1": 4.899
+   },
+   {
+    "w": "Arriba",
+    "t0": 4.934,
+    "t1": 5.213
+   },
+   {
+    "w": "están",
+    "t0": 5.236,
+    "t1": 5.422
+   },
+   {
+    "w": "las",
+    "t0": 5.457,
+    "t1": 5.573
+   },
+   {
+    "w": "métricas:",
+    "t0": 5.631,
+    "t1": 6.118
+   },
+   {
+    "w": "las",
+    "t0": 6.165,
+    "t1": 6.316
+   },
+   {
+    "w": "ventas,",
+    "t0": 6.385,
+    "t1": 6.803
+   },
+   {
+    "w": "lo",
+    "t0": 6.827,
+    "t1": 6.908
+   },
+   {
+    "w": "facturado",
+    "t0": 6.954,
+    "t1": 7.5
+   },
+   {
+    "w": "ante",
+    "t0": 7.535,
+    "t1": 7.732
+   },
+   {
+    "w": "la",
+    "t0": 7.779,
+    "t1": 7.86
+   },
+   {
+    "w": "DIAN,",
+    "t0": 7.906,
+    "t1": 8.266
+   },
+   {
+    "w": "lo",
+    "t0": 8.313,
+    "t1": 8.44
+   },
+   {
+    "w": "cobrado",
+    "t0": 8.487,
+    "t1": 9.021
+   },
+   {
+    "w": "y",
+    "t0": 9.114,
+    "t1": 9.16
+   },
+   {
+    "w": "lo",
+    "t0": 9.23,
+    "t1": 9.311
+   },
+   {
+    "w": "que",
+    "t0": 9.358,
+    "t1": 9.439
+   },
+   {
+    "w": "falta",
+    "t0": 9.485,
+    "t1": 9.741
+   },
+   {
+    "w": "por",
+    "t0": 9.787,
+    "t1": 9.915
+   },
+   {
+    "w": "cobrar.",
+    "t0": 9.961,
+    "t1": 10.495
+   },
+   {
+    "w": "Debajo,",
+    "t0": 10.937,
+    "t1": 11.494
+   },
+   {
+    "w": "la",
+    "t0": 11.575,
+    "t1": 11.68
+   },
+   {
+    "w": "tasa",
+    "t0": 11.749,
+    "t1": 11.993
+   },
+   {
+    "w": "de",
+    "t0": 12.028,
+    "t1": 12.086
+   },
+   {
+    "w": "cobro,",
+    "t0": 12.144,
+    "t1": 12.562
+   },
+   {
+    "w": "el",
+    "t0": 12.608,
+    "t1": 12.725
+   },
+   {
+    "w": "ticket",
+    "t0": 12.794,
+    "t1": 13.05
+   },
+   {
+    "w": "promedio",
+    "t0": 13.085,
+    "t1": 13.561
+   },
+   {
+    "w": "y",
+    "t0": 13.642,
+    "t1": 13.712
+   },
+   {
+    "w": "el",
+    "t0": 13.781,
+    "t1": 13.851
+   },
+   {
+    "w": "IVA,",
+    "t0": 13.921,
+    "t1": 14.153
+   },
+   {
+    "w": "sacados",
+    "t0": 14.223,
+    "t1": 14.675
+   },
+   {
+    "w": "de",
+    "t0": 14.722,
+    "t1": 14.78
+   },
+   {
+    "w": "los",
+    "t0": 14.826,
+    "t1": 14.977
+   },
+   {
+    "w": "totales",
+    "t0": 15.047,
+    "t1": 15.453
+   },
+   {
+    "w": "de",
+    "t0": 15.5,
+    "t1": 15.558
+   },
+   {
+    "w": "Factus.",
+    "t0": 15.616,
+    "t1": 16.127
+   },
+   {
+    "w": "Todo",
+    "t0": 16.452,
+    "t1": 16.742
+   },
+   {
+    "w": "se",
+    "t0": 16.812,
+    "t1": 16.905
+   },
+   {
+    "w": "actualiza",
+    "t0": 16.939,
+    "t1": 17.462
+   },
+   {
+    "w": "solo",
+    "t0": 17.508,
+    "t1": 17.764
+   },
+   {
+    "w": "cada",
+    "t0": 17.81,
+    "t1": 18.042
+   },
+   {
+    "w": "cinco",
+    "t0": 18.077,
+    "t1": 18.495
+   },
+   {
+    "w": "segundos.",
+    "t0": 18.542,
+    "t1": 19.122
+   },
+   {
+    "w": "Con",
+    "t0": 19.192,
+    "t1": 19.343
+   },
+   {
+    "w": "las",
+    "t0": 19.389,
+    "t1": 19.505
+   },
+   {
+    "w": "pestañas",
+    "t0": 19.552,
+    "t1": 20.074
+   },
+   {
+    "w": "veo",
+    "t0": 20.144,
+    "t1": 20.329
+   },
+   {
+    "w": "solo",
+    "t0": 20.376,
+    "t1": 20.573
+   },
+   {
+    "w": "las",
+    "t0": 20.62,
+    "t1": 20.736
+   },
+   {
+    "w": "pagadas",
+    "t0": 20.782,
+    "t1": 21.34
+   },
+   {
+    "w": "o",
+    "t0": 21.456,
+    "t1": 21.537
+   },
+   {
+    "w": "las",
+    "t0": 21.583,
+    "t1": 21.699
+   },
+   {
+    "w": "que",
+    "t0": 21.746,
+    "t1": 21.816
+   },
+   {
+    "w": "están",
+    "t0": 21.839,
+    "t1": 22.013
+   },
+   {
+    "w": "por",
+    "t0": 22.071,
+    "t1": 22.199
+   },
+   {
+    "w": "cobrar,",
+    "t0": 22.257,
+    "t1": 22.884
+   },
+   {
+    "w": "y",
+    "t0": 23.209,
+    "t1": 23.278
+   },
+   {
+    "w": "el",
+    "t0": 23.336,
+    "t1": 23.406
+   },
+   {
+    "w": "buscador",
+    "t0": 23.464,
+    "t1": 23.975
+   },
+   {
+    "w": "encuentra",
+    "t0": 24.056,
+    "t1": 24.555
+   },
+   {
+    "w": "una",
+    "t0": 24.579,
+    "t1": 24.706
+   },
+   {
+    "w": "factura",
+    "t0": 24.764,
+    "t1": 25.275
+   },
+   {
+    "w": "por",
+    "t0": 25.391,
+    "t1": 25.624
+   },
+   {
+    "w": "número,",
+    "t0": 25.693,
+    "t1": 26.146
+   },
+   {
+    "w": "cliente",
+    "t0": 26.192,
+    "t1": 26.796
+   },
+   {
+    "w": "o",
+    "t0": 26.947,
+    "t1": 27.04
+   },
+   {
+    "w": "CUFE.",
+    "t0": 27.098,
+    "t1": 27.504
+   },
+   {
+    "w": "Cada",
+    "t0": 27.887,
+    "t1": 28.143
+   },
+   {
+    "w": "factura",
+    "t0": 28.201,
+    "t1": 28.607
+   },
+   {
+    "w": "tiene",
+    "t0": 28.653,
+    "t1": 28.839
+   },
+   {
+    "w": "cuatro",
+    "t0": 28.886,
+    "t1": 29.187
+   },
+   {
+    "w": "botones.",
+    "t0": 29.211,
+    "t1": 29.78
+   },
+   {
+    "w": "PDF",
+    "t0": 29.861,
+    "t1": 30.279
+   },
+   {
+    "w": "descarga",
+    "t0": 30.325,
+    "t1": 30.697
+   },
+   {
+    "w": "la",
+    "t0": 30.72,
+    "t1": 30.766
+   },
+   {
+    "w": "factura",
+    "t0": 30.813,
+    "t1": 31.219
+   },
+   {
+    "w": "desde",
+    "t0": 31.266,
+    "t1": 31.521
+   },
+   {
+    "w": "Factus.",
+    "t0": 31.591,
+    "t1": 32.16
+   },
+   {
+    "w": "XML",
+    "t0": 32.763,
+    "t1": 33.623
+   },
+   {
+    "w": "trae",
+    "t0": 33.831,
+    "t1": 34.087
+   },
+   {
+    "w": "el",
+    "t0": 34.168,
+    "t1": 34.307
+   },
+   {
+    "w": "documento",
+    "t0": 34.366,
+    "t1": 34.795
+   },
+   {
+    "w": "firmado",
+    "t0": 34.842,
+    "t1": 35.201
+   },
+   {
+    "w": "que",
+    "t0": 35.248,
+    "t1": 35.341
+   },
+   {
+    "w": "recibe",
+    "t0": 35.41,
+    "t1": 35.677
+   },
+   {
+    "w": "la",
+    "t0": 35.736,
+    "t1": 35.817
+   },
+   {
+    "w": "DIAN.",
+    "t0": 35.863,
+    "t1": 36.223
+   },
+   {
+    "w": "QR",
+    "t0": 36.351,
+    "t1": 36.711
+   },
+   {
+    "w": "abre",
+    "t0": 36.989,
+    "t1": 37.245
+   },
+   {
+    "w": "el",
+    "t0": 37.268,
+    "t1": 37.326
+   },
+   {
+    "w": "código",
+    "t0": 37.396,
+    "t1": 37.756
+   },
+   {
+    "w": "de",
+    "t0": 37.779,
+    "t1": 37.837
+   },
+   {
+    "w": "pago,",
+    "t0": 37.895,
+    "t1": 38.255
+   },
+   {
+    "w": "el",
+    "t0": 38.301,
+    "t1": 38.452
+   },
+   {
+    "w": "mismo",
+    "t0": 38.534,
+    "t1": 38.859
+   },
+   {
+    "w": "que",
+    "t0": 38.905,
+    "t1": 38.998
+   },
+   {
+    "w": "le",
+    "t0": 39.044,
+    "t1": 39.137
+   },
+   {
+    "w": "llegó",
+    "t0": 39.16,
+    "t1": 39.52
+   },
+   {
+    "w": "al",
+    "t0": 39.613,
+    "t1": 39.741
+   },
+   {
+    "w": "cliente",
+    "t0": 39.811,
+    "t1": 40.217
+   },
+   {
+    "w": "por",
+    "t0": 40.263,
+    "t1": 40.391
+   },
+   {
+    "w": "WhatsApp.",
+    "t0": 40.449,
+    "t1": 40.972
+   },
+   {
+    "w": "Y",
+    "t0": 41.413,
+    "t1": 41.494
+   },
+   {
+    "w": "Consultar",
+    "t0": 41.587,
+    "t1": 42.051
+   },
+   {
+    "w": "le",
+    "t0": 42.109,
+    "t1": 42.179
+   },
+   {
+    "w": "pregunta",
+    "t0": 42.214,
+    "t1": 42.667
+   },
+   {
+    "w": "a",
+    "t0": 42.736,
+    "t1": 42.771
+   },
+   {
+    "w": "Factus",
+    "t0": 42.829,
+    "t1": 43.177
+   },
+   {
+    "w": "Pay,",
+    "t0": 43.235,
+    "t1": 43.479
+   },
+   {
+    "w": "en",
+    "t0": 43.502,
+    "t1": 43.63
+   },
+   {
+    "w": "ese",
+    "t0": 43.688,
+    "t1": 43.804
+   },
+   {
+    "w": "momento,",
+    "t0": 43.839,
+    "t1": 44.257
+   },
+   {
+    "w": "si",
+    "t0": 44.292,
+    "t1": 44.454
+   },
+   {
+    "w": "ya",
+    "t0": 44.501,
+    "t1": 44.559
+   },
+   {
+    "w": "le",
+    "t0": 44.605,
+    "t1": 44.663
+   },
+   {
+    "w": "pagaron.",
+    "t0": 44.71,
+    "t1": 45.151
+   },
+   {
+    "w": "A",
+    "t0": 45.325,
+    "t1": 45.372
+   },
+   {
+    "w": "la",
+    "t0": 45.453,
+    "t1": 45.534
+   },
+   {
+    "w": "derecha,",
+    "t0": 45.557,
+    "t1": 46.045
+   },
+   {
+    "w": "Conexiones",
+    "t0": 46.556,
+    "t1": 47.102
+   },
+   {
+    "w": "llama",
+    "t0": 47.125,
+    "t1": 47.403
+   },
+   {
+    "w": "de",
+    "t0": 47.427,
+    "t1": 47.473
+   },
+   {
+    "w": "verdad",
+    "t0": 47.508,
+    "t1": 47.937
+   },
+   {
+    "w": "a",
+    "t0": 48.019,
+    "t1": 48.065
+   },
+   {
+    "w": "las",
+    "t0": 48.123,
+    "t1": 48.251
+   },
+   {
+    "w": "tres",
+    "t0": 48.309,
+    "t1": 48.495
+   },
+   {
+    "w": "APIs",
+    "t0": 48.576,
+    "t1": 48.948
+   },
+   {
+    "w": "y",
+    "t0": 49.064,
+    "t1": 49.133
+   },
+   {
+    "w": "muestra",
+    "t0": 49.203,
+    "t1": 49.598
+   },
+   {
+    "w": "cuánto",
+    "t0": 49.644,
+    "t1": 49.946
+   },
+   {
+    "w": "tarda",
+    "t0": 50.004,
+    "t1": 50.283
+   },
+   {
+    "w": "cada",
+    "t0": 50.341,
+    "t1": 50.596
+   },
+   {
+    "w": "una;",
+    "t0": 50.747,
+    "t1": 51.049
+   },
+   {
+    "w": "Probar",
+    "t0": 51.177,
+    "t1": 51.571
+   },
+   {
+    "w": "ahora",
+    "t0": 51.629,
+    "t1": 51.92
+   },
+   {
+    "w": "repite",
+    "t0": 51.989,
+    "t1": 52.338
+   },
+   {
+    "w": "la",
+    "t0": 52.384,
+    "t1": 52.454
+   },
+   {
+    "w": "medición.",
+    "t0": 52.5,
+    "t1": 53.092
+   },
+   {
+    "w": "En",
+    "t0": 53.208,
+    "t1": 53.383
+   },
+   {
+    "w": "Nueva",
+    "t0": 53.417,
+    "t1": 53.731
+   },
+   {
+    "w": "venta",
+    "t0": 53.754,
+    "t1": 54.033
+   },
+   {
+    "w": "de",
+    "t0": 54.068,
+    "t1": 54.126
+   },
+   {
+    "w": "prueba",
+    "t0": 54.172,
+    "t1": 54.59
+   },
+   {
+    "w": "escribo",
+    "t0": 54.706,
+    "t1": 55.194
+   },
+   {
+    "w": "un",
+    "t0": 55.31,
+    "t1": 55.391
+   },
+   {
+    "w": "WhatsApp,",
+    "t0": 55.449,
+    "t1": 55.983
+   },
+   {
+    "w": "y",
+    "t0": 56.041,
+    "t1": 56.099
+   },
+   {
+    "w": "el",
+    "t0": 56.146,
+    "t1": 56.204
+   },
+   {
+    "w": "sistema",
+    "t0": 56.25,
+    "t1": 56.61
+   },
+   {
+    "w": "factura,",
+    "t0": 56.656,
+    "t1": 57.19
+   },
+   {
+    "w": "cobra",
+    "t0": 57.283,
+    "t1": 57.667
+   },
+   {
+    "w": "y",
+    "t0": 57.783,
+    "t1": 57.829
+   },
+   {
+    "w": "envía.",
+    "t0": 57.887,
+    "t1": 58.305
+   },
+   {
+    "w": "En",
+    "t0": 58.34,
+    "t1": 58.468
+   },
+   {
+    "w": "Actividad",
+    "t0": 58.526,
+    "t1": 58.99
+   },
+   {
+    "w": "aparece",
+    "t0": 59.06,
+    "t1": 59.466
+   },
+   {
+    "w": "cada",
+    "t0": 59.512,
+    "t1": 59.71
+   },
+   {
+    "w": "paso.",
+    "t0": 59.756,
+    "t1": 60.128
+   },
+   {
+    "w": "Por",
+    "t0": 60.197,
+    "t1": 60.383
+   },
+   {
+    "w": "último,",
+    "t0": 60.441,
+    "t1": 60.929
+   },
+   {
+    "w": "Exportar",
+    "t0": 60.975,
+    "t1": 61.579
+   },
+   {
+    "w": "descarga",
+    "t0": 61.695,
+    "t1": 62.16
+   },
+   {
+    "w": "todas",
+    "t0": 62.206,
+    "t1": 62.403
+   },
+   {
+    "w": "las",
+    "t0": 62.461,
+    "t1": 62.554
+   },
+   {
+    "w": "ventas",
+    "t0": 62.589,
+    "t1": 62.937
+   },
+   {
+    "w": "en",
+    "t0": 63.019,
+    "t1": 63.112
+   },
+   {
+    "w": "un",
+    "t0": 63.193,
+    "t1": 63.263
+   },
+   {
+    "w": "archivo",
+    "t0": 63.309,
+    "t1": 63.68
+   },
+   {
+    "w": "CSV,",
+    "t0": 63.727,
+    "t1": 64.377
+   },
+   {
+    "w": "listo",
+    "t0": 64.47,
+    "t1": 64.807
+   },
+   {
+    "w": "para",
+    "t0": 64.865,
+    "t1": 65.027
+   },
+   {
+    "w": "la",
+    "t0": 65.074,
+    "t1": 65.132
+   },
+   {
+    "w": "contabilidad.",
+    "t0": 65.178,
+    "t1": 66.084
+   }
+  ],
+  "provisional": false
+ },
+ "E9": {
+  "narrador": "David",
+  "titulo": "Cierre",
+  "guion": "Todo está documentado en nuestro repositorio: la especificación, los requisitos, los casos de uso y cada conexión, con lo que medimos. Esto corre en el sándbox: las facturas no tienen validez fiscal y no se mueve dinero real. Lo que sigue: catálogo y carrito dentro del chat, varias tiendas en el mismo número y más funciones en el panel del vendedor. Firebox: de elegir a pagar, con factura, en una sola conversación. ¡Gracias!",
+  "audio": null,
+  "duracion": 39.112,
+  "texto": "Todo está documentado en nuestro repositorio: la especificación, los requisitos, los casos de uso y cada conexión, con lo que medimos. Esto corre en el sándbox: las facturas no tienen validez fiscal y no se mueve dinero real. Lo que sigue: catálogo y carrito dentro del chat, varias tiendas en el mismo número y más funciones en el panel del vendedor. Firebox: de elegir a pagar, con factura, en una sola conversación. ¡Gracias!",
+  "palabras": [
+   {
+    "w": "Todo",
+    "t0": 0.25,
+    "t1": 0.638
+   },
+   {
+    "w": "está",
+    "t0": 0.698,
+    "t1": 1.086
+   },
+   {
+    "w": "documentado",
+    "t0": 1.146,
+    "t1": 1.688
+   },
+   {
+    "w": "en",
+    "t0": 1.748,
+    "t1": 2.092
+   },
+   {
+    "w": "nuestro",
+    "t0": 2.152,
+    "t1": 2.606
+   },
+   {
+    "w": "repositorio:",
+    "t0": 2.666,
+    "t1": 3.23
+   },
+   {
+    "w": "la",
+    "t0": 3.51,
+    "t1": 3.854
+   },
+   {
+    "w": "especificación,",
+    "t0": 3.914,
+    "t1": 4.544
+   },
+   {
+    "w": "los",
+    "t0": 4.824,
+    "t1": 5.19
+   },
+   {
+    "w": "requisitos,",
+    "t0": 5.25,
+    "t1": 5.792
+   },
+   {
+    "w": "los",
+    "t0": 6.072,
+    "t1": 6.438
+   },
+   {
+    "w": "casos",
+    "t0": 6.498,
+    "t1": 6.908
+   },
+   {
+    "w": "de",
+    "t0": 6.968,
+    "t1": 7.312
+   },
+   {
+    "w": "uso",
+    "t0": 7.372,
+    "t1": 7.738
+   },
+   {
+    "w": "y",
+    "t0": 7.798,
+    "t1": 8.12
+   },
+   {
+    "w": "cada",
+    "t0": 8.18,
+    "t1": 8.568
+   },
+   {
+    "w": "conexión,",
+    "t0": 8.628,
+    "t1": 9.126
+   },
+   {
+    "w": "con",
+    "t0": 9.406,
+    "t1": 9.772
+   },
+   {
+    "w": "lo",
+    "t0": 9.832,
+    "t1": 10.176
+   },
+   {
+    "w": "que",
+    "t0": 10.236,
+    "t1": 10.602
+   },
+   {
+    "w": "medimos.",
+    "t0": 10.662,
+    "t1": 11.138
+   },
+   {
+    "w": "Esto",
+    "t0": 11.648,
+    "t1": 12.036
+   },
+   {
+    "w": "corre",
+    "t0": 12.096,
+    "t1": 12.506
+   },
+   {
+    "w": "en",
+    "t0": 12.566,
+    "t1": 12.91
+   },
+   {
+    "w": "el",
+    "t0": 12.97,
+    "t1": 13.314
+   },
+   {
+    "w": "sándbox:",
+    "t0": 13.374,
+    "t1": 13.85
+   },
+   {
+    "w": "las",
+    "t0": 14.13,
+    "t1": 14.496
+   },
+   {
+    "w": "facturas",
+    "t0": 14.556,
+    "t1": 15.032
+   },
+   {
+    "w": "no",
+    "t0": 15.092,
+    "t1": 15.436
+   },
+   {
+    "w": "tienen",
+    "t0": 15.496,
+    "t1": 15.928
+   },
+   {
+    "w": "validez",
+    "t0": 15.988,
+    "t1": 16.442
+   },
+   {
+    "w": "fiscal",
+    "t0": 16.502,
+    "t1": 16.934
+   },
+   {
+    "w": "y",
+    "t0": 16.994,
+    "t1": 17.316
+   },
+   {
+    "w": "no",
+    "t0": 17.376,
+    "t1": 17.72
+   },
+   {
+    "w": "se",
+    "t0": 17.78,
+    "t1": 18.124
+   },
+   {
+    "w": "mueve",
+    "t0": 18.184,
+    "t1": 18.594
+   },
+   {
+    "w": "dinero",
+    "t0": 18.654,
+    "t1": 19.086
+   },
+   {
+    "w": "real.",
+    "t0": 19.146,
+    "t1": 19.556
+   },
+   {
+    "w": "Lo",
+    "t0": 20.066,
+    "t1": 20.41
+   },
+   {
+    "w": "que",
+    "t0": 20.47,
+    "t1": 20.836
+   },
+   {
+    "w": "sigue:",
+    "t0": 20.896,
+    "t1": 21.328
+   },
+   {
+    "w": "catálogo",
+    "t0": 21.608,
+    "t1": 22.084
+   },
+   {
+    "w": "y",
+    "t0": 22.144,
+    "t1": 22.466
+   },
+   {
+    "w": "carrito",
+    "t0": 22.526,
+    "t1": 22.98
+   },
+   {
+    "w": "dentro",
+    "t0": 23.04,
+    "t1": 23.472
+   },
+   {
+    "w": "del",
+    "t0": 23.532,
+    "t1": 23.898
+   },
+   {
+    "w": "chat,",
+    "t0": 23.958,
+    "t1": 24.368
+   },
+   {
+    "w": "varias",
+    "t0": 24.648,
+    "t1": 25.08
+   },
+   {
+    "w": "tiendas",
+    "t0": 25.14,
+    "t1": 25.594
+   },
+   {
+    "w": "en",
+    "t0": 25.654,
+    "t1": 25.998
+   },
+   {
+    "w": "el",
+    "t0": 26.058,
+    "t1": 26.402
+   },
+   {
+    "w": "mismo",
+    "t0": 26.462,
+    "t1": 26.872
+   },
+   {
+    "w": "número",
+    "t0": 26.932,
+    "t1": 27.364
+   },
+   {
+    "w": "y",
+    "t0": 27.424,
+    "t1": 27.746
+   },
+   {
+    "w": "más",
+    "t0": 27.806,
+    "t1": 28.172
+   },
+   {
+    "w": "funciones",
+    "t0": 28.232,
+    "t1": 28.73
+   },
+   {
+    "w": "en",
+    "t0": 28.79,
+    "t1": 29.134
+   },
+   {
+    "w": "el",
+    "t0": 29.194,
+    "t1": 29.538
+   },
+   {
+    "w": "panel",
+    "t0": 29.598,
+    "t1": 30.008
+   },
+   {
+    "w": "del",
+    "t0": 30.068,
+    "t1": 30.434
+   },
+   {
+    "w": "vendedor.",
+    "t0": 30.494,
+    "t1": 30.992
+   },
+   {
+    "w": "Firebox:",
+    "t0": 31.502,
+    "t1": 31.978
+   },
+   {
+    "w": "de",
+    "t0": 32.258,
+    "t1": 32.602
+   },
+   {
+    "w": "elegir",
+    "t0": 32.662,
+    "t1": 33.094
+   },
+   {
+    "w": "a",
+    "t0": 33.154,
+    "t1": 33.476
+   },
+   {
+    "w": "pagar,",
+    "t0": 33.536,
+    "t1": 33.968
+   },
+   {
+    "w": "con",
+    "t0": 34.248,
+    "t1": 34.614
+   },
+   {
+    "w": "factura,",
+    "t0": 34.674,
+    "t1": 35.15
+   },
+   {
+    "w": "en",
+    "t0": 35.43,
+    "t1": 35.774
+   },
+   {
+    "w": "una",
+    "t0": 35.834,
+    "t1": 36.2
+   },
+   {
+    "w": "sola",
+    "t0": 36.26,
+    "t1": 36.648
+   },
+   {
+    "w": "conversación.",
+    "t0": 36.708,
+    "t1": 37.294
+   },
+   {
+    "w": "¡Gracias!",
+    "t0": 37.804,
+    "t1": 38.302
+   }
+  ],
+  "provisional": true
+ }
+}

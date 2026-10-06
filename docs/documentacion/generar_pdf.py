@@ -124,14 +124,35 @@ def armar():
         if "<h1" not in h:
             h = "<h1>%s</h1>" % p.stem + h
         items.append(("cap", "cap%d" % n[0], titulo_de(h, p.stem), h))
-    for p in sorted(ev.rglob("*.png")):
+    # Un capítulo por carpeta de capturas (no uno por imagen), con su explicación y una leyenda por figura.
+    grupos = {
+        "panel": ("Evidencia gráfica: panel del vendedor", "Vista general del panel en vivo con ventas reales del sandbox."),
+        "recorrido": ("Evidencia gráfica: recorrido del panel por estados",
+                      "Capturas reales de cada estado que muestra el video (video/capturar_recorrido_panel.py)."),
+        "responsive": ("Evidencia gráfica: panel responsive en 6 tamaños",
+                       "Medido con scripts/verificar_panel_responsive.py (Playwright): antes del arreglo 4/6 (768 y 390 px se "
+                       "salían de la pantalla); después 6/6 sin desborde. En tableta y celular cada factura pasa a tarjeta."),
+    }
+    leyendas = {"base": "Estado normal: métricas, tabla y columna de conexiones", "pagadas": "Pestaña «Pagadas» activa",
+                "busqueda": "Buscador con parte del número de factura", "qr": "Botón QR: el código de pago de Factus Pay",
+                "consultar": "Botón Consultar: estado del cobro en Factus Pay con su latencia",
+                "panel_vendedor": "Panel del vendedor"}
+    por_carpeta: dict = {}
+    for p in ev.rglob("*.png"):
+        por_carpeta.setdefault(p.parent, []).append(p)
+    for carpeta in sorted(por_carpeta):
+        titulo, intro = grupos.get(carpeta.name, ("Evidencia gráfica: " + carpeta.name, ""))
+        fotos = sorted(por_carpeta[carpeta], key=lambda f: (-int(re.search(r"(\d+)$", f.stem).group(1))
+                                                             if re.search(r"(\d+)$", f.stem) else 0, f.stem))
         n[0] += 1
-        INCLUIDOS.append(rel(p))
-        nombre = p.stem.replace("_", " ")
-        h = ("<h1>Evidencia gráfica: %s</h1>" % nombre
-             + '<figure><img src="%s" alt="%s">' % (p.as_uri(), nombre)
-             + "<figcaption>Figura. %s (archivo %s).</figcaption></figure>" % (nombre, rel(p)))
-        items.append(("cap", "cap%d" % n[0], "Evidencia gráfica: " + nombre, h))
+        h = "<h1>%s</h1>" % titulo + ("<p>%s</p>" % intro if intro else "")
+        for f in fotos:
+            INCLUIDOS.append(rel(f))
+            m = re.match(r"([a-z]+)-(\d+)$", f.stem)
+            nombre = "%s · %s px de ancho" % (m.group(1).capitalize(), m.group(2)) if m else leyendas.get(f.stem, f.stem.replace("_", " "))
+            h += ('<figure><img src="%s" alt="%s">' % (f.as_uri(), nombre)
+                  + "<figcaption>Figura. %s (archivo %s).</figcaption></figure>" % (nombre, rel(f)))
+        items.append(("cap", "cap%d" % n[0], titulo, h))
     if len(items) == marca:
         items.pop()
 

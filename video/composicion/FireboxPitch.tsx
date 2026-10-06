@@ -5,6 +5,7 @@ import {AbsoluteFill, Audio, Img, Sequence, interpolate, spring, staticFile, use
 import {F_MONO, F_TEXTO, F_TITULO, Palabra} from "../vexon/base";
 import voces from "./voces.json";
 import codigo from "./codigo.json";
+import recorrido from "./panel_recorrido.json";
 
 // ---------- paleta (la de la presentación de David) ----------
 export const K = {
@@ -523,7 +524,7 @@ const E6: React.FC = () => {
   const cApp = cue("E6", "creamos la app");
   const cTok = cue("E6", "token permanente");
   const cSub = cue("E6", "subimos a WhatsApp");
-  const cEnv = cue("E6", "se los enviamos");
+  const cEnv = cue("E6", "enviamos al cliente");
   return (
     <>
       <Titulo kicker="API 01 · WhatsApp Cloud API" texto="Así conectamos WhatsApp" a={a} b={b} />
@@ -619,7 +620,73 @@ const E8: React.FC = () => {
   );
 };
 
-/** El panel del vendedor (captura real 1920×1152 del panel en 127.0.0.1:8800), narrado por Fernando con su voz clonada. */
+// ---------- E8b: recorrido del panel botón por botón ----------
+// Capturas REALES del panel en 5 estados (video/capturar_recorrido_panel.py) con la caja de cada botón en píxeles de la imagen.
+// La cámara se acerca a cada zona y el cursor llega a cada botón en el segundo en que la voz clonada de Fernando lo nombra.
+type Caja = [number, number, number, number];
+type EstadoPanel = {imagen: string; cajas: Record<string, Caja | null>};
+const PR = recorrido as unknown as {ancho: number; alto: number; estados: Record<string, EstadoPanel>; factura: string; xml: string[]; csv: string[]};
+type Paso = {t: number; estado: string; foco: string; cursor?: string; clic?: boolean; zoom?: number};
+const VISTA = {cx: 960, cy: 490, w: 1920, h: 840}; // zona útil: entre la barra de progreso y los subtítulos
+const suave = (x: number) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
+
+const cajaDe = (estado: string, k: string): Caja => {
+  const c = PR.estados[estado]?.cajas[k] ?? PR.estados.base.cajas[k];
+  return (c ?? [0, 0, PR.ancho, PR.alto]) as Caja;
+};
+const camDe = (p: Paso) => {
+  const general = Math.min(VISTA.w / PR.ancho, VISTA.h / PR.alto) * 0.95;
+  if (p.foco === "todo") return {s: general, cx: PR.ancho / 2, cy: PR.alto / 2};
+  const [x, y, w, h] = cajaDe(p.estado, p.foco);
+  const s = Math.max(general, Math.min(p.zoom ?? 1.75, (VISTA.w * 0.8) / w, (VISTA.h * 0.72) / h));
+  let cx = x + w / 2;
+  let cy = y + h / 2;
+  const mw = VISTA.w / 2 / s;
+  const mh = VISTA.h / 2 / s;
+  cx = PR.ancho * s >= VISTA.w ? Math.min(Math.max(cx, mw), PR.ancho - mw) : PR.ancho / 2;
+  cy = PR.alto * s >= VISTA.h ? Math.min(Math.max(cy, mh), PR.alto - mh) : PR.alto / 2;
+  return {s, cx, cy};
+};
+const punto = (c: Caja): [number, number] => {
+  const [x, y, w, h] = c;
+  return w > 260 ? [x + w * 0.28, y + Math.min(h * 0.42, 70)] : [x + w / 2, y + h / 2];
+};
+
+const Cursor: React.FC<{x: number; y: number; pulso: number}> = ({x, y, pulso}) => (
+  <>
+    {pulso > 0 && pulso < 1 && (
+      <div style={{position: "absolute", left: x - 34, top: y - 34, width: 68, height: 68, borderRadius: 34,
+        border: `5px solid ${K.coral}`, opacity: 1 - pulso, transform: `scale(${0.4 + pulso * 1.1})`}} />
+    )}
+    <svg width={46} height={54} viewBox="0 0 23 27" style={{position: "absolute", left: x - 3, top: y - 2,
+      transform: `scale(${pulso > 0 && pulso < 0.35 ? 0.86 : 1})`, transformOrigin: "3px 2px", filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.35))"}}>
+      <path d="M2 1 L2 22 L7.5 17 L11 25.5 L14.6 24 L11.2 15.8 L18.5 15.8 Z" fill="#13241D" stroke="#fff" strokeWidth={1.6} strokeLinejoin="round" />
+    </svg>
+  </>
+);
+
+/** Tarjeta oscura con contenido real (XML firmado, CSV) sobre el panel atenuado. */
+const Tarjeta: React.FC<{a: number; b: number; titulo: string; lineas: string[]; ancho: number; tam: number; colorear?: (l: string, i: number) => string}> = ({
+  a, b, titulo, lineas, ancho, tam, colorear}) => {
+  const {t} = useT();
+  const o = vis(t, a, b, 0.3);
+  if (o <= 0) return null;
+  return (
+    <AbsoluteFill style={{opacity: o, background: "rgba(19,36,29,0.42)", alignItems: "center", justifyContent: "center"}}>
+      <div style={{width: ancho, marginTop: -60, borderRadius: 22, background: "#0B1310", overflow: "hidden", boxShadow: "0 40px 90px rgba(0,0,0,0.45)",
+        transform: `translateY(${(1 - entra(t, a, 0.45)) * 40}px)`}}>
+        <div style={{padding: "16px 26px", background: "#13241D", fontFamily: F_MONO, fontSize: 21, color: "#A9BDB4"}}>{titulo}</div>
+        <div style={{padding: "22px 30px"}}>
+          {lineas.map((l, i) => (
+            <div key={i} style={{fontFamily: F_MONO, fontSize: tam, lineHeight: 1.6, whiteSpace: "pre", fontVariantLigatures: "none",
+              color: colorear ? colorear(l, i) : "#D6E2DC", opacity: entra(t, a + 0.25 + i * 0.12, 0.25)}}>{l}</div>
+          ))}
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 const E8b: React.FC = () => {
   const {t} = useT();
   if (!V.E8b) return null;
@@ -627,35 +694,123 @@ const E8b: React.FC = () => {
   const b = fin("E8b") + GAP;
   const o = vis(t, a, b);
   if (o <= 0) return null;
-  const P = {x: 200, y: 112, w: 1520};
-  const esc = P.w / 1920;
-  const barra = 44;
-  const caja = (x: number, y: number, w: number, h: number) => ({x: P.x + x * esc, y: P.y + barra + y * esc, w: w * esc, h: h * esc});
-  const marcos: [string, string, [number, number, number, number]][] = [
-    ["cada venta en vivo", "CUFE validado", [264, 530, 910, 258]],
-    ["CUFE validado", "el estado del cobro", [280, 572, 245, 205]],
-    ["el estado del cobro", "Suma lo facturado", [745, 548, 180, 215]],
-    ["Suma lo facturado", "se actualiza solo", [264, 258, 910, 122]],
-    ["se actualiza solo", "", [935, 424, 222, 38]],
+  const P = (frase: string, n = 1) => cue("E8b", frase, n);
+  const pasos: Paso[] = [
+    {t: a, estado: "base", foco: "todo"},
+    {t: P("Arriba están las métricas"), estado: "base", foco: "kpis1", cursor: "kpi_ventas"},
+    {t: P("lo facturado"), estado: "base", foco: "kpis1", cursor: "kpi_facturado"},
+    {t: P("lo cobrado"), estado: "base", foco: "kpis1", cursor: "kpi_cobrado"},
+    {t: P("lo que falta"), estado: "base", foco: "kpis1", cursor: "kpi_pendiente"},
+    {t: P("Debajo"), estado: "base", foco: "kpis2", cursor: "kpi_tasa"},
+    {t: P("el ticket promedio"), estado: "base", foco: "kpis2", cursor: "kpi_ticket"},
+    {t: P("y el IVA"), estado: "base", foco: "kpis2", cursor: "kpi_iva"},
+    {t: P("cada cinco segundos"), estado: "base", foco: "kpis2", cursor: "kpi_hora"},
+    {t: P("Con las pestañas"), estado: "base", foco: "tabla", cursor: "pestanas", zoom: 1.3},
+    {t: P("solo las pagadas"), estado: "pagadas", foco: "tabla", cursor: "pagadas", clic: true, zoom: 1.3},
+    {t: P("están por cobrar"), estado: "pagadas", foco: "tabla", cursor: "porcobrar", zoom: 1.3},
+    {t: P("el buscador"), estado: "busqueda", foco: "tabla", cursor: "buscar", clic: true, zoom: 1.3},
+    {t: P("Cada factura tiene"), estado: "base", foco: "fila", cursor: "acciones"},
+    {t: P("PDF descarga"), estado: "base", foco: "fila", cursor: "pdf", clic: true},
+    {t: P("XML trae"), estado: "base", foco: "fila", cursor: "xml", clic: true},
+    {t: P("QR abre"), estado: "base", foco: "fila", cursor: "qr", clic: true},
+    {t: P("QR abre") + 0.45, estado: "qr", foco: "dialogo", zoom: 1.45},
+    {t: P("Y Consultar"), estado: "base", foco: "fila", cursor: "consultar"},
+    {t: P("le pregunta"), estado: "consultar", foco: "aviso_fila", cursor: "consultar", clic: true},
+    {t: P("A la derecha"), estado: "consultar", foco: "conexiones", cursor: "conexiones"},
+    {t: P("Probar ahora"), estado: "consultar", foco: "conexiones", cursor: "probar", clic: true},
+    {t: P("En Nueva venta"), estado: "consultar", foco: "venta", cursor: "campo"},
+    {t: P("el sistema factura"), estado: "consultar", foco: "venta", cursor: "vender"},
+    {t: P("En Actividad"), estado: "consultar", foco: "actividad", cursor: "actividad"},
+    {t: P("Por último"), estado: "consultar", foco: "csv", cursor: "csv", zoom: 1.5},
+    {t: P("Exportar descarga"), estado: "consultar", foco: "csv", cursor: "csv", clic: true, zoom: 1.5},
+    {t: P("listo para la contabilidad"), estado: "consultar", foco: "todo"},
   ];
-  const e = entra(t, a, 0.6);
+  // cámara: llega a cada zona justo cuando se nombra (empieza a moverse 0,35 s antes)
+  let i = 0;
+  pasos.forEach((p, j) => {
+    if (t >= p.t - 0.35) i = j;
+  });
+  const c0 = camDe(pasos[Math.max(0, i - 1)]);
+  const c1 = camDe(pasos[i]);
+  const k = i === 0 ? 1 : suave((t - (pasos[i].t - 0.35)) / 0.85);
+  const s = Math.exp(Math.log(c0.s) + (Math.log(c1.s) - Math.log(c0.s)) * k);
+  const cx = c0.cx + (c1.cx - c0.cx) * k;
+  const cy = c0.cy + (c1.cy - c0.cy) * k;
+  const aPantalla = (x: number, y: number): [number, number] => [VISTA.cx + (x - cx) * s, VISTA.cy + (y - cy) * s];
+  // estado de la pantalla: cambia en el instante del clic, con un fundido corto
+  let e = 0;
+  pasos.forEach((p, j) => {
+    if (t >= p.t) e = j;
+  });
+  const actual = pasos[e].estado;
+  const anterior = pasos[Math.max(0, e - 1)].estado;
+  const fundido = entra(t, pasos[e].t, 0.22);
+  // cursor: viaja al botón y llega en el segundo de la palabra
+  const conCursor = pasos.map((p, j) => ({...p, j})).filter((p) => p.cursor);
+  let ci = -1;
+  conCursor.forEach((p, j) => {
+    if (t >= p.t - 0.55) ci = j;
+  });
+  let cursor: React.ReactNode = null;
+  let marco: React.ReactNode = null;
+  if (ci >= 0) {
+    const p1 = conCursor[ci];
+    const desde = ci > 0 ? punto(cajaDe(conCursor[ci - 1].estado, conCursor[ci - 1].cursor as string)) : [PR.ancho * 0.55, PR.alto * 0.62];
+    const hasta = punto(cajaDe(p1.estado, p1.cursor as string));
+    const m = suave((t - (p1.t - 0.55)) / 0.55);
+    const [sx, sy] = aPantalla(desde[0] + (hasta[0] - desde[0]) * m, desde[1] + (hasta[1] - desde[1]) * m);
+    const pulso = p1.clic ? (t - p1.t) / 0.5 : -1;
+    const oc = Math.min(entra(t, conCursor[0].t - 0.55, 0.3), 1 - entra(t, P("listo para la contabilidad"), 0.4));
+    cursor = <div style={{opacity: oc}}><Cursor x={sx} y={sy} pulso={pulso} /></div>;
+    const [bx, by, bw, bh] = cajaDe(p1.estado, p1.cursor as string);
+    const [mx, my] = aPantalla(bx, by);
+    const om = vis(t, p1.t - 0.1, (conCursor[ci + 1]?.t ?? b) - 0.45, 0.2) * oc;
+    if (om > 0 && pasos[e].estado !== "qr")
+      marco = <div style={{position: "absolute", left: mx - 7, top: my - 7, width: bw * s + 14, height: bh * s + 14, borderRadius: 16,
+        border: `4px solid ${K.coral}`, opacity: om, boxShadow: "0 0 0 6px rgba(232,97,60,0.16)"}} />;
+  }
+  const imagen = (estado: string, op: number) => (
+    <Img key={estado} src={staticFile(PR.estados[estado].imagen)} style={{position: "absolute", left: 0, top: 0, width: PR.ancho, height: PR.alto, opacity: op}} />
+  );
+  const cPdf = P("PDF descarga");
+  const cXml = P("XML trae");
+  const cQr = P("QR abre");
+  const cCsv = P("Exportar descarga");
   return (
-    <>
-      <div style={{position: "absolute", left: P.x, top: P.y, width: P.w, opacity: o, transform: `translateY(${(1 - e) * 40}px)`,
-        borderRadius: 18, overflow: "hidden", boxShadow: "0 30px 80px rgba(15,61,46,0.3)", border: `1px solid ${K.linea}`, background: "#fff"}}>
-        <div style={{height: barra, display: "flex", alignItems: "center", gap: 9, padding: "0 18px", background: "#ECE6DC"}}>
-          {["#FF6159", "#FFBD2E", "#28C941"].map((c) => <div key={c} style={{width: 12, height: 12, borderRadius: 6, background: c}} />)}
-          <div style={{marginLeft: 16, padding: "5px 16px", borderRadius: 8, background: "#fff", fontFamily: F_MONO, fontSize: 17, color: K.gris}}>
-            127.0.0.1:8800/panel · Panel del vendedor
-          </div>
-        </div>
-        <Img src={staticFile("firebox/panel_vendedor.png")} style={{width: "100%", display: "block"}} />
+    <AbsoluteFill style={{opacity: o}}>
+      <div style={{position: "absolute", left: 0, top: 0, width: PR.ancho, height: PR.alto, transformOrigin: "0 0",
+        transform: `translate(${VISTA.cx - cx * s}px, ${VISTA.cy - cy * s}px) scale(${s})`,
+        borderRadius: 22, overflow: "hidden", boxShadow: "0 30px 90px rgba(15,61,46,0.30)", background: "#fff"}}>
+        {anterior !== actual && imagen(anterior, 1)}
+        {imagen(actual, anterior !== actual ? fundido : 1)}
       </div>
-      {marcos.map(([desde, hasta, [x, y, w, h]]) => {
-        const c = caja(x, y, w, h);
-        return <Marco key={desde} a={cue("E8b", desde)} b={hasta ? cue("E8b", hasta) : b} x={c.x} y={c.y} w={c.w} h={c.h} />;
-      })}
-    </>
+      {marco}
+      {cursor}
+      {/* PDF: la factura electrónica real (página 1 del PDF que entrega Factus) */}
+      {(() => {
+        const op = vis(t, cPdf + 0.55, cXml - 0.05, 0.3);
+        if (op <= 0) return null;
+        return (
+          <AbsoluteFill style={{opacity: op, background: "rgba(19,36,29,0.42)", alignItems: "center", justifyContent: "center"}}>
+            <div style={{display: "flex", alignItems: "center", gap: 46, marginTop: -60, transform: `translateY(${(1 - entra(t, cPdf + 0.55, 0.45)) * 40}px)`}}>
+              <div style={{width: 560, borderRadius: 16, overflow: "hidden", boxShadow: "0 40px 90px rgba(0,0,0,0.45)", background: "#fff", height: 700}}>
+                <Img src={staticFile("firebox/pdf_factura.png")} style={{width: "100%", display: "block"}} />
+              </div>
+              <div style={{width: 520, color: "#fff"}}>
+                <Kicker texto="PDF · Factus API v2" color={K.coralSuave} />
+                <div style={{fontFamily: F_TITULO, fontWeight: 800, fontSize: 54, lineHeight: 1.05, marginTop: 12}}>La factura electrónica, tal como la entrega Factus</div>
+                <div style={{fontFamily: F_MONO, fontSize: 24, marginTop: 22, color: K.verdeClaro}}>GET /v2/bills/{PR.factura}/download-pdf</div>
+              </div>
+            </div>
+          </AbsoluteFill>
+        );
+      })()}
+      <Tarjeta a={cXml + 0.5} b={cQr - 0.05} ancho={1180} tam={25}
+        titulo={`${PR.factura}.xml · documento firmado que recibe la DIAN (extracto real)`} lineas={PR.xml}
+        colorear={(l) => (l.includes("SignatureValue") ? "#FFD98A" : l.includes("UUID") || l.includes("PayableAmount") ? "#9BE07A" : "#D6E2DC")} />
+      <Tarjeta a={cCsv + 0.5} b={b} ancho={1500} tam={21} titulo="ventas.csv · descargado del panel (cufe recortado en pantalla)" lineas={PR.csv}
+        colorear={(_, i) => (i === 0 ? "#FFD98A" : "#D6E2DC")} />
+    </AbsoluteFill>
   );
 };
 
