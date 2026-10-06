@@ -126,8 +126,13 @@ def transcribir(wav: Path, pista: str) -> tuple[list[dict], float]:
 # Whisper no conoce las marcas del proyecto: se corrige la PALABRA (el tiempo queda igual). Medido el 06-oct con los audios de Dylan.
 CORRECCIONES = {"firebots": "Firebox", "faribots": "Firebox", "firebox": "Firebox", "fatus": "Factus", "factus": "Factus",
                 "aut": "OAuth", "caf": "CUFE", "cufe": "CUFE", "cms": "SMS", "validante": "validada", "breve": "Bre-B",
-                "rondo": "redondeo", "arramamos": "armamos", "bills": "bills", "validate": "validate"}
-CONTEXTO = [(("validada", "a"), 1, "ante"), (("la", "app", "oficial"), 1, "API"), (("en", "la", "app", "oficial"), 2, "API")]
+                "rondo": "redondeo", "arramamos": "armamos", "bills": "bills", "validate": "validate",
+                "happywars": "API WARS", "factospay": "Factus Pay", "factos": "Factus"}
+CONTEXTO = [(("validada", "a"), 1, "ante"), (("la", "app", "oficial"), 1, "API"), (("en", "la", "app", "oficial"), 2, "API"),
+            (("para", "curar", "un"), 1, "cobrar"), (("para", "cobrar", "un"), 2, "con")]
+# Frases que el narrador dijo y no van: se cortan del audio y se corren las palabras siguientes.
+# E9: David dijo «y un panel para el vendedor» como algo futuro, justo después de la escena que muestra el panel funcionando.
+CORTES = {"E9": ["y un panel para el vendedor"]}
 
 
 def corregir(palabras: list[dict]) -> list[dict]:
@@ -165,6 +170,32 @@ def recortar_despedida(wav: Path, palabras: list[dict], guion: str) -> tuple[lis
     return palabras[:-1], corte
 
 
+def cortar_frase(wav: Path, palabras: list[dict], frase: str) -> tuple[list[dict], float]:
+    """Quita `frase` del audio (de la pausa antes a la pausa después) y corre las palabras siguientes. Devuelve los segundos quitados.
+    La puntuación final de la frase quitada pasa a la palabra anterior («número» → «número.»)."""
+    limpia = lambda w: re.sub(r"[^\wáéíóúñü]", "", w.lower())
+    obj = [limpia(w) for w in frase.split()]
+    n = len(obj)
+    for i in range(1, len(palabras) - n):
+        if [limpia(palabras[i + j]["w"]) for j in range(n)] == obj:
+            antes, despues = palabras[i - 1], palabras[i + n]
+            a, b = round(antes["t1"] + 0.10, 3), round(despues["t0"] - 0.10, 3)
+            tmp = wav.with_suffix(".tmp.wav")
+            subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-i", str(wav), "-af",
+                            f"aselect='not(between(t\\,{a}\\,{b}))',asetpts=N/SR/TB", str(tmp)], check=True)
+            tmp.replace(wav)
+            quitado = round(b - a, 3)
+            punto = re.search(r"[.,:;!?…]+$", palabras[i + n - 1]["w"])
+            nuevas = palabras[:i]
+            if punto and not re.search(r"[.,:;!?…]$", nuevas[-1]["w"]):
+                nuevas[-1] = {**nuevas[-1], "w": nuevas[-1]["w"] + punto.group(0)}
+            nuevas += [{**p, "t0": round(p["t0"] - quitado, 3), "t1": round(p["t1"] - quitado, 3)} for p in palabras[i + n:]]
+            if re.search(r"[.!?]$", nuevas[i - 1]["w"]) and nuevas[i]["w"][:1].islower():
+                nuevas[i]["w"] = nuevas[i]["w"][:1].upper() + nuevas[i]["w"][1:]
+            return nuevas, quitado
+    raise SystemExit(f"No encontré «{frase}» en la transcripción: no se cortó nada (revisar el audio)")
+
+
 def real(escenas: dict, mixto: bool = False) -> dict:
     SALIDA_AUDIO.mkdir(parents=True, exist_ok=True)
     datos = {}
@@ -191,6 +222,10 @@ def real(escenas: dict, mixto: bool = False) -> dict:
         if corte:
             duracion = corte
             print(f"   {k}: se recortó un «Gracias» final que no está en el libreto (audio hasta {corte} s)")
+        for frase in CORTES.get(k, []):
+            palabras, quitado = cortar_frase(wav, palabras, frase)
+            duracion = round(duracion - quitado, 3)
+            print(f"   {k}: se cortó «{frase}» ({quitado} s)")
         datos[k] = {**e, "audio": f"firebox/voces/{k}.wav", "duracion": round(duracion, 3),
                     "texto": " ".join(p["w"] for p in palabras), "palabras": palabras, "provisional": False}
         print(f"{k} ({e['narrador']}): {duracion:5.1f} s · {len(palabras)} palabras · fuente {fuentes[-1].name}")

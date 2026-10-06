@@ -439,11 +439,11 @@ const E3: React.FC = () => {
   return (
     <>
       <Diapo src="diapositiva_04.png" a={INI.E3 - 0.2} b={fin("E3") + GAP} zoom={[1, 1]} />
-      <Marco a={cue("E3", "WhatsApp Cloud API")} b={cue("E3", "Factus API versión")} x={91} y={302} w={410} h={425} />
-      <Marco a={cue("E3", "Factus API versión")} b={cue("E3", "Y Factus Pay")} x={533} y={302} w={405} h={425} />
+      <Marco a={cue("E3", "WhatsApp")} b={cue("E3", "Factus API")} x={91} y={302} w={410} h={425} />
+      <Marco a={cue("E3", "Factus API")} b={cue("E3", "Y Factus Pay")} x={533} y={302} w={405} h={425} />
       <Marco a={cue("E3", "Y Factus Pay")} b={cue("E3", "Firebox, escrito")} x={972} y={302} w={420} h={425} />
-      <Marco a={cue("E3", "Firebox, escrito")} b={cue("E3", "Y el número")} x={737} y={785} w={400} h={218} />
-      <Marco a={cue("E3", "Y el número")} b={fin("E3") + GAP} x={1426} y={302} w={403} h={425} />
+      <Marco a={cue("E3", "Firebox, escrito")} b={cue("E3", "el número de la factura")} x={737} y={785} w={400} h={218} />
+      <Marco a={cue("E3", "el número de la factura")} b={fin("E3") + GAP} x={1426} y={302} w={403} h={425} />
     </>
   );
 };
@@ -489,7 +489,7 @@ const E5: React.FC = () => {
   const cRec = cue("E5", "creamos un recaudo");
   const cQr = cue("E5", "el código QR al instante");
   const cPaga = cue("E5", "Paga aquí");
-  const cVig = cue("E5", "Como Factus Pay no avisa");
+  const cVig = cue("E5", "no avisa");
   const cPag = cue("E5", "Apenas aparece pagado");
   return (
     <>
@@ -551,8 +551,8 @@ const E6: React.FC = () => {
 const E7: React.FC = () => {
   const a = INI.E7 - 0.2;
   const b = fin("E7") + GAP;
-  const c88 = cue("E7", "ocho coma ocho");
-  const c17 = cue("E7", "diecisiete segundos");
+  const c88 = cue("E7", "A los", 1);
+  const c17 = cue("E7", "A los", 2);
   const cSim = cue("E7", "Simulamos el pago");
   const cConf = cue("E7", "Pago recibido");
   const cCiclo = cue("E7", "El ciclo completo");
@@ -817,7 +817,7 @@ const E8b: React.FC = () => {
 const E9: React.FC = () => {
   const a = INI.E9 - 0.2;
   const b = fin("E9") + GAP;
-  const cSand = cue("E9", "Esto corre");
+  const cSand = cue("E9", "Esto ocurre");
   const cSigue = cue("E9", "Lo que sigue");
   const cCierre = cue("E9", "de elegir a pagar");
   const docs = [
