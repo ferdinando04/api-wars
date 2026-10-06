@@ -96,6 +96,10 @@ class ClienteFactus:
             crudo=datos,
         )
 
+    def ver_factura(self, numero: str) -> dict:
+        """Detalle de una factura: number, cufe, is_validated, validated_at ('05-10-2026 12:46:07 PM'), totals, customer…"""
+        return self._pedir("GET", f"/v2/bills/{numero}")["data"]
+
     def descargar_pdf(self, numero: str) -> bytes:
         datos = self._pedir("GET", f"/v2/bills/{numero}/download-pdf")["data"]
         return base64.b64decode(datos["pdf_base_64_encoded"])

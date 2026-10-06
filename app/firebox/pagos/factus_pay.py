@@ -82,3 +82,7 @@ class ClienteFactusPay:
 
     def consultar(self, referencia: str) -> Recaudo:
         return _a_recaudo(self._pedir("GET", f"/v1/collections/{referencia}")["data"])
+
+    def listar(self, pagina: int = 1) -> list[dict]:
+        """Recaudos de la cuenta, del más reciente al más viejo (15 por página): reference_code, amount, status, created_at, qr."""
+        return self._pedir("GET", "/v1/collections", params={"page": pagina})["data"]

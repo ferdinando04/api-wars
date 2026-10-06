@@ -1,0 +1,26 @@
+<div class="kpis">
+  <div class="kpi"><div class="t">Ventas</div><div class="n">{{ r.ventas }}</div></div>
+  <div class="kpi"><div class="t">Facturado</div><div class="n">{{ r.facturado | pesos }}</div></div>
+  <div class="kpi cobrado"><div class="t">Cobrado</div><div class="n">{{ r.cobrado | pesos }}</div></div>
+  <div class="kpi pendiente"><div class="t">Por cobrar</div><div class="n">{{ r.pendiente | pesos }}</div></div>
+</div>
+<section class="caja">
+  <h2>Facturas y cobros <small>actualizado {{ hora }}</small></h2>
+  {% if error %}<p class="error-lectura">{{ error }}</p>{% endif %}
+  {% if filas %}
+  <table>
+    <thead><tr><th>Factura</th><th>Fecha</th><th>Estado</th><th class="monto">Total</th><th></th></tr></thead>
+    <tbody>
+      {% for f in filas %}
+      <tr>
+        <td class="mono">{{ f.referencia }}{% if f.cufe %}<span class="cufe">CUFE {{ f.cufe[:10] }}…{% if f.validada %} · ✓ DIAN{% endif %}</span>{% endif %}</td>
+        <td>{{ f.fecha }}</td>
+        <td><span class="chip {{ f.clase }}">{{ f.estado }}</span></td>
+        <td class="monto">{{ f.monto | pesos }}</td>
+        <td><a class="pdf" href="/panel/factura/{{ f.referencia }}.pdf" target="_blank" rel="noopener">PDF ↗</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% elif not error %}<p class="vacio">Todavía no hay ventas.</p>{% endif %}
+</section>

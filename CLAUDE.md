@@ -77,9 +77,16 @@ No se copió `Retos_Factus/emite/.env.local` (base Supabase de otra app, no tien
 ## Comandos
 
 ```bash
-python scripts/verificar_credenciales.py     # ¿sirven las credenciales HOY? (solo tokens y lecturas)
-# el stack de app/ se define cuando se conozca el reto
+python scripts/verificar_credenciales.py                          # ¿sirven las credenciales HOY? (solo tokens y lecturas)
+cd app && python -m pytest -q                                      # pruebas (dinero, panel) — con control negativo documentado
+cd app && python -m uvicorn firebox.web:app --host 127.0.0.1 --port 8800   # panel: http://127.0.0.1:8800/panel (PANEL_USUARIO/PANEL_CLAVE del .env)
+cd app && python demo_corte_vertical.py --para 57XXXXXXXXXX        # venta completa desde la terminal (el número debe haber escrito a Firebox)
 ```
+
+Código: `app/firebox/` → `dinero.py` (Decimal half-even) · `facturacion/factus.py` · `pagos/factus_pay.py` · `canal/whatsapp.py` ·
+`documentos/pdf.py` · `ventas.py` (la venta de punta a punta) · `web.py` + `panel/plantillas/` (panel del vendedor, FastAPI + HTMX).
+Video pitch: `video/` (libretos, preparación de material y voces) + composición `FireboxPitch` en `Desktop/proyecto-video-ai`
+(se renderiza en la nube con `vexon-project/scripts/video/nube/render_nube.py FireboxPitch --solo-video`, nunca en el PC).
 
 ## Skills a usar
 

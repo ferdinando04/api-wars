@@ -83,14 +83,14 @@ def codigo() -> None:
         "user_agent": fragmento("app/firebox/config.py", r"^USER_AGENT", None, 1),
         "pay_crear": fragmento(p, r"def crear_recaudo", r"def consultar"),
         "pay_consultar": fragmento(p, r"def consultar", None, 3),
-        "vigilante": fragmento("app/demo_corte_vertical.py", r"limite = time.time", r"paso\(\"Se acabó"),
+        "vigilante": fragmento("app/firebox/ventas.py", r"limite = time.time", r"avisar\(\"Se acabó"),
         "wa_subir": fragmento(w, r"def subir_medio", r"def enviar_texto"),
         "wa_enviar": fragmento(w, r"def _enviar", r"def subir_medio"),
         "wa_documento": fragmento(w, r"def enviar_documento", None, 3),
         "dinero_redondear": fragmento(d, r"^def redondear", r"^@dataclass"),
         "dinero_linea": fragmento(d, r"def iva\(self\)", r"^@dataclass"),
         "dinero_rango": fragmento(p, r"^def monto_permitido", r"^def _a_recaudo"),
-        "demo_igualdad": fragmento("app/demo_corte_vertical.py", r"if factura.total != totales.total", None, 3),
+        "demo_igualdad": fragmento("app/firebox/ventas.py", r"if factura.total != totales.total", None, 2),
         "test_bancario": fragmento("app/tests/test_dinero.py", r"def test_redondeo_bancario", r"^def test_cantidad"),
     }
     datos["evidencia"] = [l for l in (RAIZ / "docs/documentacion/evidencias/fase0/corrida-2026-10-05-1246.md")

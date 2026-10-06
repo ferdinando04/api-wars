@@ -1,0 +1,3 @@
+{% if actividad %}
+<ol class="actividad">{% for hora, texto in actividad %}<li><time>{{ hora }}</time>{{ texto }}</li>{% endfor %}</ol>
+{% else %}<p class="vacio">Aquí aparece cada paso de las ventas de prueba.</p>{% endif %}

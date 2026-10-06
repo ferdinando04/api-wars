@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firebox · Panel del vendedor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js"></script>
+  <style>
+    :root { --crema:#F5F0E8; --papel:#FFFDF9; --tinta:#13241D; --verde:#0F3D2E; --coral:#E8613C; --coral-suave:#F8D3C3;
+            --verde-claro:#CFE8B9; --gris:#5E6B64; --linea:#E3DACD; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--crema); color: var(--tinta); font-family: "Instrument Sans", system-ui, sans-serif; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 22px 40px; border-bottom: 1px solid var(--linea); background: var(--papel); }
+    .marca { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 30px; color: var(--verde); }
+    .marca span { color: var(--coral); }
+    .tienda { color: var(--gris); font-weight: 600; }
+    main { max-width: 1240px; margin: 0 auto; padding: 32px 40px 60px; }
+    h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 40px; margin: 0 0 6px; }
+    .sub { color: var(--gris); margin: 0 0 28px; }
+    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 26px; }
+    .kpi { background: var(--papel); border: 1px solid var(--linea); border-radius: 18px; padding: 18px 22px; }
+    .kpi .n { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 32px; margin-top: 6px; }
+    .kpi .t { color: var(--gris); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1.2px; }
+    .kpi.cobrado .n { color: var(--verde); } .kpi.pendiente .n { color: var(--coral); }
+    .rejilla { display: grid; grid-template-columns: 1fr 380px; gap: 22px; align-items: start; }
+    .caja { background: var(--papel); border: 1px solid var(--linea); border-radius: 18px; overflow: hidden; }
+    .caja h2 { font-size: 18px; margin: 0; padding: 16px 22px; border-bottom: 1px solid var(--linea); display: flex; justify-content: space-between; }
+    .caja h2 small { color: var(--gris); font-weight: 500; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--linea); white-space: nowrap; }
+    th:first-child, td:first-child { padding-left: 22px; }
+    th { font-size: 13px; color: var(--gris); text-transform: uppercase; letter-spacing: 1px; }
+    td.mono { font-family: "JetBrains Mono", monospace; }
+    td.mono .cufe { display: block; font-size: 12px; color: var(--gris); margin-top: 4px; }
+    td.monto { font-weight: 700; text-align: right; } th.monto { text-align: right; }
+    .chip { display: inline-block; padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; }
+    .chip.pagado { background: var(--verde-claro); color: var(--verde); }
+    .chip.pendiente { background: var(--coral-suave); color: #9A3412; }
+    .chip.fallido { background: #FDE2E2; color: #991B1B; }
+    a.pdf { color: var(--verde); font-weight: 700; text-decoration: none; }
+    a.pdf:hover { text-decoration: underline; }
+    form { padding: 18px 22px; display: grid; gap: 10px; }
+    label { font-weight: 600; font-size: 14px; }
+    input { font: inherit; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--linea); background: #fff; }
+    button { font: inherit; font-weight: 700; padding: 13px 16px; border: 0; border-radius: 12px; background: var(--verde); color: #fff; cursor: pointer; }
+    button:hover { background: #145240; }
+    .nota { color: var(--gris); font-size: 13px; }
+    .aviso { margin: 0 22px 16px; padding: 10px 14px; border-radius: 10px; font-weight: 600; font-size: 14px; }
+    .aviso.ok { background: var(--verde-claro); color: var(--verde); } .aviso.error { background: #FDE2E2; color: #991B1B; }
+    ol.actividad { list-style: none; margin: 0; padding: 8px 22px 18px; max-height: 360px; overflow: auto; }
+    ol.actividad li { padding: 8px 0; border-bottom: 1px dashed var(--linea); font-size: 14px; }
+    ol.actividad time { color: var(--gris); font-family: "JetBrains Mono", monospace; font-size: 12px; display: block; }
+    .vacio { padding: 28px 22px; color: var(--gris); }
+    .error-lectura { margin: 16px 22px; color: #991B1B; font-weight: 600; }
+    footer { color: var(--gris); font-size: 13px; margin-top: 22px; }
+    @media (max-width: 900px) { .kpis { grid-template-columns: repeat(2, 1fr); } .rejilla { grid-template-columns: 1fr; } main { padding: 20px 16px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="marca">Firebox<span>.</span></div>
+    <div class="tienda">{{ tienda }} · Panel del vendedor</div>
+  </header>
+  <main>
+    <h1>Ventas en vivo</h1>
+    <p class="sub">Cada venta es una factura electrónica validada en Factus con su cobro QR en Factus Pay. Se actualiza sola cada 5 segundos.</p>
+    <div class="rejilla">
+      <div id="tablero" hx-get="/panel/tabla" hx-trigger="load, every 5s" hx-swap="innerHTML">
+        <p class="vacio">Cargando ventas…</p>
+      </div>
+      <aside class="caja">
+        <h2>Nueva venta de prueba</h2>
+        <form hx-post="/panel/venta" hx-target="#resultado-venta" hx-swap="innerHTML" hx-sync="this:drop">
+          <label for="para">WhatsApp del cliente</label>
+          <input id="para" name="para" inputmode="numeric" placeholder="3001234567" autocomplete="off" required>
+          <button type="submit">Vender 1 × {{ producto.nombre }}</button>
+          <span class="nota">El cliente debe haberle escrito antes a Firebox (+57 324 350 2241).</span>
+        </form>
+        <div id="resultado-venta"></div>
+        <h2>Actividad</h2>
+        <div hx-get="/panel/actividad" hx-trigger="load, every 2s" hx-swap="innerHTML"></div>
+      </aside>
+    </div>
+    <footer>Ambiente de pruebas (sandbox): las facturas no tienen validez fiscal y no se mueve dinero real.</footer>
+  </main>
+</body>
+</html>
