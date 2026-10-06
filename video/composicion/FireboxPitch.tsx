@@ -32,8 +32,8 @@ const FIN_VOZ = _t;
 export const DURACION_FIREBOX = FIN_VOZ + OUTRO;
 const fin = (k: string) => INI[k] + V[k].duracion;
 
-// Integrantes para los créditos (nombres completos: pendientes de confirmar con Fernando)
-const EQUIPO = ["David", "Dylan", "Juan", "Fernando"];
+// Integrantes para los créditos (nombres completos que dieron en el grupo del equipo el 6-oct)
+const EQUIPO = ["Juan David Vargas Aparicio", "Dylan Gerhard Arce Triviño", "Fernando Vega Benavides"];
 
 // ---------- tiempo ----------
 const useT = () => {
@@ -853,7 +853,9 @@ const CierreMarca: React.FC<{a: number; b: number}> = ({a, b}) => {
         <div style={{fontFamily: F_TEXTO, fontWeight: 600, fontSize: 42, color: K.tinta, marginTop: 24}}>De elegir a pagar, con factura, en una sola conversación.</div>
         <div style={{opacity: creditos ? entra(t, FIN_VOZ + 0.4, 0.6) : 0, marginTop: 56}}>
           <Kicker texto="Equipo Firebox" color={K.gris} />
-          <div style={{fontFamily: F_TITULO, fontWeight: 700, fontSize: 44, color: K.verde, marginTop: 12}}>{EQUIPO.join("  ·  ")}</div>
+          <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "8px 44px", maxWidth: 1700, margin: "14px auto 0"}}>
+            {EQUIPO.map((n) => <div key={n} style={{fontFamily: F_TITULO, fontWeight: 700, fontSize: 38, color: K.verde}}>{n}</div>)}
+          </div>
           <div style={{fontFamily: F_MONO, fontSize: 30, color: K.coral, marginTop: 26}}>github.com/ferdinando04/api-wars</div>
           <div style={{fontFamily: F_TEXTO, fontSize: 24, color: K.gris, marginTop: 18}}>API WARS 2026 · Semillero Pegasus · Universidad Distrital · IEEE · Factus</div>
         </div>

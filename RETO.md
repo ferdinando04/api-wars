@@ -46,10 +46,9 @@ El código no se sube a la plataforma: debe permanecer en el repositorio.
 
 | Nombre | GitHub | Línea |
 | --- | --- | --- |
-| Fernando Vega | ferdinando04 | líder técnico |
-| Juan Aparicio | DavNor04 | por definir en el issue #1 |
-| Dylan Arce | GerhardArce | por definir en el issue #1 |
-| Cuarto integrante | invitación pendiente | por definir |
+| Fernando Vega Benavides | ferdinando04 | líder técnico: integraciones (Factus, Factus Pay, WhatsApp), panel y documentación |
+| Juan David Vargas Aparicio | DavNor04 | presentación del proyecto y voz del pitch (escenas 1, 3, 5, 7 y 9) |
+| Dylan Gerhard Arce Triviño | GerhardArce | cuenta de Factus Pay del equipo y voz del pitch (escenas 2, 4, 6 y 8) |
 
 ## La historia de la demo (una sola, de punta a punta)
 

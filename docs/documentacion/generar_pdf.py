@@ -269,8 +269,8 @@ def construir_html(items):
         'y cobro QR (Factus Pay)</div>'
         '<div class="evento">API WARS 2026 · Universidad Distrital Francisco José de Caldas, Facultad '
         'Tecnológica · Semillero Pegasus · IEEE · Factus</div>'
-        '<div class="equipo"><b>Equipo Firebox:</b> David · Dylan · Juan · Fernando Vega Benavides '
-        '(líder técnico)</div>'
+        '<div class="equipo"><b>Equipo Firebox</b><br>Fernando Vega Benavides (líder técnico)<br>'
+        'Juan David Vargas Aparicio<br>Dylan Gerhard Arce Triviño</div>'
         '<div class="pie"><b>Octubre de 2026</b><br>Repositorio: github.com/ferdinando04/api-wars<br>'
         'Versión 1.0</div></section>')
     toc_html = '<section class="toc"><h1>Tabla de contenido</h1><ol>%s</ol></section>' % "".join(toc)
