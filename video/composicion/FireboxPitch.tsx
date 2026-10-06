@@ -672,7 +672,7 @@ const Tarjeta: React.FC<{a: number; b: number; titulo: string; lineas: string[];
   const o = vis(t, a, b, 0.3);
   if (o <= 0) return null;
   return (
-    <AbsoluteFill style={{opacity: o, background: "rgba(19,36,29,0.42)", alignItems: "center", justifyContent: "center"}}>
+    <AbsoluteFill style={{opacity: o, background: "rgba(19,36,29,0.62)", alignItems: "center", justifyContent: "center"}}>
       <div style={{width: ancho, marginTop: -60, borderRadius: 22, background: "#0B1310", overflow: "hidden", boxShadow: "0 40px 90px rgba(0,0,0,0.45)",
         transform: `translateY(${(1 - entra(t, a, 0.45)) * 40}px)`}}>
         <div style={{padding: "16px 26px", background: "#13241D", fontFamily: F_MONO, fontSize: 21, color: "#A9BDB4"}}>{titulo}</div>
@@ -791,7 +791,7 @@ const E8b: React.FC = () => {
         const op = vis(t, cPdf + 0.55, cXml - 0.05, 0.3);
         if (op <= 0) return null;
         return (
-          <AbsoluteFill style={{opacity: op, background: "rgba(19,36,29,0.42)", alignItems: "center", justifyContent: "center"}}>
+          <AbsoluteFill style={{opacity: op, background: "rgba(19,36,29,0.8)", alignItems: "center", justifyContent: "center"}}>
             <div style={{display: "flex", alignItems: "center", gap: 46, marginTop: -60, transform: `translateY(${(1 - entra(t, cPdf + 0.55, 0.45)) * 40}px)`}}>
               <div style={{width: 560, borderRadius: 16, overflow: "hidden", boxShadow: "0 40px 90px rgba(0,0,0,0.45)", background: "#fff", height: 700}}>
                 <Img src={staticFile("firebox/pdf_factura.png")} style={{width: "100%", display: "block"}} />
